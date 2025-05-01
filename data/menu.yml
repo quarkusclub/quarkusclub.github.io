@@ -1,0 +1,7 @@
+items:
+  - title: "Blog"
+    path: "/"
+    icon: "fa-regular fa-newspaper"
+  - title: "About"
+    path: "/about"
+    icon: "fa fa-thumbs-up"
