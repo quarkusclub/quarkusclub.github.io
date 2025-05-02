@@ -16,7 +16,7 @@ author: mcruzdev
 
 Join the Quarkus Club Discord community and connect with fellow developers passionate about Quarkus!
 
-Invite to Quarkus Club here 👉 https://discord.com/invite/HvdXEZHU
+Invite to Quarkus Club here 👉 [Join Quarkus Club on Discord](https://discord.com/invite/HvdXEZHU)
 
 
 

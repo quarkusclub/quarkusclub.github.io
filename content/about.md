@@ -5,7 +5,7 @@ description: |
 layout: :theme/page
 ---
 
-# About Quarkus Club
+## About Quarkus Club
 
 Quarkus Club is a community of developers passionate about modern Java, cloud-native architectures, and the Quarkus ecosystem.
 ## Authors
