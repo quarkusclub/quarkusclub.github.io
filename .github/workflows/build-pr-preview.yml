@@ -30,21 +30,8 @@ jobs:
           java-version: 21
           cache: 'maven'
 
-      - name: Build Roq
+      - name: Build Blog
         run: QUARKUS_ROQ_GENERATOR_BATCH=true mvn -B package quarkus:run
-
-      - name: Store PR id
-        id: pr
-        run: echo "pr_number=${{ github.event.number }}" >> $GITHUB_OUTPUT
-
-      - name: Build blog
-        uses: quarkiverse/quarkus-roq@main
-        with:
-          setup-java: 'false'
-          github-pages: 'false'
-          site-directory: '.'
-          site-future: 'true'
-          maven-executable: 'mvn'
 
       - name: Publish blog to Surge.sh
         run: |
@@ -60,3 +47,16 @@ jobs:
             🚀 PR Preview for **blog** ${{ github.sha }} has been successfully built!
             * https://quarkusclub-blog-${{ steps.pr.outputs.pr_number }}-preview.surge.sh
           body-marker: <!-- Preview status comment marker -->
+
+      - name: Update PR status comment on failure
+        if: ${{ failure() }}
+        uses: actions-cool/maintain-one-comment@v3.2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            😭 Deploy PR Preview failed.
+            <img width="300" src="https://user-images.githubusercontent.com/507615/90250824-4e066700-de6f-11ea-8230-600ecc3d6a6b.png">
+            <!-- Sticky Pull Request Comment -->
+          body-include: '<!-- Sticky Pull Request Comment -->'
+          number: ${{ steps.pr.outputs.id }}
+          emojis: 'confused'
