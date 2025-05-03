@@ -1,0 +1,62 @@
+name: Build & Preview PR
+
+on:
+  pull_request:
+    paths-ignore:
+      - '.gitignore'
+      - 'CODEOWNERS'
+      - 'LICENSE'
+      - '*.md'
+      - '*.txt'
+      - '.all-contributorsrc'
+
+defaults:
+  run:
+    shell: bash
+
+permissions:
+  pull-requests: write # Required to update PR status comment
+
+jobs:
+  build-and-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: 'maven'
+
+      - name: Build Roq
+        run: QUARKUS_ROQ_GENERATOR_BATCH=true mvn -B package quarkus:run
+
+      - name: Store PR id
+        id: pr
+        run: echo "pr_number=${{ github.event.number }}" >> $GITHUB_OUTPUT
+
+      - name: Build blog
+        uses: quarkiverse/quarkus-roq@main
+        with:
+          setup-java: 'false'
+          github-pages: 'false'
+          site-directory: '.'
+          site-future: 'true'
+          maven-executable: 'mvn'
+
+      - name: Publish blog to Surge.sh
+        run: |
+          npx surge ./target/roq --domain https://quarkusclub-blog-${{ steps.pr.outputs.pr_number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: Comment preview URL on PR
+        uses: quarkusio/action-helpers@main
+        with:
+          action: maintain-one-comment
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-number: ${{ steps.pr.outputs.pr_number }}
+          body: |
+            🚀 PR Preview for **blog** ${{ github.sha }} has been successfully built!
+            * https://quarkusclub-blog-${{ steps.pr.outputs.pr_number }}-preview.surge.sh
+          body-marker: <!-- Preview status comment marker -->
