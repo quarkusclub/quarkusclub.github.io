@@ -2,8 +2,21 @@
 name: Workflow PR Check
 
 on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.gitignore'
+      - 'CODEOWNERS'
+      - 'LICENSE'
+      - '.all-contributorsrc'
   pull_request:
     types: [opened, synchronize]
+    paths-ignore:
+      - '.gitignore'
+      - 'CODEOWNERS'
+      - 'LICENSE'
+      - '.all-contributorsrc'
     branches:
       - main
 
