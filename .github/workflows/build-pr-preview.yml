@@ -33,6 +33,10 @@ jobs:
       - name: Build Blog
         run: QUARKUS_ROQ_GENERATOR_BATCH=true mvn -B package quarkus:run
 
+      - name: Store PR id
+        id: pr
+        run: echo "pr_number=${{ github.event.number }}" >> $GITHUB_OUTPUT
+
       - name: Publish blog to Surge.sh
         run: |
           npx surge ./target/roq --domain https://quarkusclub-blog-${{ steps.pr.outputs.pr_number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
