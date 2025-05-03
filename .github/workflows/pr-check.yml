@@ -2,6 +2,9 @@
 name: Workflow PR Check
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     types: [opened, synchronize]
     branches:
@@ -13,12 +16,8 @@ defaults:
 
 jobs:
   build:
-    name: Build on ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ ubuntu-latest, windows-latest ]
-    runs-on: ${{ matrix.os }}
+    name: Build
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -29,10 +28,6 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
-
-      - name: Set executable permission for mvnw (Linux only)
-        if: runner.os == 'Linux'
-        run: chmod +x mvnw
 
       - name: Build with Maven
         run: mvn -B clean verify -Dno-format
