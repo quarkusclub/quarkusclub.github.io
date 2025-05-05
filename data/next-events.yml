@@ -1,0 +1,20 @@
+---
+events:
+  - title: "Desvendando o Invisível: Observabilidade em aplicações Java com Quarkus"
+    language: "pt-BR"
+    location: "Remote"
+    link: "https://www.youtube.com/watch?v=H3o609vEskw"
+    date: 2025-05-06 18:00 -03:00
+    speakers:
+      - name: Matheus Cruz
+        title: Sr. Platform Engineer @ Itaú
+      - name: Bruno Baptista
+        title: Principal Engineer @ Red Hat
+  - title: "Mitos e verdades sobre refatoração: O que te ajuda e o que atrapalha"
+    language: "pt-BR"
+    location: "Remote"
+    link: "https://www.youtube.com/watch?v=693MkH5e-vo"
+    date: 2025-05-06 20:30 -03:00
+    speakers:
+      - name: Professor Isidro
+      - name: Luiz Real
