@@ -6,3 +6,6 @@ items:
   - title: "About"
     path: "/about"
     icon: "fa fa-thumbs-up"
+  - title: "Next events"
+    path: "/next-events"
+    icon: "fa fa-calendar"
