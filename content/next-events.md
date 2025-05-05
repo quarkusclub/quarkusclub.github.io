@@ -1,7 +1,7 @@
 ---
 title: Next events
 layout: :theme/page
-tags: ['next-events', 'lives', 'events']
+image: quarkusclub.jpeg
 ---
 
 # Next events
