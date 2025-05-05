@@ -2,6 +2,7 @@
 title: Next events
 layout: :theme/page
 image: quarkusclub.jpeg
+description: See all upcoming events hosted by Quarkus Club
 ---
 
 # Next events
