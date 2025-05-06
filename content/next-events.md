@@ -20,4 +20,8 @@ Speakers:
 |--------------|------------------|-------------------------------|------------------|
 | {event.date} | {event.location} | [{event.title}]({event.link}) | {event.language} |
 
+{#if event.slides??}
+<i class="fa-solid fa-person-chalkboard"></i> Link para os slides [aqui]({event.slides})
+{/if}
 {/for}
+

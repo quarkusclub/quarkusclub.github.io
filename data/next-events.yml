@@ -10,6 +10,7 @@ events:
         title: Sr. Platform Engineer @ Itaú
       - name: Bruno Baptista
         title: Principal Engineer @ Red Hat
+    slides: https://docs.google.com/presentation/d/15nkW03lqAUFRGrsw81RvIlIGCFG_s_e5kV6gJscqyBk/edit?usp=sharing
   - title: "Mitos e verdades sobre refatoração: O que te ajuda e o que atrapalha"
     language: "pt-BR"
     location: "Remote"
