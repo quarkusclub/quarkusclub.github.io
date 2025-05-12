@@ -24,6 +24,15 @@
       "contributions": [
         "blog"
       ]
+    },
+    {
+      "login": "jonaellemos",
+      "name": "Jonael Lemos",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16294845?v=4",
+      "profile": "https://github.com/jonaellemos",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
