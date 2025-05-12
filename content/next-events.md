@@ -16,12 +16,12 @@ Speakers:
 * {speaker.name} {#if speaker.title??} - {speaker.title??}{/if}
 {/for}
 
-| Date         | Location         | Link                          | Language         |
-|--------------|------------------|-------------------------------|------------------|
-| {event.date} | {event.location} | [{event.title}]({event.link}) | {event.language} |
+| Date         | Location         | Link                                                                               | Language         |
+|--------------|------------------|------------------------------------------------------------------------------------|------------------|
+| {event.date} | {event.location} | <a href="{event.link}" target="_blank" rel="noopener noreferrer">{event.title}</a> | {event.language} |
 
 {#if event.slides??}
-<i class="fa-solid fa-person-chalkboard"></i> Link para os slides [aqui]({event.slides})
+<i class="fa-solid fa-person-chalkboard"></i> Link para os slides <a href="{event.slides}" target="_blank" rel="noopener noreferrer">aqui</a>
 {/if}
 {/for}
 
