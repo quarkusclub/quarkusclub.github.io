@@ -21,7 +21,7 @@ Speakers:
 | {event.date} | {event.location} | <a href="{event.link}" target="_blank" rel="noopener noreferrer">{event.title}</a> | {event.language} |
 
 {#if event.slides??}
-<i class="fa-solid fa-person-chalkboard"></i> Link para os slides <a href="{event.slides}" target="_blank" rel="noopener noreferrer">aqui</a>
+<i class="fa-solid fa-person-chalkboard"></i> Link to slides <a href="{event.slides}" target="_blank" rel="noopener noreferrer">here</a>
 {/if}
 {/for}
 
