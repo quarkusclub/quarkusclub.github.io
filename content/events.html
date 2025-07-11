@@ -46,8 +46,8 @@ layout: :theme/page
         <div>
             {#for id in event.data.speakers}
             {#let speaker = cdi:speakers.get(id)}
-            Speakers: <strong>{#if speaker.profile}<a
-                    href="{speaker.profile}">{speaker.name}</a>{#else}{speaker.name}</strong>{/if}
+            Speakers: <strong>{#if speaker.profile}<a class="speaker-name"
+                href="{speaker.profile}">{speaker.name}</a>{#else}{speaker.name}</strong>{/if}
             {#if id_hasNext}, {/if}
             {/for}
         </div>
