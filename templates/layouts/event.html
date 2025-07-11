@@ -1,0 +1,51 @@
+---
+layout: :theme/page
+id: event
+---
+<div class="event-header">
+    <h1 class="event-header__title dark">{page.title}</h1>
+    <img class="event-header__image" src="/images/quarkusclub.jpeg"/>
+    <p class="event-header__date"><i class="fa fa-calendar-alt"></i>{page.date.format(global:FULL_DATE_FORMAT)}</p>
+
+    <div class="event-header__buttons">
+
+        {#if page.data.containsKey("subscription") && page.date.isAfterNow}
+        <a href="{page.data.subscription}" target="_blank" class="event-header__button">Join Us</a>
+        {/if}
+
+        {#if page.data.containsKey("youtubeLive")}
+        <a href="{page.data.youtubeLive}" target="_blank" class="event-header__button event-header__button--youtube">
+            <i class="fa-brands fa-youtube"></i>Youtube Live</a>
+        {/if}
+
+        {#if page.data.containsKey("googleDriveSlides")}
+        <a href="{page.data.googleDriveSlides}" target="_blank" class="event-header__button event-header__button--gdriver">
+            <i class="fa-brands fa-google-drive"></i>Slides</a>
+        {/if}
+    </div>
+</div>
+
+<hr class="divider">
+
+<div class="resume">
+    <h2 class="resume__title">{page.title}</h2>
+    <h3 class="resume__subtitle">Resume</h3>
+    {page.description.markdownify()}
+</div>
+
+<div class="speakers">
+    <h3 class="resume__subtitle">Speakers</h3>
+    {#if page.data.speakers.asStrings.isEmpty }
+    Speakers coming soon!
+    {/if}
+
+    <div class="speakers">
+        {#for id in page.data.speakers}
+        {#let speaker = cdi:speakers.get(id)}
+        <div>
+            <p class="speakers__speaker-name">{speaker.name}</p>
+            <p class="speakers__speaker-bio">{speaker.bio}</p>
+        </div>
+        {/for}
+    </div>
+</div>

@@ -2,6 +2,7 @@
 title: "Welcome to Quarkus Club!"
 description: Quarkus Club is a community of developers passionate about modern Java, cloud-native architectures, and the Quarkus ecosystem.
 image: quarkusclub.avif
+layout: :theme/post
 tags: [welcome]
 author: mcruzdev
 ---

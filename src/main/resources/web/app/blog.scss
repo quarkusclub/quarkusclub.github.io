@@ -1,0 +1,155 @@
+$button: #A0A0A0;
+$quarkus-blue: #4695EB;
+$quarkus-darkblue: #0D1C2C;
+$quarkus-red: #FF004A;
+$youtube: #FF0000;
+$google: #FDCE4A;
+
+.events-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__title {
+    margin: 24px 0;
+
+    &--darkblue {
+      color: $quarkus-darkblue;
+    }
+  }
+}
+
+.event {
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 1px 1px #1F232E26;
+
+  &__title {
+    margin: 0;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        color: $quarkus-darkblue
+      }
+    }
+  }
+
+  &__date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.event-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    margin: 0;
+  }
+
+  &__image {
+    height: auto;
+    object-fit: cover;
+    width: 300px;
+    display: block;
+  }
+
+  &__date {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__button {
+    background-color: $quarkus-blue;
+    color: #FFFFFF;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    width: 150px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: darken($quarkus-blue, 10%);
+    }
+
+    &--youtube {
+      background-color: $youtube;
+
+      &:hover {
+        background-color: darken($youtube, 10%);
+      }
+    }
+
+    &--gdriver {
+      background-color: $google;
+
+      &:hover {
+        background-color: darken($google, 10%);
+      }
+    }
+  }
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+  width: 100%;
+  box-sizing: content-box;
+}
+
+.resume {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__subtitle {
+    margin: 0;
+    color: $quarkus-blue;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__reading {
+    margin: 0;
+    font-weight: 500;
+  }
+}
+
+.speakers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__speaker-name {
+    color: $quarkus-darkblue;
+    font-weight: bold;
+    margin: 8px 0;
+  }
+
+  &__speaker-bio {
+
+  }
+}
