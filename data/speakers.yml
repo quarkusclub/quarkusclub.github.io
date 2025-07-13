@@ -2,3 +2,11 @@
   name: Matheus Cruz
   profile: https://matheuscruz.dev
   bio: "I am a passionate learner, open-source enthusiast, and Java developer with a drive for continuous improvement. When I’m not coding, you can find me on the Brazilian Jiu Jitsu mats, playing the guitar, or exploring new challenges. I believe in the power of community, collaboration, and creativity—both in and outside of tech."
+- id: pedrocarrijo95
+  name: Pedro Carrijo
+  profile: https://pedrocarrijo.dev
+  bio: "Pedro Carrijo is a Senior Cloud Solution Engineer at Oracle, with 10 years of professional experience, 9 of which were at Oracle, focusing on Java, Cloud-Native, and Artificial Intelligence. He began his professional career at 14, developing mobile applications in C#, and at 15, he was hired by Oracle as an Innovation Specialist. Known as JavaBoy, he is a leading figure in integrating modern practices with Cloud Native and AI into Java backends. He leads proof-of-concepts, architectural modernizations, and initiatives focused on cloud performance and developer experience. Creator of the open-source Java project MultiCloudInfraAI, he has spoken at events such as JavaOne, TDC, Oracle DevTour, Sou Java, and others."
+- id: jesuino
+  name: William Siqueira
+  profile: http://jesuino.github.io
+  bio: "I am William Siqueira. Specialist in Software Maintenance and Production Support, Java EE developer on the Wildfly Application Server, working with REST, BPM, and Rule Engine (RESTEasy, jbpm, and drools). I have also worked with ESB and portals. Interested in open source and open data."

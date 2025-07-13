@@ -32,9 +32,14 @@ $google: #FDCE4A;
 
     a {
       text-decoration: none;
+      color: $quarkus-blue;
 
       &:hover {
-        color: $quarkus-darkblue
+        color: darken($quarkus-darkblue, 10%);
+      }
+
+      &:visited {
+        text-decoration: none;
       }
     }
   }
@@ -43,6 +48,10 @@ $google: #FDCE4A;
     display: flex;
     align-items: center;
     gap: 8px;
+
+    p {
+      font-weight: bolder;
+    }
   }
 }
 
@@ -148,8 +157,17 @@ $google: #FDCE4A;
     font-weight: bold;
     margin: 8px 0;
   }
+}
 
-  &__speaker-bio {
+.speaker-name {
+  text-decoration: none;
+  color: $quarkus-red;
 
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: darken($quarkus-red, 5%);
   }
 }
