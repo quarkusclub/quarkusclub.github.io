@@ -19,7 +19,7 @@ layout: :theme/page
         <h3 class="event__title"><a href="{event.url}">{event.title}</a></h3>
         <div class="event__date">
             <i class="fa fa-calendar"></i>
-            {event.date.format(global:FULL_DATE_FORMAT)}
+            <p>{event.date.format(global:FULL_DATE_FORMAT)}</p>
         </div>
         <div>
             {#for id in event.data.speakers}
