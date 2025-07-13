@@ -2,3 +2,11 @@
   name: Matheus Cruz
   profile: https://matheuscruz.dev
   bio: "I am a passionate learner, open-source enthusiast, and Java developer with a drive for continuous improvement. When I’m not coding, you can find me on the Brazilian Jiu Jitsu mats, playing the guitar, or exploring new challenges. I believe in the power of community, collaboration, and creativity—both in and outside of tech."
+- id: pedrocarrijo95
+  name: Pedro Carrijo
+  profile: https://www.linkedin.com/in/pedro-carrijo
+  bio: "I help Java Developers focus on practical cloud-native and Al skills that enhance what they already do best: building smart and scalable solutions with Java, so they can stand out as trusted technical voices on their teams, position themselves as go-to references, lead key projects, make smart decisions, and gain visibility across the organization."
+- id: jesuino
+  name: William Siqueira
+  profile: http://jesuino.github.io
+  bio: "I am William Siqueira. Specialist in Software Maintenance and Production Support, Java EE developer on the Wildfly Application Server, working with REST, BPM, and Rule Engine (RESTEasy, jbpm, and drools). I have also worked with ESB and portals. Interested in open source and open data."
