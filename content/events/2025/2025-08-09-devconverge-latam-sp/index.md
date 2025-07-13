@@ -6,5 +6,6 @@ subscription: https://www.sympla.com.br/evento/devconverge-latam-sprint-sp/30266
 description: |
     The **Sprint SP – DevConverge LATAM** is part of the itinerant circuit across Latin America, organized by various partner communities! It features technical talks with renowned specialists in different tech stacks and areas of expertise. There will be an interactive panel bringing together community representatives, a coffee break & networking session fostering connections between participants and sponsors, and live streaming on the participating communities' channels.
 speakers: []
+draft: false
 ---
 

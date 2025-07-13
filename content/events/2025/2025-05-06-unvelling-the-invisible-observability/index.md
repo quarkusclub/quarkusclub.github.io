@@ -7,5 +7,6 @@ googleDriveSlides: https://docs.google.com/presentation/d/15nkW03lqAUFRGrsw81RvI
 description: Learn how to add observability to your Quarkus application.
 speakers: 
   - mcruzdev
+draft: false
 ---
 
