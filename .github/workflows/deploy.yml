@@ -1,6 +1,8 @@
 ---
 name: Roq Site Deploy
 
+env:
+  TZ: America/Sao_Paulo
 on:
   push:
     branches: [main]   # Switch to the branch which should be deployed to GitHub Pages

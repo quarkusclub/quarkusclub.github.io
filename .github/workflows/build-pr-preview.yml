@@ -1,5 +1,7 @@
 name: Build & Preview PR
 
+env:
+  TZ: America/Sao_Paulo
 on:
   pull_request_target:
     types: [opened, reopened, synchronize]
