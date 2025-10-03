@@ -10,3 +10,7 @@
   name: William Siqueira
   profile: http://jesuino.github.io
   bio: "I am William Siqueira. Specialist in Software Maintenance and Production Support, Java EE developer on the Wildfly Application Server, working with REST, BPM, and Rule Engine (RESTEasy, jbpm, and drools). I have also worked with ESB and portals. Interested in open source and open data."
+- id: kdubois
+  name: Kevin Dubois
+  profile: https://kevindubois.com
+  bio: "Kevin Dubois is often featured as a (keynote) speaker at conferences around the world, where he shares his passion and knowledge about developer experience, open source, cloud native development and Java. He is also an author, java Champion, and an accomplished software architect and platform engineer. Kevin currently works as a Senior Principal Developer Advocate at IBM, and is also Technical Lead for the CNCF Developer Experience Technical Advisory Group."
