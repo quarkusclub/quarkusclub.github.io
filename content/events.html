@@ -37,7 +37,6 @@ layout: :theme/page
 
 <div class="events-container">
     <h2 class="events-container__title events-container__title--darkblue">Past events</h2>
-    {#if !future.isEmpty}
     {#for event in site.collections.events.past}
     <article class="event">
         <h3 class="event__title"><a href="{event.url}">{event.title}</a></h3>
@@ -55,7 +54,6 @@ layout: :theme/page
         </div>
     </article>
     {/for}
-    {/if}
 </div>
 
 
