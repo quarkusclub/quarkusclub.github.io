@@ -41,6 +41,15 @@
       "profile": "https://www.linkedin.com/in/alexandreaquiles/",
       "contributions": [
         "talk"
+      ],
+    },
+    {
+      "login": "kdubois",
+      "name": "Kevin Dubois",
+      "avatar_url": "https://avatars.githubusercontent.com/u/373537?v=4",
+      "profile": "https://www.kevindubois.com",
+      "contributions": [
+        "talk"
       ]
     }
   ],
