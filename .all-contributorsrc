@@ -33,12 +33,21 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "kdubois",
+      "name": "Kevin Dubois",
+      "avatar_url": "https://avatars.githubusercontent.com/u/373537?v=4",
+      "profile": "https://www.kevindubois.com",
+      "contributions": [
+        "talk"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "skipCi": true,
   "repoType": "github",
   "repoHost": "https://github.com",
-  "projectName": "blog",
+  "projectName": "quarkusclub.github.io",
   "projectOwner": "quarkusclub"
 }
