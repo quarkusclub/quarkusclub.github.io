@@ -74,3 +74,51 @@
   name: Julio Faerman
   profile: https://www.linkedin.com/in/faermanj/
   bio: "I am a professional software engineer and career mentor, helping people succeed in technology jobs. My experience comes from working with global technology leaders — including Red Hat, Amazon, and Borland — as well as their customers and partners. I am also an active contributor to developer communities, publications, and conferences. Outside of work, I enjoy cycling through Catalonia, cooking, and playing a little guitar."
+- id: helberBelmiro
+  name: Helber Belmiro
+  profile: https://www.linkedin.com/in/hbelmiro/
+  bio: "At Red Hat, my focus is on enhancing OpenShift AI through contributions to Kubeflow and Open Data Hub, leveraging my knowledge in Go and cloud technologies. My role involves driving innovation and collaboration within the open source community, ensuring cutting-edge solutions for data science pipelines. Previously, as part of the Red Hat Process Automation Manager team, I contributed to the development of Kogito and the Quarkus OpenAPI Generator extension, showcasing my proficiency in Java and Quarkus. My mission is to deliver robust platforms that empower developers and advance the field of cloud-based services."
+- id: rafaelBenevides
+  name: Rafael Benevides
+  profile: https://www.linkedin.com/in/rafabene/
+  bio: "I am a highly skilled Java Backend Developer and Software Architect, and emerging Golang Developer with extensive experience in designing and implementing scalable, cloud-native solutions, recently expanding my expertise through postgraduate studies in Cloud Native Development and Golang, and enhancing my frontend development skills with Angular/React.js for building modern web applications. At Red Hat, I lead projects for major Brazilian companies, combining expertise in Java (Jakarta EE, Quarkus and Spring Boot), Kubernetes/OpenShift, and REST API design to build reliable and high-performing backend systems."
+- id: whesleyRimar
+  name: Wheslley Rimar Bezerra 
+  profile: https://www.linkedin.com/in/wheslleyrimar/
+  bio: "I'm a full-stack web developer, working primarily with technologies such as JavaScript (Node.js, ExpressJS, ReactJS, and Angular), Java (Spring Boot), and databases (MySQL). I'm also a Software Technical Leader at Mercado Livre, managing faculty and developing programming-related materials and content. I teach logic and software development, and as an educator, I also write books and articles for higher education institutions."
+- id: brunoBaptista
+  name: Bruno Baptista
+  profile: https://www.linkedin.com/in/brunobat/
+  bio: "I'm a well versed Java and Open Source technology developer and software architect. With over 15 years as an enterprise level engineer, I've lead development and QA teams, garnered skills in software design and development processes."
+- id: luizReal
+  name: Luiz Real 
+  profile: https://www.linkedin.com/in/lgsreal/
+  bio: I help professional Java developers share knowledge and build meaningful relationships in the technology community so they can translate their technical skills into industry visibility and long-term career growth. I'm a Software Engineer with a Master's degree in Computer Science and a 20-year career, with experience in Java development, DevOps, Artificial Intelligence, and team leadership.
+- id:: filipeCezar
+  name: Filipe Cezar dos Santos
+  profile: https://www.linkedin.com/in/filipecommunity/ 
+  bio: "A creative and analytical professional, passionate about technology and driven by working with people, I have a solid track record focused on solving problems innovatively and collaboratively. My unique approach involves not only identifying challenges but also leveraging the latest technology trends to deliver impactful solutions."
+- id: victorLeonel
+  name: Víctor Leonel Orozco López
+  profile: https://www.linkedin.com/in/victororozco/
+  bio: "Holder of a master in Computer Science awarded with a scholarship from the Organization of American States. Java Champion, Oracle Groundbreaker Ambassador, Duke’s Choice Award 2016 winner, instructor on Edx micromasters and Oracle Certified Professional for Java SE 8. Experience as Java trainer and consultant for Nabenik with clients from financial, government and banking sectors on Latin America."
+- id: rafaeldelnero
+  name: Rafael Chinelato del Nero
+  profile: https://www.linkedin.com/in/rafadelnero/
+  bio: "Java Champion who possesses strong technical knowledge and delivers solid systems focused on Spring and Jakarta EE specifications for cloud applications. More than 15 years of experience developing successful, revenue-increasing systems."
+- id: mariaCecilia
+  name: Maria Cecília Carreira Bezerra
+  profile: https://www.linkedin.com/in/maria-cec%C3%ADlia-carreira-bezerra-b4b761120/
+  bio: "I've worked for over a decade in people, careers, and business growth. My journey began in Talent Acquisition, but I've also worked in Human Resources and process optimization in sectors such as Technology, Retail, and Healthcare. Over time, my focus expanded beyond HR, leading me to my current role in operations management at Sigma Software in Brazil."
+- id: mauricioSalatino
+  name: Mauricio Salatino
+  profile: https://www.linkedin.com/in/salaboy/
+  bio: "Based in London, UK, Senior Software Engineer II @Diagrid for the @DaprDev project, Manning Publishing Author - Continuous Delivery for Kubernetes, Instructor @ LearnK8s.io"
+- id: jaquelineOliveira
+  name: Jacqueline Oliveira 
+  profile: https://www.linkedin.com/in/jacqueline-r-oliveira/
+  bio: "Software Engineer with over 10 years of experience delivering scalable solutions using Java, Spring Boot, and Cloud technologies. My  work spans the finance, e-commerce, and fintech sectors, always focused on transforming complex challenges into scalable and effective solutions. I've also had the opportunity to work in academia, teaching, conducting software engineering research, and supervising students. I also enjoy sharing knowledge through technical content and lectures, interacting with the technology community, and fostering growth."
+- id: thiagoGonzaga
+  name: Thiago Gonzaga
+  profile: https://www.linkedin.com/in/thiagosg/
+  bio: "Staff Engineer and Oracle ACE Associate with over 20 years of software engineering experience, specializing in cloud-native architecture, DevOps, and platform reliability. I've led initiatives that have saved over US$10 million in cloud costs for companies, built observability platforms at global scale, and delivered digital transformations for companies such as Natura, Ipiranga, Santander, and Vivo."
