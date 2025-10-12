@@ -18,3 +18,39 @@
   name: Alexandre Aquiles
   profile: https://www.linkedin.com/in/alexandreaquiles
   bio: "A Software Engineer for 20 years already, solving problems through quality software. A Teacher for 10+ years, who helps people thrive through education in technology. A Tech Lead for the past 5 years, helping people thrive so they can solve problems through quality software."
+- id: isidro
+  name: Professor Isidro
+  profile: https://www.linkedin.com/in/professor-isidro-phd/
+  bio: "Professor, Speaker, Researcher, Consultant, Software Developer, Java Specialist, Java Champion"
+- id: sandroMatos
+  name: Sandro Ramos
+  profile: https://www.linkedin.com/in/sandro-ramos-5a53011b3/
+  bio: "Tech Lead and Passionate About Technology,  I use Java with Spring and Quarkus, ensuring high performance and scalability. In the front-end, I work with Next.js to create modern and responsive interfaces. I also have experience in mobile development, using React Native. With 5 years of experience in the area, I have also been teaching in higher education for one year and half. I teach subjects such as Object-Oriented Programming, Software Architecture and Web Development."
+- id: luizPais
+  name: Luiz Pais de Lima Junior
+  profile: https://www.linkedin.com/in/luizpais/
+  bio : "I have over 30 years of experience in systems development, including over 20 years in the financial sector, where I led and participated in challenging and innovative projects. As a tech lead and specialist, I offer an integrated vision that allows me to guide the teams I work with in problem-solving, solution development, conflict resolution, and mentoring, always interacting collaboratively. I am interested in integration and solution architecture issues and how the components of a system work together."
+- id: mariGaida
+  name: Mari Gaida 
+  profile: https://www.linkedin.com/in/marigaida/
+  bio: "With a 10-year track record leading Human Resources strategies across various segments and a 7-year focus on startups and IT, my commitment is to strengthen teams and drive growth in dynamic environments. My journey spans from e-commerce to fintechs, delivery apps, and, most recently, the exciting NFT gaming space."
+- id: marcioSilva
+  name: Marcio Silva 
+  profile: https://www.linkedin.com/in/marcioalexandre83/
+  bio: "I'm a software engineer with over 10 years of experience. I currently work for a healthcare company with an international team (USA, Iceland, and Portugal) using an agile methodology. I also have over 2 years of teaching experience at private and federal universities in Brazil. I have over 15 scientific papers accepted/published at Computer Science conferences worldwide. See them on my LinkedIn profile."
+- id: georgeGastaldi
+  name: George Gastaldi
+  profile: https://www.linkedin.com/in/gastaldi/
+  bio: "Java Architect and Consultant, Works as Open source developer at RedHat, Coaching in Java-related Technologies"
+- id: gerrit
+  name: Gerrit Grunwald 
+  profile: https://www.linkedin.com/in/gerritgrunwald/
+  bio: "Someone who has loved programming for about 40 years, interested in desktop, mobile, and IoT projects based on all possible technologies. Passionate about all things Java. Founder and leader of the Java User Group Münster (Germany), star of JavaOne and Java champion. Speaker at international conferences and user groups."
+- id: martinStefanko
+  name: Martin Stefanko
+  profile: https://www.linkedin.com/in/martin-stefanko-927b9814/
+  bio: "Full Stack Developer with experience in Java, Quarkus, WildFly, JBoss EAP, Spring boot, SQL, Java EE, and MicroProfile technologies. Currently I also lead the Brno Java User Group in Czechia. My responsibilities vary from the maintenance of JBoss EAP to feature development in both Quarkus and WildFly. I also lead the MicroProfile Health specification. I'm currently writing a book Quarkus in Action (Manning)."
+- id: hollyCummins
+  name: Holly Cummins
+  profile: https://www.linkedin.com/in/holly-k-cummins/
+  bio: "I help build Quarkus, to make the cloud cloudier. I am a Java Champion and JavaOne Rock Star. I co-authored Manning’s Enterprise OSGi in Action. I have spoken at JavaOne, Devoxx, JavaZone, JFokus, The ServerSide Java Symposium, JAX London, QCon, GeeCon, and the Great Indian Developer Summit, as well as a number of user groups."
