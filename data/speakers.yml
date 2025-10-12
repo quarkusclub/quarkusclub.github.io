@@ -54,3 +54,23 @@
   name: Holly Cummins
   profile: https://www.linkedin.com/in/holly-k-cummins/
   bio: "I help build Quarkus, to make the cloud cloudier. I am a Java Champion and JavaOne Rock Star. I co-authored Manning’s Enterprise OSGi in Action. I have spoken at JavaOne, Devoxx, JavaZone, JFokus, The ServerSide Java Symposium, JAX London, QCon, GeeCon, and the Great Indian Developer Summit, as well as a number of user groups."
+- id: sebastianDaschner
+  name: Sebastian Daschner
+  profile: https://www.linkedin.com/in/sebastian-daschner-9894bb103/
+  bio: "I'm working as a consultant, trainer, and developer. My role is to share knowledge and educate developers about Java, enterprise software, and IT in general. I support clients with workshops and tailored consultation engagements, by applying expert knowledge and experience with a high claim in software craftship. I focus on how concepts work and why specific solutions are needed, and only then how they are implemented."
+- id: ericDeAndrea
+  name: Eric DeAndrea
+  profile: https://www.linkedin.com/in/edeandrea/
+  bio: "Java Champion and Senior Principal Software Engineer with over 26 years of experience in designing and building Java-based solutions. Specializes in application development technologies including Quarkus and Spring Boot. Passionate about open-source software, prolific contributor to open-source projects, and an active speaker at industry events and user group meetups around the world. Published author of “Quarkus for Spring Developers” book and numerous industry articles on sites such as DZone, InfoQ, Red Hat Developer, and quarkus.io. Primary maintainer of the Quarkus Superheroes sample/reference application, created in 2021 and continually evolving. Boston Java Users ACM Chapter board member."
+- id: maxAndersen
+  name: Max Rydahl Andersen
+  profile: https://www.linkedin.com/in/maxrydahlandersen/
+  bio: "Engineer by heart with a broad experience and interest especially in Development tools, Java middleware and cloud-native platforms. Currently focusing on leading Quarkus. Opensource enthusiast and doer for 20+ years, voluntarily and while working for JBoss and Red Hat. Have a keen interest in understanding the people and whole team or set of teams across companies and communities to evolve, grow and make things happen."
+- id: sergey
+  name: Sergey Beryozkin
+  profile: https://www.linkedin.com/in/sberyozkin/
+  bio: "Principal Software Engineer at IBM"
+- id: julioFaerman
+  name: Julio Faerman
+  profile: https://www.linkedin.com/in/faermanj/
+  bio: "I am a professional software engineer and career mentor, helping people succeed in technology jobs. My experience comes from working with global technology leaders — including Red Hat, Amazon, and Borland — as well as their customers and partners. I am also an active contributor to developer communities, publications, and conferences. Outside of work, I enjoy cycling through Catalonia, cooking, and playing a little guitar."
