@@ -176,3 +176,19 @@ $google: #FDCE4A;
     color: darken($quarkus-red, 5%);
   }
 }
+
+.speaker-github {
+  margin-left: 6px; 
+  color: $quarkus-darkblue;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: darken($quarkus-darkblue, 10%);
+  }
+
+  i {
+    font-size: 1rem; 
+    vertical-align: middle;
+  }
+}

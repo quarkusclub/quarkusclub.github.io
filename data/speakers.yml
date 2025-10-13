@@ -2,30 +2,37 @@
   name: Matheus Cruz
   profile: https://matheuscruz.dev
   bio: "I am a passionate learner, open-source enthusiast, and Java developer with a drive for continuous improvement. When I’m not coding, you can find me on the Brazilian Jiu Jitsu mats, playing the guitar, or exploring new challenges. I believe in the power of community, collaboration, and creativity—both in and outside of tech."
+  github: https://github.com/mcruzdev
 - id: pedrocarrijo95
   name: Pedro Carrijo
   profile: https://pedrocarrijo.dev
   bio: "Pedro Carrijo is a Senior Cloud Solution Engineer at Oracle, with 10 years of professional experience, 9 of which were at Oracle, focusing on Java, Cloud-Native, and Artificial Intelligence. He began his professional career at 14, developing mobile applications in C#, and at 15, he was hired by Oracle as an Innovation Specialist. Known as JavaBoy, he is a leading figure in integrating modern practices with Cloud Native and AI into Java backends. He leads proof-of-concepts, architectural modernizations, and initiatives focused on cloud performance and developer experience. Creator of the open-source Java project MultiCloudInfraAI, he has spoken at events such as JavaOne, TDC, Oracle DevTour, Sou Java, and others."
+  github: https://github.com/pedrocarrijo95
 - id: jesuino
   name: William Siqueira
   profile: http://jesuino.github.io
   bio: "I am William Siqueira. Specialist in Software Maintenance and Production Support, Java EE developer on the Wildfly Application Server, working with REST, BPM, and Rule Engine (RESTEasy, jbpm, and drools). I have also worked with ESB and portals. Interested in open source and open data."
+  github: https://github.com/jesuino
 - id: kdubois
   name: Kevin Dubois
   profile: https://kevindubois.com
   bio: "Kevin Dubois is often featured as a (keynote) speaker at conferences around the world, where he shares his passion and knowledge about developer experience, open source, cloud native development and Java. He is also an author, java Champion, and an accomplished software architect and platform engineer. Kevin currently works as a Senior Principal Developer Advocate at IBM, and is also Technical Lead for the CNCF Developer Experience Technical Advisory Group."
+  github: https://github.com/kdubois
 - id: alexandreaquiles
   name: Alexandre Aquiles
   profile: https://www.linkedin.com/in/alexandreaquiles
   bio: "A Software Engineer for 20 years already, solving problems through quality software. A Teacher for 10+ years, who helps people thrive through education in technology. A Tech Lead for the past 5 years, helping people thrive so they can solve problems through quality software."
+  github: https://github.com/alexandreaquiles
 - id: isidro
   name: Professor Isidro
   profile: https://www.linkedin.com/in/professor-isidro-phd/
   bio: "Professor, Speaker, Researcher, Consultant, Software Developer, Java Specialist, Java Champion"
+  github: https://github.com/professorisidro
 - id: Sandrolaxx
   name: Sandro Ramos
   profile: https://www.linkedin.com/in/sandro-ramos-5a53011b3/
   bio: "Tech Lead and Passionate About Technology,  I use Java with Spring and Quarkus, ensuring high performance and scalability. In the front-end, I work with Next.js to create modern and responsive interfaces. I also have experience in mobile development, using React Native. With 5 years of experience in the area, I have also been teaching in higher education for one year and half. I teach subjects such as Object-Oriented Programming, Software Architecture and Web Development."
+  github: https://github.com/Sandrolaxx
 - id: luizPais
   name: Luiz Pais de Lima Junior
   profile: https://www.linkedin.com/in/luizpais/
@@ -42,58 +49,72 @@
   name: George Gastaldi
   profile: https://www.linkedin.com/in/gastaldi/
   bio: "Java Architect and Consultant, Works as Open source developer at IBM, Coaching in Java-related Technologies"
+  github: https://github.com/gastaldi
 - id: gerrit
   name: Gerrit Grunwald 
   profile: https://www.linkedin.com/in/gerritgrunwald/
   bio: "Someone who has loved programming for about 40 years, interested in desktop, mobile, and IoT projects based on all possible technologies. Passionate about all things Java. Founder and leader of the Java User Group Münster (Germany), star of JavaOne and Java champion. Speaker at international conferences and user groups."
+  github: https://github.com/HanSolo
 - id: xstefank
   name: Martin Stefanko
   profile: https://www.linkedin.com/in/martin-stefanko-927b9814/
   bio: "Full Stack Developer with experience in Java, Quarkus, WildFly, JBoss EAP, Spring boot, SQL, Java EE, and MicroProfile technologies. Currently I also lead the Brno Java User Group in Czechia. My responsibilities vary from the maintenance of JBoss EAP to feature development in both Quarkus and WildFly. I also lead the MicroProfile Health specification. I'm currently writing a book Quarkus in Action (Manning)."
+  github: https://github.com/xstefank
 - id: holly-cummins
   name: Holly Cummins
   profile: https://www.linkedin.com/in/holly-k-cummins/
   bio: "I help build Quarkus, to make the cloud cloudier. I am a Java Champion and JavaOne Rock Star. I co-authored Manning’s Enterprise OSGi in Action. I have spoken at JavaOne, Devoxx, JavaZone, JFokus, The ServerSide Java Symposium, JAX London, QCon, GeeCon, and the Great Indian Developer Summit, as well as a number of user groups."
+  github: https://github.com/holly-cummins  
 - id: sebastianDaschner
   name: Sebastian Daschner
   profile: https://www.linkedin.com/in/sebastian-daschner-9894bb103/
   bio: "I'm working as a consultant, trainer, and developer. My role is to share knowledge and educate developers about Java, enterprise software, and IT in general. I support clients with workshops and tailored consultation engagements, by applying expert knowledge and experience with a high claim in software craftship. I focus on how concepts work and why specific solutions are needed, and only then how they are implemented."
+  github: https://github.com/sdaschner
 - id: edeDeandrea 
-  name: Eric DeAndrea
+  name: Eric Deandrea
   profile: https://www.linkedin.com/in/edeandrea/
   bio: "Java Champion and Senior Principal Software Engineer with over 26 years of experience in designing and building Java-based solutions. Specializes in application development technologies including Quarkus and Spring Boot. Passionate about open-source software, prolific contributor to open-source projects, and an active speaker at industry events and user group meetups around the world. Published author of “Quarkus for Spring Developers” book and numerous industry articles on sites such as DZone, InfoQ, Red Hat Developer, and quarkus.io. Primary maintainer of the Quarkus Superheroes sample/reference application, created in 2021 and continually evolving. Boston Java Users ACM Chapter board member."
+  github: https://github.com/edeandrea   
 - id: maxandersen
   name: Max Rydahl Andersen
   profile: https://www.linkedin.com/in/maxrydahlandersen/
   bio: "Engineer by heart with a broad experience and interest especially in Development tools, Java middleware and cloud-native platforms. Currently focusing on leading Quarkus. Opensource enthusiast and doer for 20+ years, voluntarily and while working for JBoss and Red Hat. Have a keen interest in understanding the people and whole team or set of teams across companies and communities to evolve, grow and make things happen."
+  github: https://github.com/maxandersen
 - id: sergey
   name: Sergey Beryozkin
   profile: https://www.linkedin.com/in/sberyozkin/
   bio: "Principal Software Engineer at IBM"
+  github: https://github.com/sberyozkin
 - id: julioFaerman
   name: Julio Faerman
   profile: https://www.linkedin.com/in/faermanj/
   bio: "I am a professional software engineer and career mentor, helping people succeed in technology jobs. My experience comes from working with global technology leaders — including Red Hat, Amazon, and Borland — as well as their customers and partners. I am also an active contributor to developer communities, publications, and conferences. Outside of work, I enjoy cycling through Catalonia, cooking, and playing a little guitar."
+  github: https://github.com/faermanj
 - id: helberBelmiro
   name: Helber Belmiro
   profile: https://www.linkedin.com/in/hbelmiro/
   bio: "At Red Hat, my focus is on enhancing OpenShift AI through contributions to Kubeflow and Open Data Hub, leveraging my knowledge in Go and cloud technologies. My role involves driving innovation and collaboration within the open source community, ensuring cutting-edge solutions for data science pipelines. Previously, as part of the Red Hat Process Automation Manager team, I contributed to the development of Kogito and the Quarkus OpenAPI Generator extension, showcasing my proficiency in Java and Quarkus. My mission is to deliver robust platforms that empower developers and advance the field of cloud-based services."
+  github: https://github.com/hbelmiro   
 - id: rafaelBenevides
   name: Rafael Benevides
   profile: https://www.linkedin.com/in/rafabene/
   bio: "I am a highly skilled Java Backend Developer and Software Architect, and emerging Golang Developer with extensive experience in designing and implementing scalable, cloud-native solutions, recently expanding my expertise through postgraduate studies in Cloud Native Development and Golang, and enhancing my frontend development skills with Angular/React.js for building modern web applications. At Red Hat, I lead projects for major Brazilian companies, combining expertise in Java (Jakarta EE, Quarkus and Spring Boot), Kubernetes/OpenShift, and REST API design to build reliable and high-performing backend systems."
+  github: https://github.com/rafabene
 - id: wheslleyrimar
   name: Wheslley Rimar Bezerra 
   profile: https://www.linkedin.com/in/wheslleyrimar/
   bio: "I'm a full-stack web developer, working primarily with technologies such as JavaScript (Node.js, ExpressJS, ReactJS, and Angular), Java (Spring Boot), and databases (MySQL). I'm also a Software Technical Leader at Mercado Livre, managing faculty and developing programming-related materials and content. I teach logic and software development, and as an educator, I also write books and articles for higher education institutions."
+  github: https://github.com/wheslleyrimar
 - id: brunobat
   name: Bruno Baptista
   profile: https://www.linkedin.com/in/brunobat/
   bio: "I'm a well versed Java and Open Source technology developer and software architect. With over 15 years as an enterprise level engineer, I've lead development and QA teams, garnered skills in software design and development processes."
+  github: https://github.com/brunobat
 - id: luizReal
   name: Luiz Real 
   profile: https://www.linkedin.com/in/lgsreal/
   bio: I help professional Java developers share knowledge and build meaningful relationships in the technology community so they can translate their technical skills into industry visibility and long-term career growth. I'm a Software Engineer with a Master's degree in Computer Science and a 20-year career, with experience in Java development, DevOps, Artificial Intelligence, and team leadership.
+  github: https://github.com/lgsreal
 - id:: filipeCezar
   name: Filipe Cezar dos Santos
   profile: https://www.linkedin.com/in/filipecommunity/ 
@@ -102,10 +123,12 @@
   name: Víctor Leonel Orozco López
   profile: https://www.linkedin.com/in/victororozco/
   bio: "Holder of a master in Computer Science awarded with a scholarship from the Organization of American States. Java Champion, Oracle Groundbreaker Ambassador, Duke’s Choice Award 2016 winner, instructor on Edx micromasters and Oracle Certified Professional for Java SE 8. Experience as Java trainer and consultant for Nabenik with clients from financial, government and banking sectors on Latin America."
+  github: https://github.com/tuxtor
 - id: rafaeldelnero
   name: Rafael Chinelato del Nero
   profile: https://www.linkedin.com/in/rafadelnero/
   bio: "Java Champion who possesses strong technical knowledge and delivers solid systems focused on Spring and Jakarta EE specifications for cloud applications. More than 15 years of experience developing successful, revenue-increasing systems."
+  github: https://github.com/rafadelnero
 - id: mariaCecilia
   name: Maria Cecília Carreira Bezerra
   profile: https://www.linkedin.com/in/maria-cec%C3%ADlia-carreira-bezerra-b4b761120/
@@ -114,11 +137,14 @@
   name: Mauricio Salatino
   profile: https://www.salaboy.com
   bio: "Based in London, UK, Senior Software Engineer II @Diagrid for the @DaprDev project, Manning Publishing Author - Continuous Delivery for Kubernetes, Instructor @ LearnK8s.io"
+  github: https://github.com/salaboy
 - id: jaquelineOliveira
   name: Jacqueline Oliveira 
   profile: https://www.linkedin.com/in/jacqueline-r-oliveira/
   bio: "Software Engineer with over 10 years of experience delivering scalable solutions using Java, Spring Boot, and Cloud technologies. My  work spans the finance, e-commerce, and fintech sectors, always focused on transforming complex challenges into scalable and effective solutions. I've also had the opportunity to work in academia, teaching, conducting software engineering research, and supervising students. I also enjoy sharing knowledge through technical content and lectures, interacting with the technology community, and fostering growth."
+  github: https://github.com/jacqueline-oliveira
 - id: thiagoGonzaga
   name: Thiago Gonzaga
   profile: https://www.linkedin.com/in/thiagosg/
   bio: "Staff Engineer and Oracle ACE Associate with over 20 years of software engineering experience, specializing in cloud-native architecture, DevOps, and platform reliability. I've led initiatives that have saved over US$10 million in cloud costs for companies, built observability platforms at global scale, and delivered digital transformations for companies such as Natura, Ipiranga, Santander, and Vivo."
+  github: https://github.com/devops-thiago
