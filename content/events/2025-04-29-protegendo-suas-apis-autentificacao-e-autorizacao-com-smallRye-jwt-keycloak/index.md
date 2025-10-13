@@ -4,6 +4,6 @@ layout: event
 youtubeLive: https://www.youtube.com/watch?v=XjCD87LDmro
 date: 2025-04-29
 description: 
-speakers: [sandroMatos]
+speakers: [Sandrolaxx]
 draft: false
 ---
