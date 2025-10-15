@@ -57,8 +57,8 @@
   github: https://github.com/HanSolo
 - id: xstefank
   name: Martin Stefanko
-  profile: https://www.linkedin.com/in/martin-stefanko-927b9814/
-  bio: "Full Stack Developer with experience in Java, Quarkus, WildFly, JBoss EAP, Spring boot, SQL, Java EE, and MicroProfile technologies. Currently I also lead the Brno Java User Group in Czechia. My responsibilities vary from the maintenance of JBoss EAP to feature development in both Quarkus and WildFly. I also lead the MicroProfile Health specification. I'm currently writing a book Quarkus in Action (Manning)."
+  profile: https://www.linkedin.com/in/martin-stefanko/
+  bio: "Full Stack Developer with experience in Java, Quarkus, WildFly, JBoss EAP, Spring Boot, SQL, Java EE, and MicroProfile technologies. I lead the Brno Java User Group in Czechia. My responsibilities focus on the maintenance and feature development in both Quarkus and WildFly. I also lead the MicroProfile Health specification. I authored Quarkus in Action (Manning) book. Conference speaker."
   github: https://github.com/xstefank
 - id: holly-cummins
   name: Holly Cummins
