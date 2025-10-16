@@ -9,6 +9,18 @@ $google: #FDCE4A;
   padding: 10px;
 }
 
+.bookclub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+    &__image {
+        height: 440px;
+    }
+}
+
 .events-container {
   display: flex;
   flex-direction: column;

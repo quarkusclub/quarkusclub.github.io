@@ -9,3 +9,6 @@ items:
   - title: "Events"
     path: "/events"
     icon: "fa fa-calendar"
+  - title: "BookClub"
+    path: "/bookclub"
+    icon: "fa fa-book"
