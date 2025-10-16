@@ -25,7 +25,7 @@ layout: :theme/page
             {#for id in event.data.speakers}
             {#let speaker = cdi:speakers.get(id)}
             Speakers: <strong>{#if speaker.profile}<a class="speaker-name"
-                    href="{speaker.profile}">{speaker.name}</a>{#else}{speaker.name}</strong>{/if}
+                href="{speaker.profile}">{speaker.name}</a>{#else}{speaker.name}</strong>{/if}
             {#if id_hasNext}, {/if}
             {/for}
         </div>
@@ -48,16 +48,11 @@ layout: :theme/page
             {#for id in event.data.speakers}
             {#let speaker = cdi:speakers.get(id)}
             Speakers: <strong>{#if speaker.profile}<a class="speaker-name"
-                    href="{speaker.profile}">{speaker.name}</a>{#else}{speaker.name}</strong>{/if}
-
-            {#if speaker.github}
-            <a class="speaker-github" href="{speaker.github}" target="_blank" title="GitHub">
-                <i class="fa-brands fa-github"></i>
-            </a>
-            {/if}
+                href="{speaker.profile}">{speaker.name}</a>{#else}{speaker.name}</strong>{/if}
             {#if id_hasNext}, {/if}
             {/for}
         </div>
     </article>
     {/for}
 </div>
+
