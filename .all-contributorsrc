@@ -51,6 +51,15 @@
       "contributions": [
         "talk"
       ]
+    },
+    {
+      "login": "matheusandre1",
+      "name": "Matheus André",
+      "avatar_url": "https://avatars.githubusercontent.com/u/92062874?v=4",
+      "profile": "https://github.com/matheusandre1",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
