@@ -29,7 +29,7 @@ id: event
 
 <div class="resume">
     <h2 class="resume__title">{page.title}</h2>
-    {#if page.description is not null}
+    {#if page.description.asStrings.isEmpty}
     <h3 class="resume__subtitle">Resume</h3>
     {page.description.markdownify()}
     {/if}    
