@@ -8,4 +8,4 @@ description: |
   In this journey, you will learn the motivations and architectural principles of the past, which have become future advantages for architectural evolution. We will learn how the 12 factors of cloud native, microservices, and IaC, applied correctly (or not), facilitated the journey through Java and Cloud Native tools.
 speakers: [victorLeonel]
 draft: false
---- 
+---

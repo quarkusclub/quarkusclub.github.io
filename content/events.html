@@ -18,16 +18,24 @@ layout: :theme/page
     <article class="event">
         <h3 class="event__title"><a href="{event.url}">{event.title}</a></h3>
         <div class="event__date">
-            <i class="fa fa-calendar"></i>
-            <p>{event.date.format(global:FULL_DATE_FORMAT)}</p>
+            <i class="fa fa-calendar"></i>            
+            <p>
+            {#if event.date.hasTime}
+                {event.date.format(global:FULL_DATE_FORMAT)}
+            {#else}
+                {event.date.format(global:DATE_ONLY_FORMAT)}
+            {/if}
+            </p>
         </div>
-        <div>
+        <div>            
+            {#if event.data.containsKey("speakers")}
             {#for id in event.data.speakers}
             {#let speaker = cdi:speakers.get(id)}
             Speakers: <strong>{#if speaker.profile}<a class="speaker-name"
                 href="{speaker.profile}">{speaker.name}</a>{#else}{speaker.name}</strong>{/if}
             {#if id_hasNext}, {/if}
-            {/for}
+            {/for}   
+            {/if}         
         </div>
     </article>
     {/if}
@@ -42,15 +50,22 @@ layout: :theme/page
         <h3 class="event__title"><a href="{event.url}">{event.title}</a></h3>
         <div class="event__date">
             <i class="fa fa-calendar"></i>
-            {event.date.format(global:FULL_DATE_FORMAT)}
+            
+            {#if event.date.hasTime}
+                {event.date.format(global:FULL_DATE_FORMAT)}
+            {#else}
+                {event.date.format(global:DATE_ONLY_FORMAT)}
+            {/if}
         </div>
         <div>
+            {#if event.data.containsKey("speakers")}
             {#for id in event.data.speakers}
             {#let speaker = cdi:speakers.get(id)}
             Speakers: <strong>{#if speaker.profile}<a class="speaker-name"
                 href="{speaker.profile}">{speaker.name}</a>{#else}{speaker.name}</strong>{/if}
             {#if id_hasNext}, {/if}
             {/for}
+            {/if} 
         </div>
     </article>
     {/for}
