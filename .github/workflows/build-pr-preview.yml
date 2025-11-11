@@ -33,18 +33,8 @@ jobs:
           java-version: 21
           cache: 'maven'
 
-      - name: Generate Roq Site
-        run: mvn -B roq:generate
-        env: 
-          QUARKUS_ROQ_GENERATOR_BATCH: "true"
-
       - name: Build Blog
-        run: mvn -B package
-        env:
-         QUARKUS_ROQ_GENERATOR_BATCH: "true"
-
-      - name: Build Blog
-        run: QUARKUS_ROQ_GENERATOR_BATCH=true mvn -B package quarkus:run
+        run: QUARKUS_ROQ_GENERATOR_BATCH=true mvn -B package quarkus:run      
 
       - name: Store PR id
         id: pr
