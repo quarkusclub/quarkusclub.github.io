@@ -29,8 +29,10 @@ id: event
 
 <div class="resume">
     <h2 class="resume__title">{page.title}</h2>
+    {#if page.description && !page.description.isEmpty}
     <h3 class="resume__subtitle">Resume</h3>
     {page.description.markdownify()}
+    {/if}
 </div>
 
 <div class="speakers">
