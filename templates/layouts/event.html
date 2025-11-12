@@ -28,13 +28,12 @@ id: event
 <hr class="divider">
 
 <div class="resume">
-    <h2 class="resume__title">{page.title}</h2>   
-    {#if page.description != null}
+    <h2 class="resume__title">{page.title}</h2>    
+    {#if page.description && !page.description.isBlank}
     <h3 class="resume__subtitle">Resume</h3>
-    {page.description.markdownify()}
     {/if}
+    {(page.description ?: '').markdownify()}    
 </div>
-
 <div class="speakers">
     <h3 class="resume__subtitle">Speakers</h3>
     {#if page.data.speakers.asStrings.isEmpty }
