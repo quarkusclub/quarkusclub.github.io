@@ -16,6 +16,7 @@ defaults:
     shell: bash
 
 permissions:
+  contents: read
   pull-requests: write # Required to update PR status comment
 
 jobs:
