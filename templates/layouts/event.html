@@ -31,7 +31,7 @@ id: event
     <h2 class="resume__title">{page.title}</h2>    
     {#if page.description && !page.description.isBlank}
     <h3 class="resume__subtitle">Resume</h3>    
-    {page.description.markdownify()}
+    {page.description}
     {/if}    
 </div>
 <div class="speakers">
