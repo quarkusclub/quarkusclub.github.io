@@ -15,7 +15,7 @@
         <quarkus.platform.version>3.28.5</quarkus.platform.version>
         <skipITs>true</skipITs>
         <surefire-plugin.version>3.5.4</surefire-plugin.version>
-        <quarkus.roq.version>1.10.1</quarkus.roq.version>
+        <quarkus.roq.version>1.10.2</quarkus.roq.version>
     </properties>
 
     <dependencyManagement>
