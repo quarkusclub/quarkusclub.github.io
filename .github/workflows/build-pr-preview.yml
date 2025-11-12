@@ -3,7 +3,7 @@ name: Build & Preview PR
 env:
   TZ: America/Sao_Paulo
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, reopened, synchronize]
     paths-ignore:
       - '.gitignore'
