@@ -90,7 +90,6 @@ The site will be available at `http://localhost:8080`.
 
 ### Commit Messages
 
-- Use [Conventional Commits](https://www.conventionalcommits.org/)
 - Use the imperative mode in the subject ("Add feature" and not "Adding feature").
 - The first line must have a maximum of 50 characters.
 - Reference issues and pull requests liberally after the first line.
