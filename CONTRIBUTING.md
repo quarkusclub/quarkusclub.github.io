@@ -61,10 +61,12 @@ To run this project, you will need:
 
 ### Environment Setup
 
+# Perform the fork of the project.
+
 Clone the repository:
 
 ```bash
-git clone https://github.com/quarkusclub/quarkusclub.github.io.git
+git clone https://github.com/your-github-profile/quarkusclub.github.io
 cd quarkusclub.github.io
 ```
 
