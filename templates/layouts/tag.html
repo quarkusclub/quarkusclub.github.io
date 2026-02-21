@@ -1,0 +1,57 @@
+---
+layout: page
+---
+<div class="docs-tag">
+    <header class="docs-tag__header">
+        <h1 class="docs-tag__title">
+            <i class="fa fa-tag"></i> Tag: {page.data.tag}
+        </h1>
+        <p class="docs-tag__count">
+            {page.data.posts.size} {#if page.data.posts.size == 1}post{#else}posts{/if} tagged with "{page.data.tag}"
+        </p>
+    </header>
+    
+    <div class="docs-tag__posts">
+        {#for post in page.data.posts.sortByDate(true)}
+        <article class="docs-tag__post">
+            <h2 class="docs-tag__post-title">
+                <a href="{post.url}">{post.title}</a>
+            </h2>
+            
+            {#if post.description??}
+            <p class="docs-tag__post-description">{post.description}</p>
+            {/if}
+            
+            <div class="docs-tag__post-meta">
+                {#if post.date??}
+                <span class="docs-tag__post-date">
+                    <i class="fa fa-calendar"></i>
+                    {post.date.format(global:FULL_DATE_FORMAT)}
+                </span>
+                {/if}
+                
+                <span class="docs-tag__post-reading-time">
+                    <i class="fa fa-clock"></i>
+                    {post.readTime} min read
+                </span>
+            </div>
+            
+            {#if post.data.tags??}
+            <div class="docs-tag__post-tags">
+                {#for tag in post.data.tags.asStrings}
+                <a href="{site.url('/tags/' + tag.slugify)}" class="docs-tag__post-tag">
+                    {tag}
+                </a>
+                {/for}
+            </div>
+            {/if}
+        </article>
+        {/for}
+    </div>
+    
+    <div class="docs-tag__back">
+        <a href="{site.url('/tags')}" class="docs-tag__back-link">
+            <i class="fa fa-arrow-left"></i> View all tags
+        </a>
+    </div>
+</div>

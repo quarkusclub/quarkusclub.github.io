@@ -1,0 +1,25 @@
+<div class="flex gap-4 p-4 bg-gray-100 rounded-lg hover:shadow-md transition-shadow">
+    <div class="flex-shrink-0">
+        {#if avatar??}
+        <img src="{avatar}" alt="{name}" class="w-20 h-20 rounded-full object-cover" />
+        {#else}
+        <div class="w-20 h-20 rounded-full bg-gray-300 flex items-center justify-center text-gray-600 text-2xl">
+            <i class="fa fa-user"></i>
+        </div>
+        {/if}
+    </div>
+    
+    <div class="flex-1">
+        <h3 class="text-xl font-bold text-gray-900 mb-1">{name}</h3>
+        
+        {#if nickname??}
+        <p class="text-gray-600 text-sm mb-2">@{nickname}</p>
+        {/if}
+        
+        {#if profile??}
+        <a href="{profile}" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm inline-flex items-center gap-1">
+            <i class="fa fa-external-link-alt"></i> View Profile
+        </a>
+        {/if}
+    </div>
+</div>
