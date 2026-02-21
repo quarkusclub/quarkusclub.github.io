@@ -1,0 +1,550 @@
+= Roq Advanced Stuff
+include::../../includes/attributes.adoc[]
+:doc-name: advanced
+
+include::../../includes/edit-contrib.adoc[]
+
+[#pagination]
+== Pagination
+
+Adding pagination to your Roq site is an easy way to improve content
+navigation. Let’s walk through how to implement pagination and customize
+its behavior in your site.
+
+=== Step 1: Iterate on the paginated collection
+
+First, include the following in your FrontMatter header on the page which will
+iterate on the paginated collection:
+
+[source,yaml]
+----
+paginate: posts
+----
+
+Next, in your template, loop through the paginated posts using:
+
+[source,html]
+----
+{#for post in site.collections.posts.paginated(page.paginator)} // <1>
+<article class="post">
+  ...
+</article>
+{/for}
+
+{#include partials/pagination.html/}
+----
+<1> Calling `.paginated(page.paginator)` will resolve to the posts for the computed page.
+
+=== Step 2: Including Pagination Controls
+
+To add pagination controls, use the provided `fm/pagination.html` in your own `partials/pagination.html`:
+
+[source,html]
+----
+{#include fm/pagination.html}
+{#newer}<i class="fa fa-long-arrow-left" aria-hidden="true"></i>{/newer}
+{#older}<i class="fa fa-long-arrow-right" aria-hidden="true"></i>{/older}
+{/include}
+----
+
+NOTE: If you want to write your own controls, find inspiration in the FM sources https://github.com/quarkiverse/quarkus-roq/tree/main/roq-frontmatter/runtime/src/main/resources/templates/fm/pagination.html[fm/pagination.html].
+
+Just by doing so, Roq will generate a bunch of pages based on the pagination setting. For example with a pagination size of 4 and with 9 posts, you would get:
+
+* `index.html` (posts 1 to 4)
+* `posts/page-2` (posts 5 to 8)
+* `posts/page-3` (post 9)
+
+NOTE: the first page uses the declaring page link.
+
+
+You can further customize your pagination by setting the page size and link format:
+
+[source,yaml]
+----
+paginate:
+  size: 4
+  collection: posts
+  link: posts/page-:page
+----
+
+With these steps, you can create a flexible pagination system to improve your site’s navigation.
+
+== SEO
+
+Incorporating search engine optimization (SEO) is as simple as inserting this tag into your `<head>` section:
+
+[source,html]
+----
+<head>
+{#seo page site /}
+</head>
+----
+
+It will automatically use the FrontMatter data to fill the tags.
+
+[source,html]
+----
+<title>My Blog Post</title>
+<meta name="author" content="ia3andy" />
+<meta name="generator" content="Quarkus Roq v1.0.0" />
+<meta property="article:author" content="ia3andy" />
+<meta property="article:published_time" content="2024-09-23T12:00Z[Etc/UTC]" />
+<meta property="og:image" content="https://images.unsplash.com/photo.webp" />
+<meta property="og:locale" content="en-US" />
+<meta property="og:type" content="article" />
+----
+
+== RSS
+
+Incorporating and RSS feed of your posts is as simple as inserting this tag into your `<head>` section:
+
+[source,html]
+----
+<head>
+{#rss site /}
+</head>
+----
+
+It will automatically use the FrontMatter data generate an RSS feed link.
+
+[source,html]
+----
+<link rel="alternate" type="application/rss+xml" title="Your Blog" href="/rss.xml"/>
+----
+
+It will automatically utilize the Frontmatter data from all your blog posts to generate a valid Atom RSS feed link at `rss.xml`. Ensure you create an `rss.xml` file at the root of your site and include this single line of code:
+
+[source,html]
+----
+{#include fm/rss.html}
+----
+
+[#themes]
+== Themes
+
+[#overriding-theme]
+=== Overriding theme
+
+In Roq, you can override theme partials or layouts.
+
+*To override a theme partial*, it is very simple, you just need to add the same template in your site.
+
+For example, adding your own `templates/partials/roq-default/pagination.html`
+
+will override the https://github.com/quarkiverse/quarkus-roq/blob/main/roq-theme/default/src/main/resources/templates/partials/roq-default/pagination.html[one from the default Roq theme]
+
+*To override a theme layout*, it is a tad more complex. You need to insert an extra layout layer.
+This allows you to override only specific sections of the theme layout, without duplicating the entire layout structure.
+
+TIP: Roq layouts leverage https://quarkus.io/guides/qute-reference#include_helper[Qute include] under the hood.
+It is possible to define `insert` sections that provide overridable default content.
+
+==== Example
+Let’s override the `roq-default` theme’s main layout so that our customizations apply everywhere it is used.
+
+.templates/layouts/roq-default/main.html
+[source,html]
+----
+---
+layout: theme-layouts/roq-default/main // <1>
+---
+
+{#insert /} // <2>
+
+{#description} // <3>
+Here I can override the description section
+{/}
+
+{#footer}
+<footer>
+And here the footer
+</footer>
+{/}
+----
+<1> *Inherits from the theme layout:* This layout uses the original theme layout (`roq-default/main`) as a base.
+<2> *Inheritance mechanism:* `{#insert /}` ensures that this layout will inherit sections defined in the theme layout.
+<3> *Override specific sections:* You can override individual sections such as `description` and `footer` without affecting other parts of the layout.
+
+Now, everywhere `layouts: :theme/main` (even in the theme), your override will be used.
+
+==== How it Works Internally
+
+Roq handles theme layouts in two layers:
+
+* The original *theme layouts* are always kept under `theme-layouts/...`.
+These are the base templates that overrides can extend for partial customization.
+* Roq also produces corresponding *site layouts* for each theme layout.
+Site layouts are the versions that your pages actually reference.
+
+When Roq builds your site, it checks for overrides:
+
+* **If you provide an override:**
+Roq uses your override as the site layout, while still keeping the theme’s original layout under `theme-layouts/...` for inheritance.
+* **If you don’t provide an override:**
+Roq copies the theme layout as the site layout, so it can be used directly.
+
+This mechanism ensures you only need to override the parts you want to customize—everything else automatically falls back to the theme.
+
+=== Developing a theme
+
+To develop a theme, create a Maven module which will contain the theme layouts, partials, scripts and styles.
+
+[source]
+----
+.
+└── main
+    ├── resources
+    │   ├── application.properties
+    │   └── templates
+    │       ├── partials
+    │       │   └── roq-default // <1>
+    │       │       ├── head.html
+    │       │       ├── pagination.html
+    │       │       ├── sidebar-about.html
+    │       │       ├── sidebar-contact.html
+    │       │       ├── sidebar-copyright.html
+    │       │       └── sidebar-menu.html
+    │       └── theme-layouts // <2>
+    │           └── roq-default
+    │               ├── default.html
+    │               ├── index.html
+    │               ├── main.html
+    │               ├── page.html
+    │               ├── post.html
+    │               └── tag.html
+    └── web
+        ├── roq.js
+        ├── roq.scss
+----
+<1> You can add partials for your theme, they need to be located in a directory with the theme name `templates/partials/{theme-name}/`.
+<2> Layouts needs to be declared in `theme-layouts/` using a directory with the theme name`templates/theme-layouts/{theme-name}/`.
+
+Same as for a site, script and styles can either be added to `src/main/resoucres/META-INF/resources` or bundled using Maven esbuild plugin:
+
+.pom.xml
+[source,xml]
+----
+             <plugin>
+                <groupId>io.mvnpm</groupId>
+                <artifactId>esbuild-maven-plugin</artifactId>
+                <version>0.0.2</version>
+                <executions>
+                    <execution>
+                        <id>esbuild</id>
+                        <goals>
+                            <goal>esbuild</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <entryPoint>roq.js</entryPoint> <!--1-->
+                </configuration>
+                <dependencies> <!--2-->
+                    <dependency>
+                        <groupId>org.mvnpm.at.fortawesome</groupId>
+                        <artifactId>fontawesome-free</artifactId>
+                        <version>6.6.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.mvnpm.at.fontsource</groupId>
+                        <artifactId>pt-serif</artifactId>
+                        <version>5.1.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+----
+<1> Add your esbuild entrypoint from `src/main/resources/web`
+<2> Add mvnpm or webjars dependencies
+
+This bundle will be available in `/static/bundle/roq.js` and `/static/bundle/roq.css` which can be used in your theme html `<head>`
+
+You need to create an application.properties:
+
+.src/main/resources/application.properties
+[source,properties]
+----
+site.theme=roq-default // <1>
+----
+<1> This allows site referencing the theme to default to this theme.
+
+[#links]
+== Links & Urls
+
+The output location of pages and documents is determined by the FrontMatter `link` key. This `link` value can include placeholders, which will be dynamically replaced with relevant values for routing.
+
+TIP: Those links are also available in the Qute data to allow <<roq-url>>.
+
+[#link-placeholders]
+=== Link placeholders
+
+|===
+| Type of page | Placeholder  | Description | Example Output
+
+| All
+| `:path`
+| The file path of the page, slugified (converted to a URL-friendly format) without the extension.
+| `my-page`, `search` or `docs/my-doc`
+
+| All
+| `:raw-path`
+| The raw file path of the page without the extension.
+| `My$`, `my car` or `été/2024`
+
+
+| All
+| `:slug`
+| The slugified title of the page, derived from the title. Defaults to the `slug` property in data, if available or using the slugified title, falling back to the name.
+| `my-page-title`
+
+| All
+| `:Slug`
+| The case-preserving slugified title of the page, derived from the title. Defaults to the `slug` property in data, if available or using the slugified title, falling back to the name.
+| `My-Page-Title`
+
+| All
+| `:name`
+| The slugified name of the file (or directory if index). If the filename contains a date (e.g., '2025-08-21-My-Blog-Post.md'), the date portion will be stripped away. This behavior mimics that found in Jekyll builds, making any migrations simpler.
+| `my-blog-post`
+
+| All
+| `:Name`
+| The case-preserving slugified name of the file (or directory if index). If the filename contains a date (e.g., '2025-08-21-My-Blog-Post.md'), the date portion will be stripped away. This behavior mimics that found in Jekyll builds, making any migrations simpler.
+| `My-Blog-Post`
+
+| All
+| `:ext`
+| The file extension with the dot. Empty for all files with html output (md, asciidoc, html, ...).
+| `.json`
+
+| All
+| `:ext!`
+| Force the output file extension.
+| `.html`, `.json`
+
+| All
+| `:year`
+| The year of the page’s date or the current year if the date is not available.
+| `2024`
+
+| All
+| `:month`
+| The month (formatted as two digits) of the page’s date or the current month if the date is not available.
+| `10`
+
+| All
+| `:day`
+| The day (formatted as two digits) of the page’s date or the current day if the date is not available.
+| `28`
+
+| Document
+| `:collection`
+| Represents the collection to which the document belongs, such as a specific category or folder name.
+| `blog`, `articles`, `recipes`
+
+| Paginated
+| `:page`
+| Represents the current page.
+| `1`, `2`
+|===
+
+
+NOTE: The slug derivation replaces all non-alphanumeric characters by `-` to make them url friendly.
+
+Default link value:
+
+* for pages: `/:path:ext`.
+* for documents: `/:collection/:slug/`.
+* for paginated page: `/:collection/page:page/`.
+
+TIP: You can define `link` in a layout to affect all the pages using that layout.
+
+[#roq-url]
+=== Creating links between your pages
+
+The pages links are automatically converted to urls by Roq, they are available in the `site.url` and the `page.url` variables. This makes creating links very easy:
+
+[source,html]
+----
+<a href="{site.url}">Back to main page</a>
+----
+or to get the next page url in a document:
+
+[source,html]
+----
+<a href="{page.next.url}">{page.next.title}</a>
+----
+
+or when iterating on documents:
+
+[source,html]
+----
+{#for post in site.collections.posts}
+  <a href="{post.url}">{post.title}</a>
+{/for}
+----
+
+or also to manually retrieve a page url with `site.page(sourcePath)`:
+
+[source,html]
+----
+<a href="{site.page('foo.html').url}">{site.page('foo.html').title}</a>
+----
+
+TIP: By default, url will be rendered as the path from the site root. You can also get the full absolute url (i.e. from `http(s)://`) by using `absolute` on any url (e.g. `{site.url.absolute}`).
+
+=== Manual linking
+
+Sometimes, you want to create a link for a page without holding the variable, in this case, you can use `site.url(relativePath)` which will be automatically resolved from the site root path.
+
+== Escaping pages content
+
+There are cases where you might not want your page content to be parsed by Qute, to avoid conflicts with the content. You have different options:
+
+* Configure it globally via `site.escaped-pages` (globs are allowed):
++
+.config/application.properties
+[source,properties]
+----
+site.escaped-pages=posts/escaped**,my-page.html
+----
+
+* Set it in FrontMatter by adding `escape: true` in your page data (not working with layouts).
+
+* Escape inline content by wrapping the section with `\{|` and `|\}`, or by manually escaping Qute expressions using `&#92;{`.
+
+
+[#root-path]
+== Setting the Root Path for your site (base-path)
+
+When the entire Roq site is under a root path such as `mysite.io/foo/`, configure `quarkus.http.root-path` in the Quarkus configuration:
+
+.config/application.properties
+[source,properties]
+----
+quarkus.http.root-path=/foo
+----
+
+Environment variable: `SITE_ROOT_PATH`
+
+TIP: For GitHub Pages, this is already detected and handled by the Roq GitHub Action, no need to do anything.
+
+== Debugging
+
+To debug errors, you may print debug information in the logs:
+
+[source,shell]
+----
+quarkus dev -Dquarkus.log.category.\"io.quarkiverse.roq.frontmatter\".level=DEBUG
+----
+
+== Testing
+
+All templates will be validated at generation. Sometimes, for example on Pull-Request, you want to detect issues before actual generation. Roq provides a way to generate the full site during the test phase.
+
+First, include the `quarkus-roq-testing` test dependency in your `pom.xml`.
+
+.pom.xml
+[source,xml]
+----
+    <dependency>
+        <groupId>io.quarkiverse.roq</groupId>
+        <artifactId>quarkus-roq-testing</artifactId>
+        <version>{cdi:project-info.release.current-version}</version>
+        <scope>test</scope>
+    </dependency>
+----
+
+=== Test Site Generation
+
+Once you've added the dependency, you can easily ensure all pages are generated without errors:
+
+.src/test/java/RoqSiteTest.java
+[source,java]
+----
+@QuarkusTest
+@RoqAndRoll
+public class RoqSiteTest {
+
+    @Test
+    public void testGen() {
+        // All pages will be generated/validated during test setup
+    }
+}
+----
+
+That's it! This basic test already verifies that your site generation is error-free.
+
+You can also add checks on the actual generated content as it is served using a static file server:
+
+.src/test/java/RoqSiteTest.java
+[source,java]
+----
+@QuarkusTest
+@RoqAndRoll
+public class RoqSiteTest {
+
+    @Test
+    public void testIndex() {
+        RestAssured.when().get("/")
+                .then()
+                .statusCode(200)
+                .body(containsString(
+                    "Ready to Roq my world!"
+                ));
+    }
+}
+----
+
+The RestAssured port will automatically use the Roq static test server, running on port 8082 by default.
+
+TIP: The Roq test server port could be modified by an annotation parameter like this `@RoqAndRoll(port=8082)`.
+
+=== Using standard Quarkus test
+
+It's possible to use the standard Quarkus test support (https://quarkus.io/guides/getting-started-testing[Testing Your Application]) to check the content, but then pages will be rendered dynamically on demand at runtime:
+
+.src/test/java/QuteWebSiteTest.java
+[source,java]
+----
+@QuarkusTest
+public class QuteWebSiteTest {
+
+    @Test
+    public void testIndex() {
+        RestAssured.when().get("/")
+                .then()
+                .statusCode(200)
+                .body(containsString(
+                    "Ready to Roq my world!"
+                ));
+    }
+}
+----
+
+In this case the RestAssured port will automatically use the Quarkus dynamic test server, running on port 8081 by default.
+
+== Updating Roq
+
+Make sure your https://quarkus.io/guides/cli-tooling[Quarkus cli] is up-to-date:
+[source,shell]
+----
+$ curl -Ls https://sh.jbang.dev | bash -s - app install --fresh --force quarkus@quarkusio
+----
+
+Then run the update command:
+[source,shell]
+----
+$ quarkus update
+----
+
+This will update the Quarkus version and extensions (including Roq) and make sure they are compatible together.
+
+The releases and migration info can be found xref:releases.adoc[here].
+
+== Site Configuration
+
+Site configuration is done in `config/application.properties` (or `src/main/resources/application.properties`):
+
+
+include::../../includes/configs/quarkus-roq-frontmatter_site.adoc[]

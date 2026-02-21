@@ -1,0 +1,29 @@
+<aside class="docs-toc">
+    <h4 class="docs-toc__title">On This Page</h4>
+    <nav class="docs-toc__nav">
+        <ul class="docs-toc__list">
+            {#if page.data.toc??}
+                {#for item in page.data.toc}
+                <li class="docs-toc__item docs-toc__item--level-{item.level ?: 2}">
+                    <a href="#{item.id}" class="docs-toc__link">
+                        {item.title}
+                    </a>
+                </li>
+                {/for}
+            {#else}
+                <li class="docs-toc__item docs-toc__item--empty">
+                    <span class="docs-toc__text">No table of contents available</span>
+                </li>
+            {/if}
+        </ul>
+    </nav>
+    
+    {#if page.date??}
+    <div class="docs-toc__meta">
+        <p class="docs-toc__date">
+            <strong>Last Updated:</strong><br/>
+            {page.date.format(global:FULL_DATE_FORMAT)}
+        </p>
+    </div>
+    {/if}
+</aside>
