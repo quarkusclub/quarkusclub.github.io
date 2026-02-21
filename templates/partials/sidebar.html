@@ -1,0 +1,32 @@
+<aside class="docs-sidebar">
+    <nav class="docs-sidebar__nav">
+        <h3 class="docs-sidebar__title">Documentation</h3>
+        
+        {#if site.collections.docs??}
+        <ul class="docs-sidebar__list">
+            {#for doc in site.collections.docs}
+            <li class="docs-sidebar__item">
+                <a href="{doc.url}" 
+                   class="docs-sidebar__link {#if page.url.path == doc.url.path}docs-sidebar__link--active{/if}">
+                    {doc.title}
+                </a>
+            </li>
+            {/for}
+        </ul>
+        {/if}
+        
+        {#if site.pages??}
+        <h4 class="docs-sidebar__subtitle">Pages</h4>
+        <ul class="docs-sidebar__list">
+            {#for p in site.pages}
+            <li class="docs-sidebar__item">
+                <a href="{p.url}" 
+                   class="docs-sidebar__link {#if page.url.path == p.url.path}docs-sidebar__link--active{/if}">
+                    {p.title}
+                </a>
+            </li>
+            {/for}
+        </ul>
+        {/if}
+    </nav>
+</aside>

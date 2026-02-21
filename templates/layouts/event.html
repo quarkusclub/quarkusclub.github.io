@@ -1,70 +1,121 @@
 ---
-layout: :theme/page
+layout: page
 id: event
 ---
-<div class="event-header">
-    <h1 class="event-header__title dark">{page.title}</h1>
-    <img alt="Quarkus Club logo" class="event-header__image" src="{site.image('quarkusclub.jpeg')}"/>
-    <p class="event-header__date"><i class="fa fa-calendar-alt"></i>{page.date.format(global:FULL_DATE_FORMAT)}</p>
-
-    <div class="event-header__buttons">
-
-        {#if page.data.containsKey("subscription") && page.date.isAfterNow}
-        <a href="{page.data.subscription}" target="_blank" class="event-header__button">Join Us</a>
-        {/if}
-
-        {#if page.data.containsKey("youtubeLive")}
-        <a href="{page.data.youtubeLive}" target="_blank" class="event-header__button event-header__button--youtube">
-            <i class="fa-brands fa-youtube"></i>Youtube Live</a>
-        {/if}
-
-        {#if page.data.containsKey("googleDriveSlides")}
-        <a href="{page.data.googleDriveSlides}" target="_blank" class="event-header__button event-header__button--gdriver">
-            <i class="fa-brands fa-google-drive"></i>Slides</a>
-        {/if}
-    </div>
-</div>
-
-<hr class="divider">
-
-<div class="resume">
-    <h2 class="resume__title">{page.title}</h2>    
-    {#if page.description??}
-    <h3 class="resume__subtitle">Resume</h3>
-    {page.description.markdownify()}
-    {/if}
-</div>
-
-<div class="speakers">
-    <h3 class="resume__subtitle">Speakers</h3>
-    {#if page.data.speakers.asStrings.isEmpty }
-    Speakers coming soon!
-    {/if}
-
-    <div class="speakers">
-        {#for id in page.data.speakers}
-        {#let speaker = cdi:speakers.get(id)}
-        <div>
-            <p class="speakers__speaker-name">{speaker.name}</p>
-            <p class="speakers__speaker-bio">{speaker.bio}</p>
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Event Header -->
+    <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl p-8 md:p-12 mb-8 shadow-xl">
+        <div class="flex flex-col md:flex-row items-center gap-6 mb-6">
+            <img alt="Quarkus Club logo" class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-lg" src="{site.image('quarkusclub.jpeg')}"/>
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{page.title}</h1>
+                <div class="flex items-center justify-center md:justify-start gap-2 text-lg">
+                    <i class="fa fa-calendar-alt"></i>
+                    <span>{page.date.format(global:FULL_DATE_FORMAT)}</span>
+                </div>
+            </div>
         </div>
-        {/for}
-    </div>
-</div>
 
-<script src="https://giscus.app/client.js"
-        data-repo="quarkusclub/quarkusclub.github.io"
-        data-repo-id="R_kgDOOjCTSg"
-        data-category="General"
-        data-category-id="DIC_kwDOOjCTSs4Cs8t7"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="light"
-        data-lang="en"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-</script>
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap justify-center md:justify-start gap-3">
+            {#if page.data.containsKey("subscription") && page.date.isAfterNow}
+            <a href="{page.data.subscription}" target="_blank" class="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
+                <i class="fas fa-user-plus"></i>
+                Join Us
+            </a>
+            {/if}
+
+            {#if page.data.containsKey("youtubeLive")}
+            <a href="{page.data.youtubeLive}" target="_blank" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base inline-flex items-center gap-2">
+                <i class="fab fa-youtube"></i>YouTube
+            </a>
+            {/if}
+
+            {#if page.data.containsKey("googleDriveSlides")}
+            <a href="{page.data.googleDriveSlides}" target="_blank" class="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
+                <i class="fab fa-google-drive"></i>
+                Slides
+            </a>
+            {/if}
+        </div>
+    </div>
+
+    <!-- Event Description -->
+    {#if page.description??}
+    <section class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-8">
+        <div class="flex flex-row items-center gap-3 mb-6">
+            <div class="w-1 h-8 bg-blue-600 rounded"></div>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 m-0!">About This Event</h2>
+        </div>
+        <div class="prose prose-lg max-w-none text-gray-700 [&>*:first-child]:mt-0">
+            {page.description.markdownify()}
+        </div>
+    </section>
+    {/if}
+
+    <!-- Speakers Section -->
+    <section class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-8">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-1 h-8 bg-blue-600 rounded"></div>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 m-0!">Speakers</h2>
+        </div>
+        
+        {#if page.data.speakers.asStrings.isEmpty}
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg">
+            <div class="flex items-center gap-3">
+                <i class="fas fa-info-circle text-blue-600 text-2xl"></i>
+                <p class="text-gray-700 font-medium">Speakers coming soon!</p>
+            </div>
+        </div>
+        {#else}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {#for id in page.data.speakers}
+            {#let speaker = cdi:speakers.get(id)}
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6 border-l-4 border-blue-600 hover:shadow-lg transition-shadow">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i class="fas fa-user text-white text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">{speaker.name}</h3>
+                        {#if speaker.bio??}
+                        <p class="text-gray-700 text-sm leading-relaxed">{speaker.bio}</p>
+                        {/if}
+                        {#if speaker.profile??}
+                        <a href="{speaker.profile}" target="_blank" class="inline-flex items-center gap-2 mt-3 text-blue-600 hover:text-blue-800 font-semibold text-sm">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Profile
+                        </a>
+                        {/if}
+                    </div>
+                </div>
+            </div>
+            {/for}
+        </div>
+        {/if}
+    </section>
+
+    <!-- Comments Section -->
+    <section class="bg-white rounded-xl shadow-md p-6 md:p-8">
+        <div class="flex items-center gap-3 mb-6">
+            <div class="w-1 h-8 bg-blue-600 rounded"></div>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 m-0!">Discussion</h2>
+        </div>
+        <script src="https://giscus.app/client.js"
+                data-repo="quarkusclub/quarkusclub.github.io"
+                data-repo-id="R_kgDOOjCTSg"
+                data-category="General"
+                data-category-id="DIC_kwDOOjCTSs4Cs8t7"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="light"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async>
+        </script>
+    </section>
+</div>

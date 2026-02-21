@@ -1,0 +1,57 @@
+---
+layout: default
+---
+<div class="min-h-screen flex flex-col">
+    <header class="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex-shrink-0">
+                    <a href="{site.url}" class="text-xl md:text-2xl font-bold hover:text-blue-400 transition-colors">
+                        {site.title}
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-white hover:text-blue-400 focus:outline-none" aria-label="Toggle menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:block">
+                    {#include partials/navigation /}
+                </nav>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <nav id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-700 pt-4">
+                <ul class="flex flex-col gap-3">
+                    {#for item in cdi:menu.items}
+                    <li>
+                        <a href="{item.path}" class="block text-white hover:text-blue-400 transition-colors py-2 {#if page.url.path == item.path}text-blue-400 font-semibold{/if}">
+                            {item.title}
+                        </a>
+                    </li>
+                    {/for}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="flex-grow container mx-auto px-4 py-8">
+        {#insert /}
+    </main>
+    
+    <footer class="bg-gray-900 text-white mt-auto">
+        {#include partials/footer /}
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button')?.addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu?.classList.toggle('hidden');
+        });
+    </script>
+</div>
