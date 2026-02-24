@@ -3,6 +3,13 @@ layout: main
 ---
 <article class="max-w-7xl mx-auto">
     <div class="prose prose-lg max-w-none">
+        <header class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">{page.title}</h1>
+            {#if page.description??}
+            <p class="text-xl text-gray-600 mb-4">{page.description}</p>
+            {/if}
+        </header>
+        
         <div class="bg-white rounded-lg shadow-sm p-8">
             {#insert /}
         </div>
