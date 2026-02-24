@@ -8,9 +8,9 @@ image: community.jpeg
 description: |
   **⚠️ Vagas são limitadas!**
   
-  Junte-se a nós para um workshop hands-on onde você aprenderá Quarkus!
+  Junte-se a nós para um workshop hands-on onde você aprenderá Quarkus do Zero!
     
-  Nós vamos desde o zero do Quarkus até criarmos um sistema Cloud-Native, vamos cobrir os fundamentos e melhores práticas para construir aplicações modernas com Quarkus.
+  Nós vamos desde o zero do Quarkus até criarmos diversas aplicações que interagem entre si, vamos cobrir os fundamentos e melhores práticas para construir aplicações Java modernas com Quarkus.
 
   Seja você novo no Quarkus ou buscando fortalecer sua base, este workshop fornecerá o conhecimento e a experiência prática necessária para começar a construir aplicações Java de alto desempenho.
 
