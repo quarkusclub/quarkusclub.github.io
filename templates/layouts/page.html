@@ -8,12 +8,6 @@ layout: main
             {#if page.description??}
             <p class="text-xl text-gray-600 mb-4">{page.description}</p>
             {/if}
-            {#if page.date??}
-            <p class="text-gray-500 flex items-center gap-2">
-                <i class="fa fa-calendar"></i>
-                {page.date.format(global:FULL_DATE_FORMAT)}
-            </p>
-            {/if}
         </header>
         
         <div class="bg-white rounded-lg shadow-sm p-8">

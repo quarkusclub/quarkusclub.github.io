@@ -12,7 +12,8 @@ layout: page
         <div class="mb-4">
             <strong class="text-gray-700 mr-2">Tags:</strong>
             {#for tag in page.data.tags.asStrings}
-            <a href="{site.url('/tags/{tag.slugify}')}" class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm hover:bg-blue-200 transition-colors mr-2 mb-2">
+            {#let tagSlug = tag.slugify}
+            <a href="{site.url('/posts/tag/', tagSlug)}" class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm hover:bg-blue-200 transition-colors mr-2 mb-2">
                 {tag}
             </a>
             {/for}
