@@ -18,6 +18,14 @@ id: event
 
         <!-- Action Buttons -->
         <div class="flex flex-wrap justify-center md:justify-start gap-3">
+
+            {#if page.data.containsKey("googleForms") && page.date.isAfterNow}
+            <a href="{page.data.googleForms}" target="_blank" class="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2 no-underline">
+                <i class="fab fa-google"></i>
+                Register
+            </a>
+            {/if}
+
             {#if page.data.containsKey("subscription") && page.date.isAfterNow}
             <a href="{page.data.subscription}" target="_blank" class="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
                 <i class="fas fa-user-plus"></i>
@@ -45,7 +53,7 @@ id: event
     <section class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-8">
         <div class="flex flex-row items-center gap-3 mb-6">
             <div class="w-1 h-8 bg-blue-600 rounded"></div>
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 m-0!">About This Event</h2>
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 m-0!">About this event</h2>
         </div>
         <div class="prose prose-lg max-w-none text-gray-700 [&>*:first-child]:mt-0">
             {page.description.markdownify()}

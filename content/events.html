@@ -16,7 +16,7 @@ layout: page
     <section class="mb-16">
         <div class="flex items-center gap-3 mb-8">
             <div class="w-1 h-8 bg-blue-600 rounded"></div>
-            <h2 class="text-3xl font-bold text-gray-900">Upcoming Events</h2>
+            <h2 class="text-3xl font-bold text-gray-900 m-0!">Upcoming events</h2>
         </div>
         
         {#if !future.isEmpty}
@@ -37,9 +37,15 @@ layout: page
                     <div class="flex items-center gap-2 text-sm text-gray-600 mb-4">
                         <i class="fa fa-calendar text-blue-600"></i>
                         <span>{event.date.format(global:FULL_DATE_FORMAT)}</span>
+                        {#if event.data.language?? && event.data.language == 'pt-BR'}
+                        <span class="flex items-center gap-1" title="Portuguese (Brazil)">
+                            <span class="text-sm text-gray-600">Language:</span>
+                            <span class="text-sm font-semibold text-blue-600">pt-BR</span>
+                        </span>
+                        {/if}
                     </div>
                     
-                    {#if event.data.speakers??}
+                    {#if event.data.speakers?? && !event.data.speakers.isEmpty}
                     <div class="border-t pt-4">
                         <p class="text-sm text-gray-500 mb-2">Speakers:</p>
                         <div class="flex flex-wrap gap-2">
@@ -76,7 +82,7 @@ layout: page
     <section class="mb-16">
         <div class="flex items-center gap-3 mb-8">
             <div class="w-1 h-8 bg-gray-600 rounded"></div>
-            <h2 class="text-3xl font-bold text-gray-900">Past Events</h2>
+            <h2 class="text-3xl font-bold text-gray-900 m-0!">Past events</h2>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -95,6 +101,13 @@ layout: page
                     <div class="flex items-center gap-2 text-sm text-gray-600 mb-4">
                         <i class="fa fa-calendar text-gray-600"></i>
                         <span>{event.date.format(global:FULL_DATE_FORMAT)}</span>
+                        {#if event.data.language?? && event.data.language == 'pt-BR'}
+                        <span class="flex items-center gap-1" title="Portuguese (Brazil)">
+                            <span class="text-sm text-gray-600">Language:</span>
+                            <span class="text-2xl">🇧🇷</span>
+                            <span class="text-sm font-semibold text-gray-600">pt-BR</span>
+                        </span>
+                        {/if}
                     </div>
                     
                     {#if event.data.speakers??}
