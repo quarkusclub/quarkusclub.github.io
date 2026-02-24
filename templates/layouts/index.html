@@ -104,7 +104,7 @@ image: quarkusclub.jpg
     {#insert featured-content}
     <section class="mb-16 md:mb-20 pb-8">
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">Latest Posts</h2>
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">Latest posts</h2>
             <a href="{site.url('/posts')}" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-2 text-sm sm:text-base">
                 View All <i class="fas fa-arrow-right text-xs"></i>
             </a>
@@ -129,7 +129,7 @@ image: quarkusclub.jpg
                         {#if post.date??}
                         <span class="flex items-center gap-1 whitespace-nowrap">
                             <i class="fa fa-calendar text-blue-600 text-xs"></i>
-                            {post.date.format(global:FULL_DATE_FORMAT)}
+                            {post.date.format(global:ONLY_DATE_FORMAT)}
                         </span>
                         {/if}
                         <span class="flex items-center gap-1 whitespace-nowrap">

@@ -1,0 +1,30 @@
+{@io.quarkiverse.roq.frontmatter.runtime.model.DocumentPage post}
+{@io.quarkiverse.roq.frontmatter.runtime.model.Site site}
+
+<article class="bg-white rounded-xl shadow-md hover:shadow-2xl transition-all overflow-hidden group transform hover:-translate-y-1 duration-300">
+    {#if post.image??}
+    <div class="overflow-hidden h-40 sm:h-48">
+        <img src="{post.image}" alt="{post.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"/>
+    </div>
+    {/if}
+    <div class="p-4 sm:p-6">
+        <h2 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 line-clamp-2">
+            <a href="{post.url}" class="text-gray-900 hover:text-blue-600 transition-colors">{post.title}</a>
+        </h2>
+        {#if post.description??}
+        <p class="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-3">{post.description}</p>
+        {/if}
+        <div class="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-500">
+            {#if post.date??}
+            <span class="flex items-center gap-1 whitespace-nowrap">
+                <i class="fa fa-calendar text-blue-600 text-xs"></i>
+                {post.date.format(global:FULL_DATE_FORMAT)}
+            </span>
+            {/if}
+            <span class="flex items-center gap-1 whitespace-nowrap">
+                <i class="fa fa-clock text-green-600 text-xs"></i>
+                {post.readTime} min read
+            </span>
+        </div>
+    </div>
+</article>
