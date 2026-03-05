@@ -296,3 +296,7 @@ Just in this chapter, if we dive deeper, we can see concepts like programming to
 encapsulation and information hiding, etc.
 
 This is the first of many items that will be documented on our blog. See you soon!
+
+---
+
+_This blog post was written in Portuguese and translated to English using [IBM Bob](https://www.ibm.com/products/bob)._
