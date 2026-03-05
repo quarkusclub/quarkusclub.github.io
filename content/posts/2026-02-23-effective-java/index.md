@@ -1,297 +1,137 @@
 ---
-title: "Effective Java: Static Factory Method (Item 1)"
-description: Veja os benefícios que o uso do static factory method pode trazer para a sua API Java 
-image: static-factory.jpg
+title: "Welcome to the Effective Java Book Club"
+description: Join our bookclub to dive deep into Effective Java! 
+image: books.jpg
 layout: post
-language: pt-BR
 tags: [effective-java, bookclub]
 author: mcruzdev
 ---
 
-# Static Factory Method
+Our last book was [*Quarkus in Action*](/bookclub).
+This time, we are diving into **Effective Java (3rd Edition)** by Joshua
+Bloch.
 
-### Agradecimentos
+If you already write Java and want to write *better* Java, this book is for you.
 
-No nosso primeiro encontro do QuarkusClub BookClub falamos sobre o primeiro item do livro Effective Java.
-E gostaria de deixar os meus agradecimentos aos membros da comunidade que participaram.
+## Learning a New Language (Spoken or Programmed)
 
-### Assunto do segundo capítulo
+The author starts with a simple analogy: when learning a second language, you
+need three things:
 
-Vamos ao que interessa, vou deixar aqui um resumo bem legal do item 1 que fala sobre Static Factory Method. 
-Os itens do segundo capítulo pretende falar sobre a criação e morte dos objetos criados no nosso código Java.
+-   **Grammar**
+-   **Vocabulary**
+-   **Usage**
 
-## Item 1: Considere usar Static Factory Method ao invés de construtores
+If we translate that to programming:
 
-Como bons desenvolvedores Java, normalmente criamos nossos objetos através da palavra reservada `new` e as vezes nem isso,
-delegamos o ciclo de vida dos nossos objetos para o CDI, mas de qualquer é quase impossível você não escrever `new` nos seus projetos Java (_e as vezes nem isso, você delega pra IA 😝_).
+-   **Grammar** → Is the language object-oriented? Functional?
+    Imperative? What paradigms does it support?
+-   **Vocabulary** → What does the standard library give you?
+    Collections, concurrency utilities, streams, I/O, etc.
+-   **Usage** → How do experienced developers actually use these tools
+    effectively?
 
-### Primeira vantagem
+And that last part *usage* is where this book shines.
 
-**Static Factory Methods possuem nomes, construtores não!**
+* This is not a tutorial. 
+* It won't teach you what a `class` is.
+* It assumes you already know Java. 
 
-O livro traz o exemplo do construtor `BigInteger(int, int, Random)` que retorna um `BigInteger` que é provavelmente um número primo.
-E diz que seria melhor expresso se houvesse um `BigInteger.probablePrime`.
+Instead, it teaches you how to write code that is:
 
-Se você, assim como eu, não usa sempre esse construtor de `BigInteger`, 
-provavelmente você ia usar a sua IDE para navegar para dentro do código e olhar a documentação, ou até mesmo a implementação do método para entender o que ele faz.
+> clear, correct, usable, robust, flexible, and maintainable.
 
-> Bons nomes tornam sua API mais expressiva e deixam clara a intenção por trás do seu design.
+## Writing Better Java APIs
 
+Before going further, let's align on something important:
 
-### Segunda vantagem
+### What is an API?
 
-**Você sempre cria uma nova instância com `new`, já o Static Factory Method te dá mais opções!**
+API stands for *Application Programming Interface*. In the context of a
+library or framework, it's the set of public classes and interfaces
+exposed to users. It's your contract with them.
 
-Um exemplo disso é o método da API do Java `Boolean.valueOf(boolean)`, 
-os objetos já estão criados, 
-você só retorna algo que já existe.
+Your API defines: 
 
+- What users *can* do 
+- What they *cannot* do 
+- What they *should expect*
 
-```java
+The author emphasizes a powerful principle:
 
-public static final Boolean TRUE = new Boolean(true);
+> The user of a component should never be surprised by its behavior.
 
-public static final Boolean FALSE = new Boolean(false);
+Whether you're building: 
 
-public static Boolean valueOf(String s) {
-    return parseBoolean(s) ? TRUE : FALSE;
-}
-```
+- A public library 
+- An internal company framework 
+- A REST client 
+- Or even a domain layer
 
-Isso é super interessante pra quando você não quer ficar criando aquele objeto custoso de ser criado,
-um exemplo disso é o nosso querido `com.fasterxml.jackson.databind.ObjectMapper`,
-normalmente você não quer criar um toda vez que precisar,
-você utiliza um que já existe através de um static factory method.
+You are designing APIs.
 
-Classes que fazem isso são chamadas de `instance-controlled`,
-se você é experiente já deve ter percebido que isso permite a gente ter um `Singleton`:
+And poor API design is expensive. It leaks into: 
 
-```java
+- Backward compatibility problems 
+- Confusing abstractions 
+- Hard-to-test code 
+- Fragile integrations
 
-public class Engine {
-    
-    private Engine() {} // 1
-    
-    private static Engine engine;
-    
-    public static Enginer instance() {
-        if (engine == null) { // 2
-            engine = newEngine(); // 3
-        }
-        return engine;
-    }
-}
-```
+*Effective Java* gives you practical, battle-tested rules to avoid that.
 
-1. Só eu tenho o poder de criar um objeto do tipo `Engine`
-2. Se não existir eu mesmo crio
-3. Se existir eu apenas retorno
 
-### Terceira vantagem
+## The Structure of the Book: 90 Practical Items
 
-**Static Factory Methods podem retornar qualquer sub-tipo do tipo de retorno, construtores não!**
+The 3rd edition contains **90 items**. Each item is a focused rule or
+recommendation.
 
-Esse aqui é bem simples e eu vou ter que usar o famoso exemplo de OOP (Object Oriented Programming), 
-vamos pensar numa classe `Pessoa`, eu posso ter `PessoaFisica` e `PessoaJuridica`, brincadeira vamos pensar em algo diferente:
+What makes this book different:
 
+-   It shows **anti-patterns**
+-   It explains *why* something is wrong
+-   It gives concrete alternatives
+-   It discusses trade-offs
 
-```java
-public interface Writer {}
+It's not dogmatic (Do not do the same thing you do with Clean Code), it's pragmatic.
 
-public class Writers {
+## The First Five Items
 
-    private Writers() {}
+We will start with the first five:
 
-    public void writer(String message);
+1.  **Consider static factory methods instead of constructors**
+2.  **Consider a builder when faced with many constructor parameters**
+3.  **Enforce the singleton property with a private constructor or an enum type**
+4.  **Enforce noninstantiability with a private constructor**
+5.  **Prefer dependency injection to hardwiring resources**
 
-    private static class ConsoleWriter implements Writer { /* ... */ }
+If you have been working with frameworks like Quarkus, Spring, or Jakarta
+EE, you have probably seen these principles in action, sometimes
+without realizing they came straight from this book.
 
-    private static class FileWriter implements Writer { /* ... */ }
+These five items alone already change how you design objects.
 
-    public static Writer consoleWriter() { /* ... */ }
 
-    public static Writer fileWriter() { /* ... */ }
-}
-```
+## Who Is This For?
 
-Dessa forma, eu escondo do meu usuário as implementações e tenho uma API muitos mais compacta, 
-e outra nós estamos baseando nossa API sobre interfaces e não sobre implementações.
+This book club is for developers who:
 
-O livro traz o exemplo do Java Collections Framework que possui 45 implementações (esse valor pode estar diferente hoje) utilitárias de suas interfaces,
-fornecendo coleções imutáveis, sincronizadas, etc.
+-   Already know Java
+-   Want to improve API design skills
+-   Care about maintainability
+-   Enjoy discussing trade-offs
+-   Like learning in a group
 
-Quase todas essas implementações são expostas por meio de métodos de fábrica estáticos em uma única classe que não pode ser instanciada (`java.util.Collections`).
+It is especially valuable if you: 
 
-### Quarta vantagem
+- Maintain libraries 
+- Design reusable modules 
+- Work on framework code 
+- Care about long-term code quality
 
-**O objeto retornado de um Static Factory Method pode variar dependendo dos argumentos!**
+## Join the Book Club
 
-Essa quarta vantagem é bem interessante para quando a gente quer esconder coisas dos usuários das nossas APIs,
-e mais uma vez o nosso usuário vai se basear sempre na abstração e não na implementação.
+If reading alone is hard or you just want deeper discussions join us.
 
-Vamos usar o mesmo exemplo que o livro traz pra gente, vamos usar a API da class `EnumSet`:
-
-```java
-// java 21
-public abstract sealed class EnumSet<E extends Enum<E>> extends AbstractSet<E>
-        implements Cloneable, java.io.Serializable permits JumboEnumSet, RegularEnumSet {} // 1
-
-public static <E extends Enum<E>> EnumSet<E> noneOf(Class<E> elementType) {
-    Enum<?>[] universe = getUniverse(elementType);
-    if (universe == null)
-        throw new ClassCastException(elementType + " not an enum");
-
-    if (universe.length <= 64) // 2
-        return new RegularEnumSet<>(elementType, universe);
-    else
-        return new JumboEnumSet<>(elementType, universe);
-}
-```
-
-1. A class `EnumSet` é uma class `sealed` que permite apenas `JumboEnumSet` e `RegularEnumSet` de extender os seus comportamentos e atributos.
-2. Se o enum passado para `noneOf` conter 64 elementos ou menos vai ser criado um `RegularEnumSet` caso contrário, será criado um `JumboEnumSet`.
-
-Isso fica escondido da gente, você nem consegue criar um `JumboEnumSet` ele é `package-private` a API vai se virar para me dar o `EnumSet` adequado para o tamanho do meu enum.
-
-### Quinta vantagem
-
-**A classe do tipo de retorno, não precisa existir quando a classe que contém o método é escrita!**
-
-Esse aqui é um pouco mais complicado pra entender, 
-pois ele aplica essa vantabem em combinação com frameworks que permitem o desacoplamento de clientes de implementações.
-
-O livro traz o [Service Provider Interface](https://www.baeldung.com/java-spi) como exemplo de framework que podemos usar, 
-vamos pensar que eu quero apenas prover para os meus usuários uma interface e permitir que ele mesmo ou outra API forneça a implementação.
-
-Eu declaro minha interface:
-
-```java
-package io.github.quarkusclub;
-
-public interface InputCustomizer {
-    void handle(Input input);
-}
-```
-
-Declaro como o meu static factory method:
-
-```java
-public static List<InputCustomizer> inputCustomizers() {
-    return ServiceLoader.load(InputCustomizer.class).stream().toList();
-}
-```
-
-E o meu usuário ou qualquer outra biblioteca pode fornecer para mim uma implementação de `InputCustomizer` e customizar o `Input`.
-
-```java
-package io.github.quarkusclub.effectivejava;
-
-import io.github.quarkusclub.InputCustomizer;
-
-public class AddOwnMetadataCustomizer implements InputCustomizer {
-    
-    public handle(Input input) {
-        input.addMetadata("community", "quarkusclub");
-    }
-}
-```
-
-E dentro de **META-INF/services/io.github.quarkusclub.InputCustomizer** eu informo a minha implementação:
-
-```text
-
-io.github.quarkusclub.effectivejava.AddOwnMetadataCustomizer
-```
-
-## Desvantagens
-
-Nem tudo são flores e sempre vamos ter um trade-off, no caso da nossa primeira desvantagem é como um mal que vem para o bem.
-
-### Primeira desvantagem
-
-As classes que a gente vai escrever os nossos Static Factory Methods não possuem construtores `public` ou `protected` que nos permitem ter subclasses.
-O autor diz que isso é algo como uma coisa boa disfarçada, isso ajuda pessoas a usarem composição á herança.
-
-
-### Segunda desvantagem
-
-A segunda desvantagem é que static factory methods são difíceis de serem encontrados, 
-ele diz que o **javadoc** não gera a documentação para os nossos static factory methods,
-(isso é algo que precisamos validar nos dias de hoje), alguns plugins maven como o `maven-javadoc-plugin` geram isso pra gente facilmente.
-
-Essa desvantagem,
-por exemplo, 
-pode ser muito bem contornada por IDEs como o [IntelliJ IDEA](https://www.jetbrains.com/pt-br/idea/) ou VSCode que permitem a gente visualizar a documentação de um método, 
-durante o uso.
-
-A parte mais legal é que pra essa desvantagem, o livro da uma lista de nomes e quando utilizar pra gente:
-
-### Convenções comuns de nomes para Static Factory Method:
-
--   **`from`**: Um método de conversão de tipo que recebe um único
-    parâmetro e retorna uma instância correspondente deste tipo.
-
-``` java
-Date d = Date.from(instant);
-```
-
--   **`of`**: Um método de agregação que recebe múltiplos parâmetros
-    e retorna uma instância do tipo que os incorpora.
-
-``` java
-Set<Rank> faceCards = EnumSet.of(JACK, QUEEN, KING);
-```
-
--   **`valueOf`**: Uma alternativa mais verbosa a `from` e `of`.
-
-``` java
-BigInteger prime = BigInteger.valueOf(Integer.MAX_VALUE);
-```
-
--   **`instance`** ou **`getInstance`**: Retorna uma instância
-    descrita por seus parâmetros (se houver), mas que não
-    retorna necessariamente sempre o mesmo valor.
-
-``` java
-StackWalker luke = StackWalker.getInstance(options);
-```
-
--   **`create`** ou **`newInstance`**: Semelhante a `instance` ou
-    `getInstance`, exceto que o método garante que cada chamada retorna
-    uma nova instância.
-
-``` java
-Object newArray = Array.newInstance(classObject, arrayLen);
-```
-
--   **`getType`**: Semelhante a `getInstance`, mas usado quando o
-    **static factory method** está em uma classe diferente. `Type` representa o
-    tipo de objeto retornado pelo **static factory method**.
-
-``` java
-FileStore fs = Files.getFileStore(path);
-```
-
--   **`newType`**: Semelhante a `newInstance`, mas usado quando o
-    **static factory method** está em uma classe diferente. `Type` representa o
-    tipo de objeto retornado pelo **static factory method**.
-
-``` java
-BufferedReader br = Files.newBufferedReader(path);
-```
-
--   **`type`**: Uma alternativa mais concisa a `getType` e `newType`.
-
-``` java
-List<Complaint> litany = Collections.list(legacyLitany);
-```
-
-
-## Considerações finais
-
-Como comentado no último encontro, esse item é um dos itens com mais conteúdo e vale muito a pena ver cada detalhe de perto.
-Só nesse capítulo se a gente se aprofundar, podemos ver conceitos como, programar orientado a interface e não a implementação, 
-encapsulamento e ocultação de informações, etc.
-
-Esse é o primeiro de muitos itens que vão ser documentados no nosso blog, até daqui a pouco, valeu!
-
+📅 **February 26th**\
+🕖 **19:00 (UTC-3)**\
+📍 Zoom: https://us06web.zoom.us/j/5846506910?omn=88372985611
