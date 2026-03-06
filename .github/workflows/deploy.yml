@@ -10,14 +10,21 @@ on:
 
 jobs:
   build:
+    if: github.repository == 'quarkusclub/quarkusclub.github.io'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Generate Roq Site
         uses: quarkiverse/quarkus-roq@v1
         with:
+          java-version: 21
           github-token: ${{secrets.GITHUB_TOKEN}}   # Used to automatically get the GitHub Pages url
+        env:
+          QUARKUS_ROQ_GENERATOR_BATCH: true
   deploy:
+    if: github.repository == 'quarkusclub/quarkusclub.github.io'
     environment:
       name: github-pages
       url: ${{steps.deployment.outputs.page_url}}
