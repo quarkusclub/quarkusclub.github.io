@@ -1,6 +1,6 @@
 # blog
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # How Contribute?
@@ -22,6 +22,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/alexandreaquiles/"><img src="https://avatars.githubusercontent.com/u/258331?v=4?s=100" width="100px;" alt="Alexandre Aquiles"/><br /><sub><b>Alexandre Aquiles</b></sub></a><br /><a href="#talk-alexandreaquiles" title="Talks">📢</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://www.kevindubois.com"><img src="https://avatars.githubusercontent.com/u/373537?v=4?s=100" width="100px;" alt="Kevin Dubois"/><br /><sub><b>Kevin Dubois</b></sub></a><br /><a href="#talk-kdubois" title="Talks">📢</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/matheusandre1"><img src="https://avatars.githubusercontent.com/u/92062874?v=4?s=100" width="100px;" alt="Matheus André"/><br /><sub><b>Matheus André</b></sub></a><br /><a href="#maintenance-matheusandre1" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/italobeckman"><img src="https://avatars.githubusercontent.com/u/142343482?v=4?s=100" width="100px;" alt="Ítalo Beckman"/><br /><sub><b>Ítalo Beckman</b></sub></a><br /><a href="#maintenance-italobeckman" title="Maintenance">🚧</a></td>
     </tr>
   </tbody>
 </table>
