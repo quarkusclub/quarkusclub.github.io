@@ -60,6 +60,15 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "italobeckman",
+      "name": "Ítalo Beckman",
+      "avatar_url": "https://avatars.githubusercontent.com/u/142343482?v=4",
+      "profile": "https://github.com/italobeckman",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
