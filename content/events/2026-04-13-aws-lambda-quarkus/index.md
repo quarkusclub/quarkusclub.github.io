@@ -8,4 +8,5 @@ description: |
 speakers: [isabellacoliveira]
 language: pt-BR
 draft: false
+image: isabellacoliveira.jpeg
 ---
