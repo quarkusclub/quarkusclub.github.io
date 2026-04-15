@@ -4,7 +4,7 @@ layout: event
 date: 2026-01-27 18:00:00 -0300
 youtubeLive: https://www.youtube.com/watch?v=BzEZFF2nrNw
 description: |
-  Como o Camel e Quarkus podem ajudar na construção dos sistemas inteligentes. Vamos ver os novos componentes adicionados no Camel e duas demos super interessantes sobre o novo sistema que o time do Camel está desenvolvendo e uma pipeline com Camel e RAG.
+  How Camel and Quarkus can help in building intelligent systems. Let's look at the new components added to Camel and two super interesting demos about the new system that the Camel team is developing, and a pipeline with Camel and RAG.
 speakers: [orpiske]
 language: pt-BR
 draft: false
