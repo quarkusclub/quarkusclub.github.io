@@ -69,6 +69,15 @@
       "contributions": [
         "maintenance"
       ]
+    },
+    {
+      "login": "igfasouza",
+      "name": "Igor De Souza",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6233869?v=4",
+      "profile": "http://www.igfasouza.com",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
