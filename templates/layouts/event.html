@@ -2,9 +2,9 @@
 layout: page
 id: event
 ---
-<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="w-full max-w-none px-3 sm:px-4 lg:px-6">
     <!-- Event Header -->
-    <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl p-8 md:p-12 mb-8 shadow-xl">
+    <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl p-6 sm:p-8 md:p-12 mb-8 shadow-xl">
         <div class="flex flex-col md:flex-row items-center gap-6 mb-6">
             <img alt="Quarkus Club logo" class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-lg" src="{site.image('quarkusclub.jpeg')}"/>
             <div class="flex-1 text-center md:text-left">
@@ -79,18 +79,20 @@ id: event
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {#for id in page.data.speakers}
             {#let speaker = cdi:speakers.get(id)}
-            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6 border-l-4 border-blue-600 hover:shadow-lg transition-shadow">
-                <div class="flex items-start gap-4">
-                    <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                        <i class="fas fa-user text-white text-xl"></i>
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6 border-l-4 border-blue-600 hover:shadow-lg transition-shadow w-full">
+                <div class="flex flex-col gap-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-user text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 m-0!">{speaker.name}</h3>
                     </div>
-                    <div class="flex-1">
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">{speaker.name}</h3>
+                    <div class="w-full">
                         {#if speaker.bio??}
-                        <p class="text-gray-700 text-sm leading-relaxed">{speaker.bio}</p>
+                        <p class="text-gray-700 text-sm leading-relaxed mb-3">{speaker.bio}</p>
                         {/if}
                         {#if speaker.profile??}
-                        <a href="{speaker.profile}" target="_blank" class="inline-flex items-center gap-2 mt-3 text-blue-600 hover:text-blue-800 font-semibold text-sm">
+                        <a href="{speaker.profile}" target="_blank" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold text-sm">
                             <i class="fas fa-external-link-alt"></i>
                             View Profile
                         </a>
