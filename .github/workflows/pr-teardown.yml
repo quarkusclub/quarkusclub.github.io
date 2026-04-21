@@ -7,13 +7,17 @@ on:
 permissions:
   pull-requests: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   preview-teardown:
     runs-on: ubuntu-latest
     steps:
       - name: Teardown surge preview
         id: deploy
-        run: npx surge teardown https://quarkusclub-blog-${{ github.event.number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        run: npx surge teardown https://quarkusclub-blog-pr-${{ github.event.number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
       - name: Update PR status comment
         uses: actions-cool/maintain-one-comment@v3.2.0
         with:
