@@ -10,6 +10,11 @@ on:
       - 'CODEOWNERS'
       - 'LICENSE'      
       - '.all-contributorsrc'
+      - '.github/**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 defaults:
   run:
@@ -39,13 +44,18 @@ jobs:
       - name: Build Blog
         run: QUARKUS_ROQ_GENERATOR_BATCH=true mvn -B package quarkus:run
 
-      - name: Store PR id
+      - name: Extract PR details
         id: pr
-        run: echo "pr_number=${{ github.event.number }}" >> $GITHUB_OUTPUT
+        run: |
+          echo "pr_number=${{ github.event.number }}" >> $GITHUB_OUTPUT
+          echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
       - name: Publish blog to Surge.sh
         run: |
-          npx surge ./target/roq --domain https://quarkusclub-blog-${{ steps.pr.outputs.pr_number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+          # Deploy to a unique URL for this commit
+          npx surge ./target/roq --domain https://quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-${{ steps.pr.outputs.sha_short }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+          # Deploy to the latest URL for this PR
+          npx surge ./target/roq --domain https://quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
 
       - name: Comment preview URL on PR
         uses: quarkusio/action-helpers@main
@@ -54,8 +64,14 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           pr-number: ${{ steps.pr.outputs.pr_number }}
           body: |
-            🚀 PR Preview for **blog** ${{ github.event.pull_request.head.sha }} has been successfully built!
-            * https://quarkusclub-blog-${{ steps.pr.outputs.pr_number }}-preview.surge.sh
+            🚀 PR Preview for **blog** has been successfully built!
+
+            | Type | URL |
+            | :--- | :--- |
+            | 🔄 **Latest** | https://quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-preview.surge.sh |
+            | 📌 **Commit (${{ steps.pr.outputs.sha_short }})** | https://quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-${{ steps.pr.outputs.sha_short }}-preview.surge.sh |
+
+            _Built from ${{ github.event.pull_request.head.sha }}_
           body-marker: <!-- Preview status comment marker -->
 
       - name: Update PR status comment on failure

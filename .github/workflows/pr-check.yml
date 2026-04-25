@@ -10,6 +10,7 @@ on:
       - 'CODEOWNERS'
       - 'LICENSE'
       - '.all-contributorsrc'
+      - '.github/**'
   pull_request:
     types: [opened, synchronize]
     paths-ignore:
@@ -17,8 +18,13 @@ on:
       - 'CODEOWNERS'
       - 'LICENSE'
       - '.all-contributorsrc'
+      - '.github/**'
     branches:
       - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 defaults:
   run:

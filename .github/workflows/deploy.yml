@@ -5,8 +5,18 @@ env:
   TZ: America/Sao_Paulo
 on:
   push:
-    branches: [main]   # Switch to the branch which should be deployed to GitHub Pages
+    branches: [main]
+    paths-ignore:
+      - '.gitignore'
+      - 'CODEOWNERS'
+      - 'LICENSE'
+      - '.all-contributorsrc'
+      - '.github/**'
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
