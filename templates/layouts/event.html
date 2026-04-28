@@ -4,11 +4,11 @@ id: event
 ---
 <div class="w-full max-w-none px-3 sm:px-4 lg:px-6">
     <!-- Event Header -->
-    <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-xl p-6 sm:p-8 md:p-12 mb-8 shadow-xl">
+    <div class="bg-black text-white rounded-xl p-6 sm:p-8 md:p-12 mb-8 shadow-xl">
         <div class="flex flex-col md:flex-row items-center gap-6 mb-6">
             <img alt="Quarkus Club logo" class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-lg" src="{site.image('quarkusclub.jpeg')}"/>
             <div class="flex-1 text-center md:text-left">
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{page.title}</h1>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white!">{page.title}</h1>
                 <div class="flex items-center justify-center md:justify-start gap-2 text-lg">
                     <i class="fa fa-calendar-alt"></i>
                     <span>{page.date.format(global:FULL_DATE_FORMAT)}</span>
@@ -20,23 +20,23 @@ id: event
         <div class="flex flex-wrap justify-center md:justify-start gap-3">
 
             {#if page.data.containsKey("googleForms") && page.date.isAfterNow}
-            <a href="{page.data.googleForms}" target="_blank" class="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2 no-underline">
+            <a href="{page.data.googleForms}" target="_blank" class="px-6 py-3 bg-white text-[#b20738] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2 no-underline">
                 <i class="fab fa-google"></i>
                 Register
             </a>
             {/if}
 
             {#if page.data.containsKey("subscription") && page.date.isAfterNow}
-            <a href="{page.data.subscription}" target="_blank" class="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
+            <a href="{page.data.subscription}" target="_blank" class="px-6 py-3 bg-white text-[#b20738] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
                 <i class="fas fa-user-plus"></i>
                 Join Us
             </a>
             {/if}
 
             {#if page.data.containsKey("youtubeLive")}
-            <a href="{page.data.youtubeLive}" target="_blank" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base inline-flex items-center gap-2">
-                <i class="fab fa-youtube"></i>YouTube
-            </a>
+        <a href="{page.data.youtubeLive}" target="_blank" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-white text-black rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base inline-flex items-center gap-2">
+          <i class="fab fa-youtube"></i>YouTube
+        </a>
             {/if}
 
             {#if page.data.containsKey("googleDriveSlides")}
@@ -52,7 +52,7 @@ id: event
     {#if page.description??}
     <section class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-8">
         <div class="flex flex-row items-center gap-3 mb-6">
-            <div class="w-1 h-8 bg-blue-600 rounded"></div>
+            <div class="w-1 h-8 bg-[#b20738] rounded"></div>
             <h2 class="text-2xl md:text-3xl font-bold text-gray-900 m-0!">About this event</h2>
         </div>
         <div class="prose prose-lg max-w-none text-gray-700 [&>*:first-child]:mt-0">
@@ -64,14 +64,14 @@ id: event
     <!-- Speakers Section -->
     <section class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-8">
         <div class="flex items-center gap-3 mb-6">
-            <div class="w-1 h-8 bg-blue-600 rounded"></div>
+            <div class="w-1 h-8 bg-[#b20738] rounded"></div>
             <h2 class="text-2xl md:text-3xl font-bold text-gray-900 m-0!">Speakers</h2>
         </div>
         
         {#if page.data.speakers.asStrings.isEmpty}
-        <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg">
+        <div class="bg-gray-50 border-l-4 border-[#b20738] p-6 rounded-lg">
             <div class="flex items-center gap-3">
-                <i class="fas fa-info-circle text-blue-600 text-2xl"></i>
+                <i class="fas fa-info-circle text-[#b20738] text-2xl"></i>
                 <p class="text-gray-700 font-medium">Speakers coming soon!</p>
             </div>
         </div>
@@ -79,10 +79,10 @@ id: event
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {#for id in page.data.speakers}
             {#let speaker = cdi:speakers.get(id)}
-            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6 border-l-4 border-blue-600 hover:shadow-lg transition-shadow w-full">
+            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6 border-l-4 border-[#b20738] hover:shadow-lg transition-shadow w-full">
                 <div class="flex flex-col gap-4">
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <div class="w-12 h-12 bg-[#b20738] rounded-full flex items-center justify-center flex-shrink-0">
                             <i class="fas fa-user text-white text-xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-900 m-0!">{speaker.name}</h3>
@@ -92,7 +92,7 @@ id: event
                         <p class="text-gray-700 text-sm leading-relaxed mb-3">{speaker.bio}</p>
                         {/if}
                         {#if speaker.profile??}
-                        <a href="{speaker.profile}" target="_blank" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold text-sm">
+                        <a href="{speaker.profile}" target="_blank" class="inline-flex items-center gap-2 text-[#b20738] hover:text-[#8a052c] font-semibold text-sm">
                             <i class="fas fa-external-link-alt"></i>
                             View Profile
                         </a>
@@ -108,7 +108,7 @@ id: event
     <!-- Comments Section -->
     <section class="bg-white rounded-xl shadow-md p-6 md:p-8">
         <div class="flex items-center gap-3 mb-6">
-            <div class="w-1 h-8 bg-blue-600 rounded"></div>
+            <div class="w-1 h-8 bg-[#b20738] rounded"></div>
             <h2 class="text-2xl md:text-3xl font-bold text-gray-900 m-0!">Discussion</h2>
         </div>
         <script src="https://giscus.app/client.js"

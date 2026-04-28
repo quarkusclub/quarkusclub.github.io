@@ -6,13 +6,13 @@ layout: default
         <div class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex-shrink-0">
-                    <a href="{site.url}" class="text-xl md:text-2xl font-bold hover:text-blue-400 transition-colors">
+                    <a href="{site.url}" class="text-xl md:text-2xl font-bold hover:text-[#d41a4a] transition-colors">
                         {site.title}
                     </a>
                 </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-white hover:text-blue-400 focus:outline-none" aria-label="Toggle menu">
+                <button id="mobile-menu-button" class="md:hidden text-white hover:text-[#d41a4a] focus:outline-none" aria-label="Toggle menu">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -29,7 +29,7 @@ layout: default
                 <ul class="flex flex-col gap-3">
                     {#for item in cdi:menu.items}
                     <li>
-                        <a href="{item.path}" class="block text-white hover:text-blue-400 transition-colors py-2 {#if page.url.path == item.path}text-blue-400 font-semibold{/if}">
+                        <a href="{item.path}" class="block text-white hover:text-[#d41a4a] transition-colors py-2 {#if page.url.path == item.path}text-[#b20738] font-semibold{/if}">
                             {item.title}
                         </a>
                     </li>

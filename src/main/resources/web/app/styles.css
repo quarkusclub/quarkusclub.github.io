@@ -1,2 +1,199 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+/* Google Fonts - Open Sans & Hanken Grotesk are loaded via CDN in default.html
+   Font weights available:
+   - Open Sans: 400, 600, 700, 800
+   - Hanken Grotesk: 400, 500, 600, 700
+*/
+
+/* ============================================
+   QUARKUS CLUB BRAND VARIABLES
+   ============================================ */
+:root {
+  /* Typography */
+  --font-heading: 'Open Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Hanken Grotesk', system-ui, -apple-system, sans-serif;
+
+  /* Brand Colors - Quarkus Club Social Media Palette */
+  --color-white: #ffffff;
+  --color-light-gray: #d6d6d6;
+  --color-brand-red: #b20738;
+  --color-black: #000000;
+
+  /* Extended Brand Palette */
+  --color-brand-red-light: #d41a4a;
+  --color-brand-red-dark: #8a052c;
+  --color-gray-medium: #888888;
+  --color-gray-dark: #333333;
+  --color-off-white: #f5f5f5;
+
+  /* Semantic Color Mapping */
+  --color-primary: var(--color-brand-red);
+  --color-primary-hover: var(--color-brand-red-dark);
+  --color-primary-light: var(--color-brand-red-light);
+  --color-text-primary: var(--color-black);
+  --color-text-secondary: var(--color-gray-dark);
+  --color-text-muted: var(--color-gray-medium);
+  --color-background: var(--color-white);
+  --color-background-alt: var(--color-off-white);
+  --color-border: var(--color-light-gray);
+
+  /* Component-specific colors */
+  --color-header-bg: var(--color-black);
+  --color-header-text: var(--color-white);
+  --color-footer-bg: var(--color-black);
+  --color-footer-text: var(--color-white);
+  --color-link: var(--color-brand-red);
+  --color-link-hover: var(--color-brand-red-dark);
+  --color-button-primary-bg: var(--color-brand-red);
+  --color-button-primary-text: var(--color-white);
+  --color-button-secondary-bg: var(--color-black);
+  --color-button-secondary-text: var(--color-white);
+}
+
+/* Base styles */
+html {
+  font-family: var(--font-body);
+}
+
+/* Headings - Open Sans */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+h1 {
+  font-weight: 800;
+}
+
+h2, h3 {
+  font-weight: 700;
+}
+
+h4, h5, h6 {
+  font-weight: 600;
+}
+
+/* Body text - Hanken Grotesk */
+body {
+  font-family: var(--font-body);
+}
+
+p, span, li, td, th, label, input, textarea, select, button {
+  font-family: var(--font-body);
+}
+
+/* Subheadings - Hanken Grotesk with medium weight */
+.subheading, .subtitle, .lead {
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+/* Site title in header - Open Sans */
+header a.text-xl,
+header a.text-2xl,
+.brand, .site-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* Navigation items - Hanken Grotesk */
+nav a, .nav-item, .menu-item {
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+/* ============================================
+   BRAND COLOR UTILITY CLASSES
+   ============================================ */
+
+/* Background Colors */
+.bg-brand-red { background-color: var(--color-brand-red); }
+.bg-brand-red-light { background-color: var(--color-brand-red-light); }
+.bg-brand-red-dark { background-color: var(--color-brand-red-dark); }
+.bg-light-gray { background-color: var(--color-light-gray); }
+.bg-off-white { background-color: var(--color-off-white); }
+
+/* Text Colors */
+.text-brand-red { color: var(--color-brand-red); }
+.text-brand-red-light { color: var(--color-brand-red-light); }
+.text-brand-red-dark { color: var(--color-brand-red-dark); }
+.text-light-gray { color: var(--color-light-gray); }
+.text-gray-medium { color: var(--color-gray-medium); }
+.text-gray-dark { color: var(--color-gray-dark); }
+
+/* Border Colors */
+.border-brand-red { border-color: var(--color-brand-red); }
+.border-light-gray { border-color: var(--color-light-gray); }
+
+/* Hover States */
+.hover\:bg-brand-red-dark:hover { background-color: var(--color-brand-red-dark); }
+.hover\:text-brand-red:hover { color: var(--color-brand-red); }
+.hover\:text-brand-red-dark:hover { color: var(--color-brand-red-dark); }
+.hover\:border-brand-red:hover { border-color: var(--color-brand-red); }
+
+/* Link Styles using Brand Colors */
+a {
+  color: var(--color-link);
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+/* Button Primary - Brand Red */
+.btn-primary {
+  background-color: var(--color-button-primary-bg);
+  color: var(--color-button-primary-text);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-brand-red-dark);
+}
+
+/* Button Secondary - Black */
+.btn-secondary {
+  background-color: var(--color-button-secondary-bg);
+  color: var(--color-button-secondary-text);
+  font-family: var(--font-body);
+  font-weight: 500;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-gray-dark);
+}
+
+/* Section-specific Branding */
+.section-events { --section-accent: var(--color-brand-red); }
+.section-bookclub { --section-accent: var(--color-brand-red); }
+.section-about { --section-accent: var(--color-brand-red); }
+
+/* Header Branding */
+header {
+  background-color: var(--color-header-bg);
+  color: var(--color-header-text);
+}
+
+header a {
+  color: var(--color-header-text);
+}
+
+header a:hover {
+  color: var(--color-brand-red-light);
+}
+
+/* Footer Branding */
+footer {
+  background-color: var(--color-footer-bg);
+  color: var(--color-footer-text);
+}
+
+/* Accent elements */
+.accent-border { border-left: 4px solid var(--color-brand-red); }
+.accent-text { color: var(--color-brand-red); }
+.accent-bg { background-color: var(--color-brand-red); }
