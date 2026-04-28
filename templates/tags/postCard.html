@@ -1,13 +1,13 @@
 {@io.quarkiverse.roq.frontmatter.runtime.model.DocumentPage post}
 {@io.quarkiverse.roq.frontmatter.runtime.model.Site site}
 
-<article class="bg-white rounded border border-gray-200 hover:border-blue-400 hover:shadow-md transition-all duration-200">
+<article class="bg-white rounded border border-gray-200 hover:border-[#d41a4a] hover:shadow-md transition-all duration-200">
     <div class="p-3">
         <time class="text-xs text-gray-500 block mb-1" datetime="{post.date}">
             {post.date.format('MM-dd-yyyy')}
         </time>
         <h2 class="text-sm font-bold mb-1 line-clamp-2">
-            <a href="{post.url}" class="text-gray-900 hover:text-blue-600 transition-colors">{post.title}</a>
+            <a href="{post.url}" class="text-gray-900 hover:text-[#b20738] transition-colors">{post.title}</a>
         </h2>
         {#if post.description??}
         <p class="text-xs text-gray-600 line-clamp-2">{post.description}</p>

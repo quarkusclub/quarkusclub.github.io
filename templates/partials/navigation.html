@@ -2,7 +2,7 @@
     <ul class="flex gap-6">
         {#for item in cdi:menu.items}
         <li>
-            <a href="{item.path}" class="text-white hover:text-blue-400 transition-colors {#if page.url.path == item.path}text-blue-400 font-semibold{/if}">
+            <a href="{item.path}" class="text-white hover:text-[#d41a4a] transition-colors {#if page.url.path == item.path}text-[#d41a4a] font-semibold{/if}">
                 {item.title}
             </a>
         </li>

@@ -21,7 +21,7 @@ paginate: posts
             {/if}
             <div class="p-4 sm:p-6">
                 <h2 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 line-clamp-2">
-                    <a href="{post.url}" class="text-gray-900 hover:text-blue-600 transition-colors">{post.title}</a>
+                    <a href="{post.url}" class="text-gray-900 hover:text-[#b20738] transition-colors">{post.title}</a>
                 </h2>
                 {#if post.description??}
                 <p class="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-3">{post.description}</p>
@@ -29,7 +29,7 @@ paginate: posts
                 <div class="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-500">
                     {#if post.date??}
                     <span class="flex items-center gap-1 whitespace-nowrap">
-                        <i class="fa fa-calendar text-blue-600 text-xs"></i>
+                        <i class="fa fa-calendar text-[#b20738] text-xs"></i>
                         {post.date.format(global:FULL_DATE_FORMAT)}
                     </span>
                     {/if}
