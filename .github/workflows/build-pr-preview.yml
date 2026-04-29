@@ -60,6 +60,15 @@ jobs:
         # Deploy to the latest URL for this PR
         npx surge ./target/roq --domain https://quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
 
+    - name: Save commit SHA for teardown
+      run: echo "${{ steps.pr.outputs.sha_short }}" >> commit-shas.txt
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: pr-${{ steps.pr.outputs.pr_number }}-shas
+        path: commit-shas.txt
+        retention-days: 30
+
       - name: Comment preview URL on PR
         uses: quarkusio/action-helpers@main
         with:
