@@ -18,8 +18,21 @@ jobs:
     - name: Install Surge
       run: npm install surge
 
-    - name: Teardown surge preview
-      id: deploy
+    - name: Download commit SHAs artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: pr-${{ github.event.number }}-shas
+      continue-on-error: true
+      id: download-shas
+
+    - name: Teardown commit-pinned surge previews
+      if: steps.download-shas.outcome == 'success'
+      run: |
+        while IFS= read -r sha; do
+          npx surge teardown "https://quarkusclub-blog-pr-${{ github.event.number }}-${sha}-preview.surge.sh" --token ${{ secrets.SURGE_TOKEN }} || true
+        done < commit-shas.txt
+
+    - name: Teardown latest surge preview
       run: npx surge teardown https://quarkusclub-blog-pr-${{ github.event.number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
       - name: Update PR status comment
         uses: actions-cool/maintain-one-comment@v3.2.0
