@@ -50,12 +50,24 @@ jobs:
           echo "pr_number=${{ github.event.number }}" >> $GITHUB_OUTPUT
           echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
-      - name: Publish blog to Surge.sh
-        run: |
-          # Deploy to a unique URL for this commit
-          npx surge ./target/roq --domain https://quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-${{ steps.pr.outputs.sha_short }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
-          # Deploy to the latest URL for this PR
-          npx surge ./target/roq --domain https://quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+    - name: Install Surge
+      run: npm install surge
+
+    - name: Publish blog to Surge.sh
+      run: |
+        # Deploy to a unique URL for this commit
+        npx surge ./target/roq --domain https://quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-${{ steps.pr.outputs.sha_short }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+        # Deploy to the latest URL for this PR
+        npx surge ./target/roq --domain https://quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+
+    - name: Save commit SHA for teardown
+      run: echo "${{ steps.pr.outputs.sha_short }}" >> commit-shas.txt
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: pr-${{ steps.pr.outputs.pr_number }}-shas
+        path: commit-shas.txt
+        retention-days: 30
 
       - name: Comment preview URL on PR
         uses: quarkusio/action-helpers@main

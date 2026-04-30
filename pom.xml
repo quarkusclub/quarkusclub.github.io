@@ -61,12 +61,6 @@
             <artifactId>quarkus-junit5</artifactId>
             <scope>test</scope>
         </dependency>
-          <dependency>
-            <groupId>org.mvnpm.at.fontsource</groupId>
-            <artifactId>atkinson-hyperlegible</artifactId>
-            <version>5.2.8</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>org.mvnpm</groupId>
             <artifactId>highlight.js</artifactId>

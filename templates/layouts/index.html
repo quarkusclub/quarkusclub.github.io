@@ -7,7 +7,7 @@ image: quarkusclub.jpg
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Hero Section -->
     <section class="relative py-12 sm:py-16 md:py-20 mb-12 md:mb-16 overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 rounded-b-2xl"></div>
+        <div class="absolute inset-0 bg-black rounded-b-2xl"></div>
         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00em0wLTEwYzAtMi4yMS0xLjc5LTQtNC00cy00IDEuNzktNCA0IDEuNzkgNCA0IDQgNC0xLjc5IDQtNHptMC0xMGMwLTIuMjEtMS43OS00LTQtNHMtNCAxLjc5LTQgNCAxLjc5IDQgNCA0IDQtMS43OSA0LTR6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-20"></div>
         <div class="relative text-center text-white px-4 sm:px-6">
             <div class="mb-4 sm:mb-6">
@@ -20,21 +20,21 @@ image: quarkusclub.jpg
             <p class="text-base sm:text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed">{page.description}</p>
             {/if}
             <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4 mb-6 sm:mb-8">
-                {#if page.data('social-github')??}
-                <a href="https://github.com/{page.data('social-github')}" target="_blank" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base">
-                    <i class="fab fa-github mr-2"></i>GitHub
-                </a>
-                {/if}
-                {#if page.data('social-discord')??}
-                <a href="{page.data('social-discord')}" target="_blank" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base">
-                    <i class="fab fa-discord mr-2"></i>Discord
-                </a>
-                {/if}
-                {#if page.data('social-youtube')??}
-                <a href="{page.data('social-youtube')}" target="_blank" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base">
-                    <i class="fab fa-youtube mr-2"></i>YouTube
-                </a>
-                {/if}
+      {#if page.data('social-github')??}
+      <a href="https://github.com/{page.data('social-github')}" target="_blank" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-white text-black rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base">
+        <i class="fab fa-github mr-2"></i>GitHub
+      </a>
+      {/if}
+      {#if page.data('social-discord')??}
+      <a href="{page.data('social-discord')}" target="_blank" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-white text-black rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base">
+        <i class="fab fa-discord mr-2"></i>Discord
+      </a>
+      {/if}
+      {#if page.data('social-youtube')??}
+      <a href="{page.data('social-youtube')}" target="_blank" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-white text-black rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base">
+        <i class="fab fa-youtube mr-2"></i>YouTube
+      </a>
+      {/if}
             </div>
         </div>
     </section>
@@ -42,27 +42,27 @@ image: quarkusclub.jpg
     <!-- Features Section -->
     <section class="mb-12 md:mb-16">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-users text-white text-2xl"></i>
-                </div>
-                <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900">Community Driven</h3>
-                <p class="text-sm md:text-base text-gray-700">Join a vibrant community of developers passionate about Quarkus and modern Java development.</p>
-            </div>
-            <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-book text-white text-2xl"></i>
-                </div>
-                <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900">Learn Together</h3>
-                <p class="text-sm md:text-base text-gray-700">Participate in book clubs, workshops, and study sessions with experts and fellow learners.</p>
-            </div>
-            <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-                <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mb-4">
-                    <i class="fas fa-rocket text-white text-2xl"></i>
-                </div>
-                <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900">Cloud Native</h3>
-                <p class="text-sm md:text-base text-gray-700">Master cloud-native architectures, microservices, and cutting-edge development practices.</p>
-            </div>
+<div class="bg-gradient-to-br from-gray-100 to-gray-200 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+        <div class="w-16 h-16 bg-[#b20738] rounded-full flex items-center justify-center mb-4">
+          <i class="fas fa-users text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900">Community Driven</h3>
+        <p class="text-sm md:text-base text-gray-700">Join a vibrant community of developers passionate about Quarkus and modern Java development.</p>
+      </div>
+<div class="bg-gradient-to-br from-gray-100 to-gray-200 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+        <div class="w-16 h-16 bg-[#333333] rounded-full flex items-center justify-center mb-4">
+          <i class="fas fa-book text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900">Learn Together</h3>
+        <p class="text-sm md:text-base text-gray-700">Participate in book clubs, workshops, and study sessions with experts and fellow learners.</p>
+      </div>
+<div class="bg-gradient-to-br from-gray-100 to-gray-200 p-6 md:p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+        <div class="w-16 h-16 bg-[#888888] rounded-full flex items-center justify-center mb-4">
+          <i class="fas fa-rocket text-white text-2xl"></i>
+        </div>
+        <h3 class="text-xl md:text-2xl font-bold mb-3 text-gray-900">Cloud Native</h3>
+        <p class="text-sm md:text-base text-gray-700">Master cloud-native architectures, microservices, and cutting-edge development practices.</p>
+      </div>
         </div>
     </section>
 
@@ -71,17 +71,17 @@ image: quarkusclub.jpg
         <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-gray-900 text-center">Explore QuarkusClub</h2>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             <a href="{site.url('/bookclub')}" class="bg-white p-4 sm:p-6 rounded-lg shadow hover:shadow-lg transition-all transform hover:scale-105 text-center">
-                <i class="fas fa-book-reader text-3xl sm:text-4xl text-blue-600 mb-2 sm:mb-3"></i>
+                <i class="fas fa-book-reader text-3xl sm:text-4xl text-[#b20738] mb-2 sm:mb-3"></i>
                 <h3 class="font-bold text-sm sm:text-base lg:text-lg text-gray-900">BookClub</h3>
                 <p class="text-sm text-gray-600 mt-2">Study books with authors</p>
             </a>
             <a href="{site.url('/events')}" class="bg-white p-4 sm:p-6 rounded-lg shadow hover:shadow-lg transition-all transform hover:scale-105 text-center">
-                <i class="fas fa-calendar-alt text-3xl sm:text-4xl text-green-600 mb-2 sm:mb-3"></i>
+                <i class="fas fa-calendar-alt text-3xl sm:text-4xl text-[#333333] mb-2 sm:mb-3"></i>
                 <h3 class="font-bold text-sm sm:text-base lg:text-lg text-gray-900">Events</h3>
                 <p class="text-sm text-gray-600 mt-2">Join our meetups</p>
             </a>
             <a href="{site.url('/about')}" class="bg-white p-4 sm:p-6 rounded-lg shadow hover:shadow-lg transition-all transform hover:scale-105 text-center">
-                <i class="fas fa-info-circle text-3xl sm:text-4xl text-purple-600 mb-2 sm:mb-3"></i>
+                <i class="fas fa-info-circle text-3xl sm:text-4xl text-[#888888] mb-2 sm:mb-3"></i>
                 <h3 class="font-bold text-sm sm:text-base lg:text-lg text-gray-900">About</h3>
                 <p class="text-sm text-gray-600 mt-2">Learn about us</p>
             </a>
@@ -105,7 +105,7 @@ image: quarkusclub.jpg
     <section class="mb-16 md:mb-20 pb-8">
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4">
             <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">Latest posts</h2>
-            <a href="{site.url('/posts')}" class="text-blue-600 hover:text-blue-800 font-semibold flex items-center gap-2 text-sm sm:text-base">
+            <a href="{site.url('/posts')}" class="text-[#b20738] hover:text-[#8a052c] font-semibold flex items-center gap-2 text-sm sm:text-base">
                 View all <i class="fas fa-arrow-right text-xs"></i>
             </a>
         </div>
@@ -120,7 +120,7 @@ image: quarkusclub.jpg
                 {/if}
                 <div class="p-4 sm:p-6">
                     <h3 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 line-clamp-2">
-                        <a href="{post.url}" class="text-gray-900 hover:text-blue-600 transition-colors">{post.title}</a>
+                        <a href="{post.url}" class="text-gray-900 hover:text-[#b20738] transition-colors">{post.title}</a>
                     </h3>
                     {#if post.description??}
                     <p class="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-3">{post.description}</p>
@@ -128,7 +128,7 @@ image: quarkusclub.jpg
                     <div class="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-500">
                         {#if post.date??}
                         <span class="flex items-center gap-1 whitespace-nowrap">
-                            <i class="fa fa-calendar text-blue-600 text-xs"></i>
+                            <i class="fa fa-calendar text-[#b20738] text-xs"></i>
                             {post.date.format(global:ONLY_DATE_FORMAT)}
                         </span>
                         {/if}
