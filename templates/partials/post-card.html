@@ -1,28 +1,29 @@
 {@io.quarkiverse.roq.frontmatter.runtime.model.DocumentPage post}
 {@io.quarkiverse.roq.frontmatter.runtime.model.Site site}
 
-<article class="bg-white rounded-xl shadow-md hover:shadow-2xl transition-all overflow-hidden group transform hover:-translate-y-1 duration-300">
+<article class="bg-surface-1 rounded-xl border border-border hover:border-brand-red transition-all overflow-hidden group transform hover:-translate-y-1 duration-300 glow-red-hover">
     {#if post.image??}
-    <div class="overflow-hidden h-40 sm:h-48">
+    <div class="overflow-hidden h-40 sm:h-48 relative">
         <img src="{post.image}" alt="{post.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-surface-1 via-transparent to-transparent"></div>
     </div>
     {/if}
     <div class="p-4 sm:p-6">
         <h2 class="text-lg sm:text-xl font-bold mb-2 sm:mb-3 line-clamp-2">
-            <a href="{post.url}" class="text-gray-900 hover:text-[#b20738] transition-colors">{post.title}</a>
+            <a href="{post.url}" class="text-text-primary hover:text-brand-red transition-colors">{post.title}</a>
         </h2>
         {#if post.description??}
-        <p class="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-3">{post.description}</p>
+        <p class="text-sm sm:text-base text-text-secondary mb-3 sm:mb-4 line-clamp-3">{post.description}</p>
         {/if}
-        <div class="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-500">
+        <div class="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-text-muted">
             {#if post.date??}
             <span class="flex items-center gap-1 whitespace-nowrap">
-                <i class="fa fa-calendar text-[#b20738] text-xs"></i>
+                <i class="fa fa-calendar text-brand-red text-xs"></i>
                 {post.date.format(global:FULL_DATE_FORMAT)}
             </span>
             {/if}
             <span class="flex items-center gap-1 whitespace-nowrap">
-                <i class="fa fa-clock text-green-600 text-xs"></i>
+                <i class="fa fa-clock text-brand-red/60 text-xs"></i>
                 {post.readTime} min read
             </span>
         </div>

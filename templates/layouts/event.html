@@ -3,44 +3,41 @@ layout: page
 id: event
 ---
 <div class="w-full max-w-none px-3 sm:px-4 lg:px-6">
-    <!-- Event Header -->
-    <div class="bg-black text-white rounded-xl p-6 sm:p-8 md:p-12 mb-8 shadow-xl">
+    <div class="bg-surface-1 text-text-primary rounded-xl p-6 sm:p-8 md:p-12 mb-8 border border-border">
         <div class="flex flex-col md:flex-row items-center gap-6 mb-6">
-            <img alt="Quarkus Club logo" class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-lg" src="{site.image('quarkusclub.jpeg')}"/>
+            <img alt="Quarkus Club logo" class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-brand-red shadow-lg" src="{site.image('quarkusclub.jpeg')}"/>
             <div class="flex-1 text-center md:text-left">
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white!">{page.title}</h1>
-                <div class="flex items-center justify-center md:justify-start gap-2 text-lg">
-                    <i class="fa fa-calendar-alt"></i>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{page.title}</h1>
+                <div class="flex items-center justify-center md:justify-start gap-2 text-lg text-text-secondary">
+                    <i class="fa fa-calendar-alt text-brand-red"></i>
                     <span>{page.date.format(global:FULL_DATE_FORMAT)}</span>
                 </div>
             </div>
         </div>
 
-        <!-- Action Buttons -->
         <div class="flex flex-wrap justify-center md:justify-start gap-3">
-
             {#if page.data.containsKey("googleForms") && page.date.isAfterNow}
-            <a href="{page.data.googleForms}" target="_blank" class="px-6 py-3 bg-white text-[#b20738] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2 no-underline">
+            <a href="{page.data.googleForms}" target="_blank" class="px-6 py-3 bg-brand-red text-white rounded-lg font-semibold hover:bg-brand-red-light hover:text-white transition-all transform hover:scale-105 shadow-lg flex items-center gap-2 no-underline">
                 <i class="fab fa-google"></i>
                 Register
             </a>
             {/if}
 
             {#if page.data.containsKey("subscription") && page.date.isAfterNow}
-            <a href="{page.data.subscription}" target="_blank" class="px-6 py-3 bg-white text-[#b20738] rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
+            <a href="{page.data.subscription}" target="_blank" class="px-6 py-3 bg-brand-red text-white rounded-lg font-semibold hover:bg-brand-red-light hover:text-white transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
                 <i class="fas fa-user-plus"></i>
                 Join Us
             </a>
             {/if}
 
             {#if page.data.containsKey("youtubeLive")}
-        <a href="{page.data.youtubeLive}" target="_blank" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-white text-black rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base inline-flex items-center gap-2">
-          <i class="fab fa-youtube"></i>YouTube
-        </a>
+            <a href="{page.data.youtubeLive}" target="_blank" class="px-5 sm:px-6 py-2.5 sm:py-3 bg-brand-red text-white rounded-lg font-semibold hover:bg-brand-red-light hover:text-white transition-all transform hover:scale-105 shadow-lg text-sm sm:text-base inline-flex items-center gap-2">
+                <i class="fab fa-youtube"></i>YouTube
+            </a>
             {/if}
 
             {#if page.data.containsKey("googleDriveSlides")}
-            <a href="{page.data.googleDriveSlides}" target="_blank" class="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
+            <a href="{page.data.googleDriveSlides}" target="_blank" class="px-6 py-3 bg-accent-warm text-white rounded-lg font-semibold hover:bg-accent-warm/80 transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
                 <i class="fab fa-google-drive"></i>
                 Slides
             </a>
@@ -48,51 +45,49 @@ id: event
         </div>
     </div>
 
-    <!-- Event Description -->
     {#if page.description??}
-    <section class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-8">
+    <section class="bg-surface-1 rounded-xl border border-border p-6 md:p-8 mb-8">
         <div class="flex flex-row items-center gap-3 mb-6">
-            <div class="w-1 h-8 bg-[#b20738] rounded"></div>
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 m-0!">About this event</h2>
+            <div class="w-1 h-8 bg-brand-red rounded"></div>
+            <h2 class="text-2xl md:text-3xl font-bold text-text-primary m-0!">About this event</h2>
         </div>
-        <div class="prose prose-lg max-w-none text-gray-700 [&>*:first-child]:mt-0">
+        <div class="prose prose-lg prose-invert max-w-none text-text-secondary [&>*:first-child]:mt-0">
             {page.description.markdownify()}
         </div>
     </section>
     {/if}
 
-    <!-- Speakers Section -->
-    <section class="bg-white rounded-xl shadow-md p-6 md:p-8 mb-8">
+    <section class="bg-surface-1 rounded-xl border border-border p-6 md:p-8 mb-8">
         <div class="flex items-center gap-3 mb-6">
-            <div class="w-1 h-8 bg-[#b20738] rounded"></div>
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 m-0!">Speakers</h2>
+            <div class="w-1 h-8 bg-brand-red rounded"></div>
+            <h2 class="text-2xl md:text-3xl font-bold text-text-primary m-0!">Speakers</h2>
         </div>
-        
+
         {#if page.data.speakers.asStrings.isEmpty}
-        <div class="bg-gray-50 border-l-4 border-[#b20738] p-6 rounded-lg">
+        <div class="bg-surface-2 border-l-4 border-brand-red p-6 rounded-lg">
             <div class="flex items-center gap-3">
-                <i class="fas fa-info-circle text-[#b20738] text-2xl"></i>
-                <p class="text-gray-700 font-medium">Speakers coming soon!</p>
+                <i class="fas fa-info-circle text-brand-red text-2xl"></i>
+                <p class="text-text-secondary font-medium">Speakers coming soon!</p>
             </div>
         </div>
         {#else}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             {#for id in page.data.speakers}
             {#let speaker = cdi:speakers.get(id)}
-            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6 border-l-4 border-[#b20738] hover:shadow-lg transition-shadow w-full">
+            <div class="bg-surface-2 rounded-lg p-6 border-l-4 border-brand-red hover:border-brand-red-light hover:shadow-lg transition-all w-full">
                 <div class="flex flex-col gap-4">
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-[#b20738] rounded-full flex items-center justify-center flex-shrink-0">
+                        <div class="w-12 h-12 bg-brand-red rounded-full flex items-center justify-center flex-shrink-0 glow-red">
                             <i class="fas fa-user text-white text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 m-0!">{speaker.name}</h3>
+                        <h3 class="text-xl font-bold text-text-primary m-0!">{speaker.name}</h3>
                     </div>
                     <div class="w-full">
                         {#if speaker.bio??}
-                        <p class="text-gray-700 text-sm leading-relaxed mb-3">{speaker.bio}</p>
+                        <p class="text-text-secondary text-sm leading-relaxed mb-3">{speaker.bio}</p>
                         {/if}
                         {#if speaker.profile??}
-                        <a href="{speaker.profile}" target="_blank" class="inline-flex items-center gap-2 text-[#b20738] hover:text-[#8a052c] font-semibold text-sm">
+                        <a href="{speaker.profile}" target="_blank" class="inline-flex items-center gap-2 text-brand-red hover:text-brand-red-light font-semibold text-sm">
                             <i class="fas fa-external-link-alt"></i>
                             View Profile
                         </a>
@@ -105,27 +100,26 @@ id: event
         {/if}
     </section>
 
-    <!-- Comments Section -->
-    <section class="bg-white rounded-xl shadow-md p-6 md:p-8">
+    <section class="bg-surface-1 rounded-xl border border-border p-6 md:p-8">
         <div class="flex items-center gap-3 mb-6">
-            <div class="w-1 h-8 bg-[#b20738] rounded"></div>
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 m-0!">Discussion</h2>
+            <div class="w-1 h-8 bg-brand-red rounded"></div>
+            <h2 class="text-2xl md:text-3xl font-bold text-text-primary m-0!">Discussion</h2>
         </div>
         <script src="https://giscus.app/client.js"
-                data-repo="quarkusclub/quarkusclub.github.io"
-                data-repo-id="R_kgDOOjCTSg"
-                data-category="General"
-                data-category-id="DIC_kwDOOjCTSs4Cs8t7"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="top"
-                data-theme="light"
-                data-lang="en"
-                data-loading="lazy"
-                crossorigin="anonymous"
-                async>
+            data-repo="quarkusclub/quarkusclub.github.io"
+            data-repo-id="R_kgDOOjCTSg"
+            data-category="General"
+            data-category-id="DIC_kwDOOjCTSs4Cs8t7"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="dark"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
         </script>
     </section>
 </div>

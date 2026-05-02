@@ -3,36 +3,32 @@ layout: page
 paginate: true
 tagging: posts
 ---
-
 {@io.quarkiverse.roq.frontmatter.runtime.model.NormalPage page}
 
-<div class="max-w-7xl mx-auto">
-    <!-- Tag Header -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-12">
         <div class="flex items-center gap-3 mb-4">
-            <a href="{site.url('/tags')}" 
-               class="text-[#b20738] hover:text-[#8a052c] transition-colors flex items-center gap-2"
+            <a href="{site.url('/tags')}"
+               class="text-brand-red hover:text-brand-red-light transition-colors flex items-center gap-2"
                aria-label="Back to all tags">
                 <i class="fas fa-arrow-left"></i>
                 <span class="text-sm font-semibold">Back to tags</span>
             </a>
         </div>
 
-        <p class="text-lg text-gray-600">
+        <p class="text-lg text-text-secondary">
             {#if paginator??}
             {paginator.total} {#if paginator.total == 1}post{#else}posts{/if} tagged with this topic
             {/if}
         </p>
     </div>
 
-    <!-- Posts Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
         {#for post in site.collections.get(page.data.tagCollection).paginated(page.paginator)}
         {#include tags/postCard post=post site=site /}
         {/for}
     </div>
 
-    <!-- Pagination -->
     {#if paginator??}
     <div class="mb-12">
         {#include partials/pagination /}

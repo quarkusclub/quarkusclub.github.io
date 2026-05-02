@@ -1,11 +1,11 @@
 <nav>
-    <ul class="flex gap-6">
-        {#for item in cdi:menu.items}
-        <li>
-            <a href="{item.path}" class="text-white hover:text-[#d41a4a] transition-colors {#if page.url.path == item.path}text-[#d41a4a] font-semibold{/if}">
-                {item.title}
-            </a>
-        </li>
-        {/for}
-    </ul>
+<ul class="flex gap-6">
+{#for item in cdi:menu.items}
+<li>
+<a href="{item.path}" class="text-text-secondary hover:text-brand-red-light transition-colors {#if page.url.path == item.path}text-brand-red font-semibold{/if}">
+{item.title}
+</a>
+</li>
+{/for}
+</ul>
 </nav>

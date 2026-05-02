@@ -5,31 +5,31 @@ layout: page
 
 <div>
     {#insert /}
-    
+
     {#insert article-end}
-    <div class="mt-8 p-6 bg-gray-50 rounded-lg">
+    <div class="mt-8 p-6 bg-brand-red/10 border-l-4 border-brand-red rounded-lg">
         {#if page.data.tags??}
         <div class="mb-4">
-            <strong class="text-gray-700 mr-2">Tags:</strong>
+            <strong class="text-text-primary mr-2">Tags:</strong>
             {#for tag in page.data.tags.asStrings}
             {#let tagSlug = tag.slugify}
-            <a href="{site.url('/posts/tag/', tagSlug)}" class="inline-block px-3 py-1 bg-red-100 text-[#8a052c] rounded-full text-sm hover:bg-red-200 transition-colors mr-2 mb-2">
+            <a href="{site.url('/posts/tag/', tagSlug)}" class="inline-block px-3 py-1 bg-brand-red/20 text-brand-red rounded-full text-sm hover:bg-brand-red/30 transition-colors mr-2 mb-2 border border-brand-red/30">
                 {tag}
             </a>
             {/for}
         </div>
         {/if}
-        
-        <div class="flex flex-wrap gap-4 text-sm text-gray-600">
+
+        <div class="flex flex-wrap gap-4 text-sm text-text-secondary">
             {#if page.data.author??}
             <div class="flex items-center gap-2">
-                <i class="fa fa-user"></i>
-                <strong>Author:</strong> {page.data.author}
+                <i class="fa fa-user text-brand-red"></i>
+                <strong class="text-text-primary">Author:</strong> {page.data.author}
             </div>
             {/if}
-            
+
             <div class="flex items-center gap-2">
-                <i class="fa fa-clock"></i>
+                <i class="fa fa-clock text-brand-red"></i>
                 {page.readTime} min read
             </div>
         </div>

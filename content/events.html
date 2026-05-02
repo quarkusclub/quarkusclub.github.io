@@ -7,78 +7,81 @@ layout: page
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Page Header -->
-    <div class="mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Events</h1>
-        <p class="text-lg text-gray-600">Join our community events, meetups, and learning sessions</p>
+    <div class="mb-12 bg-surface-1 p-8 md:p-10 rounded-xl border border-border">
+        <div class="flex items-center gap-3 mb-4">
+            <div class="w-1.5 h-8 bg-brand-red rounded"></div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-0! text-text-primary tracking-wider">EVENTS</h1>
+        </div>
+        <p class="text-lg text-text-secondary">Join our community events, meetups, and learning sessions</p>
     </div>
 
     <!-- Upcoming Events Section -->
     <section class="mb-16">
         <div class="flex items-center gap-3 mb-8">
-<div class="w-1 h-8 bg-[#b20738] rounded"></div>
-      <h2 class="text-3xl font-bold text-gray-900 m-0!">Upcoming events</h2>
+            <div class="w-1.5 h-8 bg-brand-red rounded"></div>
+            <h2 class="text-3xl font-bold text-text-primary m-0! tracking-wider">UPCOMING EVENTS</h2>
         </div>
-        
+
         {#if !future.isEmpty}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {#for event in future.reversed}
             {#if !event.data.draft}
-        <article class="bg-white rounded-xl shadow-md hover:shadow-2xl transition-all overflow-hidden group border-l-4 border-[#b20738]">
-          <div class="p-6">
-            <div class="flex items-start justify-between mb-4">
-              <span class="px-3 py-1 bg-red-100 text-[#b20738] text-xs font-semibold rounded-full">Upcoming</span>
-              <i class="fas fa-calendar-alt text-[#b20738] text-xl"></i>
-            </div>
+            <article class="bg-surface-1 rounded-xl border border-border hover:border-brand-red transition-all overflow-hidden group glow-red-hover">
+                <div class="p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="px-3 py-1 bg-brand-red/20 text-brand-red text-xs font-semibold rounded-full border border-brand-red/30">Upcoming</span>
+                        <i class="fas fa-calendar-alt text-brand-red text-xl"></i>
+                    </div>
 
-            <h3 class="text-xl font-bold mb-3 line-clamp-2">
-              <a href="{event.url}" class="text-gray-900 hover:text-[#b20738] transition-colors">{event.title}</a>
-            </h3>
+                    <h3 class="text-xl font-bold mb-3 line-clamp-2">
+                        <a href="{event.url}" class="text-text-primary hover:text-brand-red transition-colors">{event.title}</a>
+                    </h3>
 
-            <div class="flex items-center gap-2 text-sm text-gray-600 mb-4">
-              <i class="fa fa-calendar text-[#b20738]"></i>
-              <span>{event.date.format(global:FULL_DATE_FORMAT)}</span>
-              {#if event.data.containsKey("youtubeLive")}
-              <a href="{event.data.youtubeLive}" target="_blank" class="flex items-center gap-1 text-gray-600 hover:text-[#b20738] transition-colors">
-                <i class="fab fa-youtube"></i>
-                <span>YouTube</span>
-              </a>
-              {/if}
-              {#if event.data.language?? && event.data.language == 'pt-BR'}
-              <span class="flex items-center gap-1" title="Portuguese (Brazil)">
-                <span class="text-sm text-gray-600">Language:</span>
-                <span class="text-sm font-semibold text-[#b20738]">pt-BR</span>
-              </span>
-              {/if}
-            </div>
+                    <div class="flex items-center gap-2 text-sm text-text-secondary mb-4">
+                        <i class="fa fa-calendar text-brand-red"></i>
+                        <span>{event.date.format(global:FULL_DATE_FORMAT)}</span>
+                        {#if event.data.containsKey("youtubeLive")}
+                        <a href="{event.data.youtubeLive}" target="_blank" class="flex items-center gap-1 text-text-secondary hover:text-brand-red transition-colors">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
+                        {/if}
+                        {#if event.data.language?? && event.data.language == 'pt-BR'}
+                        <span class="flex items-center gap-1" title="Portuguese (Brazil)">
+                            <span class="text-sm text-text-muted">Language:</span>
+                            <span class="text-sm font-semibold text-brand-red">pt-BR</span>
+                        </span>
+                        {/if}
+                    </div>
 
-            {#if event.data.speakers?? && !event.data.speakers.isEmpty}
-            <div class="border-t pt-4">
-              <p class="text-sm text-gray-500 mb-2">Speakers:</p>
-              <div class="flex flex-wrap gap-2">
-                {#for id in event.data.speakers}
-                {#let speaker = cdi:speakers.get(id)}
-                {#if speaker.profile??}
-                <a href="{speaker.profile}" target="_blank" class="text-sm font-semibold text-[#b20738] hover:text-[#8a052c] hover:underline">
-                  {speaker.name}
-                </a>
-                {#else}
-                <span class="text-sm font-semibold text-gray-700">{speaker.name}</span>
-                {/if}
-                {#if id_hasNext}<span class="text-gray-400">•</span>{/if}
-                {/for}
-              </div>
-            </div>
-            {/if}
-          </div>
-        </article>
+                    {#if event.data.speakers?? && !event.data.speakers.isEmpty}
+                    <div class="border-t border-border pt-4">
+                        <p class="text-sm text-text-muted mb-2">Speakers:</p>
+                        <div class="flex flex-wrap gap-2">
+                            {#for id in event.data.speakers}
+                            {#let speaker = cdi:speakers.get(id)}
+                            {#if speaker.profile??}
+                            <a href="{speaker.profile}" target="_blank" class="text-sm font-semibold text-brand-red hover:text-brand-red-dark hover:underline">
+                                {speaker.name}
+                            </a>
+                            {#else}
+                            <span class="text-sm font-semibold text-text-secondary">{speaker.name}</span>
+                            {/if}
+                            {#if id_hasNext}<span class="text-text-muted">•</span>{/if}
+                            {/for}
+                        </div>
+                    </div>
+                    {/if}
+                </div>
+            </article>
             {/if}
             {/for}
         </div>
         {#else}
-        <div class="bg-gray-50 border-l-4 border-[#b20738] p-6 rounded-lg">
+        <div class="bg-surface-1 border-l-4 border-brand-red p-6 rounded-lg border border-border">
             <div class="flex items-center gap-3">
-                <i class="fas fa-info-circle text-[#b20738] text-2xl"></i>
-                <p class="text-gray-700">No upcoming events at the moment. Check back soon for new announcements!</p>
+                <i class="fas fa-info-circle text-brand-red text-2xl"></i>
+                <p class="text-text-secondary">No upcoming events at the moment. Check back soon for new announcements!</p>
             </div>
         </div>
         {/if}
@@ -87,63 +90,62 @@ layout: page
     <!-- Past Events Section -->
     <section class="mb-16">
         <div class="flex items-center gap-3 mb-8">
-            <div class="w-1 h-8 bg-gray-600 rounded"></div>
-            <h2 class="text-3xl font-bold text-gray-900 m-0!">Past events</h2>
+            <div class="w-1.5 h-8 bg-text-muted rounded"></div>
+            <h2 class="text-3xl font-bold text-text-primary m-0! tracking-wider">PAST EVENTS</h2>
         </div>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {#for event in site.collections.events.past}
-        <article class="bg-white rounded-xl shadow-md hover:shadow-xl transition-all overflow-hidden group border-l-4 border-gray-400">
-          <div class="p-6">
-            <div class="flex items-start justify-between mb-4">
-              <span class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full">Past Event</span>
-              <i class="fas fa-calendar-check text-gray-600 text-xl"></i>
-            </div>
+            <article class="bg-surface-1 rounded-xl border border-border hover:border-text-muted transition-all overflow-hidden group">
+                <div class="p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="px-3 py-1 bg-surface-3 text-text-muted text-xs font-semibold rounded-full border border-border">Past Event</span>
+                        <i class="fas fa-calendar-check text-text-muted text-xl"></i>
+                    </div>
 
-            <h3 class="text-xl font-bold mb-3 line-clamp-2">
-              <a href="{event.url}" class="text-gray-900 hover:text-[#b20738] transition-colors">{event.title}</a>
-            </h3>
+                    <h3 class="text-xl font-bold mb-3 line-clamp-2">
+                        <a href="{event.url}" class="text-text-primary hover:text-brand-red transition-colors">{event.title}</a>
+                    </h3>
 
-            <div class="flex items-center gap-2 text-sm text-gray-600 mb-4">
-              <i class="fa fa-calendar text-gray-600"></i>
-              <span>{event.date.format(global:FULL_DATE_FORMAT)}</span>
-              {#if event.data.containsKey("youtubeLive")}
-              <a href="{event.data.youtubeLive}" target="_blank" class="flex items-center gap-1 text-gray-600 hover:text-[#b20738] transition-colors">
-                <i class="fab fa-youtube"></i>
-                <span>YouTube</span>
-              </a>
-              {/if}
-              {#if event.data.language?? && event.data.language == 'pt-BR'}
-              <span class="flex items-center gap-1" title="Portuguese (Brazil)">
-                <span class="text-sm text-gray-600">Language:</span>
-                <span class="text-2xl">🇧🇷</span>
-                <span class="text-sm font-semibold text-gray-600">pt-BR</span>
-              </span>
-              {/if}
-            </div>
+                    <div class="flex items-center gap-2 text-sm text-text-secondary mb-4">
+                        <i class="fa fa-calendar text-text-muted"></i>
+                        <span>{event.date.format(global:FULL_DATE_FORMAT)}</span>
+                        {#if event.data.containsKey("youtubeLive")}
+                        <a href="{event.data.youtubeLive}" target="_blank" class="flex items-center gap-1 text-text-secondary hover:text-brand-red transition-colors">
+                            <i class="fab fa-youtube"></i>
+                            <span>YouTube</span>
+                        </a>
+                        {/if}
+                        {#if event.data.language?? && event.data.language == 'pt-BR'}
+                        <span class="flex items-center gap-1" title="Portuguese (Brazil)">
+                            <span class="text-sm text-text-muted">Language:</span>
+                            <span class="text-2xl">🇧🇷</span>
+                            <span class="text-sm font-semibold text-text-muted">pt-BR</span>
+                        </span>
+                        {/if}
+                    </div>
 
-            {#if event.data.speakers??}
-            <div class="border-t pt-4">
-              <p class="text-sm text-gray-500 mb-2">Speakers:</p>
-              <div class="flex flex-wrap gap-2">
-                {#for id in event.data.speakers}
-                {#let speaker = cdi:speakers.get(id)}
-                {#if speaker.profile??}
-                <a href="{speaker.profile}" target="_blank" class="text-sm font-semibold text-[#b20738] hover:text-[#8a052c] hover:underline">
-                  {speaker.name}
-                </a>
-                {#else}
-                <span class="text-sm font-semibold text-gray-700">{speaker.name}</span>
-                {/if}
-                {#if id_hasNext}<span class="text-gray-400">•</span>{/if}
-                {/for}
-              </div>
-            </div>
-            {/if}
-          </div>
-        </article>
+                    {#if event.data.speakers??}
+                    <div class="border-t border-border pt-4">
+                        <p class="text-sm text-text-muted mb-2">Speakers:</p>
+                        <div class="flex flex-wrap gap-2">
+                            {#for id in event.data.speakers}
+                            {#let speaker = cdi:speakers.get(id)}
+                            {#if speaker.profile??}
+                            <a href="{speaker.profile}" target="_blank" class="text-sm font-semibold text-brand-red hover:text-brand-red-dark hover:underline">
+                                {speaker.name}
+                            </a>
+                            {#else}
+                            <span class="text-sm font-semibold text-text-secondary">{speaker.name}</span>
+                            {/if}
+                            {#if id_hasNext}<span class="text-text-muted">•</span>{/if}
+                            {/for}
+                        </div>
+                    </div>
+                    {/if}
+                </div>
+            </article>
             {/for}
         </div>
     </section>
 </div>
-
