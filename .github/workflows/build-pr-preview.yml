@@ -3,12 +3,12 @@ name: Build & Preview PR
 env:
   TZ: America/Sao_Paulo
 on:
-  pull_request_target:    
+  pull_request_target:
     types: [opened, reopened, synchronize]
     paths-ignore:
       - '.gitignore'
       - 'CODEOWNERS'
-      - 'LICENSE'      
+      - 'LICENSE'
       - '.all-contributorsrc'
       - '.github/**'
 
@@ -34,15 +34,13 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
 
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
+      - name: Generate Roq Site
+        uses: quarkiverse/quarkus-roq@v1
         with:
-          distribution: temurin
           java-version: 21
-          cache: 'maven'
-
-      - name: Build Blog
-        run: QUARKUS_ROQ_GENERATOR_BATCH=true mvn -B package quarkus:run
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          QUARKUS_ROQ_GENERATOR_BATCH: true
 
       - name: Extract PR details
         id: pr
@@ -50,24 +48,24 @@ jobs:
           echo "pr_number=${{ github.event.number }}" >> $GITHUB_OUTPUT
           echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
-    - name: Install Surge
-      run: npm install surge
+      - name: Install Surge
+        run: npm install surge
 
-    - name: Publish blog to Surge.sh
-      run: |
-        # Deploy to a unique URL for this commit
-        npx surge ./target/roq --domain https://quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-${{ steps.pr.outputs.sha_short }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
-        # Deploy to the latest URL for this PR
-        npx surge ./target/roq --domain https://quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+      - name: Publish blog to Surge.sh
+        run: |
+          # Deploy to a unique URL for this commit
+          npx surge ./target/roq --domain quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-${{ steps.pr.outputs.sha_short }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+          # Deploy to the latest URL for this PR
+          npx surge ./target/roq --domain quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
 
-    - name: Save commit SHA for teardown
-      run: echo "${{ steps.pr.outputs.sha_short }}" >> commit-shas.txt
+      - name: Save commit SHA for teardown
+        run: echo "${{ steps.pr.outputs.sha_short }}" >> commit-shas.txt
 
-    - uses: actions/upload-artifact@v4
-      with:
-        name: pr-${{ steps.pr.outputs.pr_number }}-shas
-        path: commit-shas.txt
-        retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pr-${{ steps.pr.outputs.pr_number }}-shas
+          path: commit-shas.txt
+          retention-days: 30
 
       - name: Comment preview URL on PR
         uses: quarkusio/action-helpers@main
