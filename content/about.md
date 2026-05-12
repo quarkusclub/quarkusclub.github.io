@@ -8,14 +8,3 @@ layout: page
 # About Quarkus Club
 
 Quarkus Club is a community of developers passionate about modern Java, cloud-native architectures, and the Quarkus ecosystem.
-## Authors
-
-<div class="authors">
-  <!-- authors.yml is in the data/ -->
-  {#for id in cdi:authors.fields}
-    {#let author=cdi:authors.get(id)}
-    <!-- the author-card tag is defined in the default Roq theme -->
-    
-  {/for}
-</div>
-

@@ -21,12 +21,23 @@ layout: page
         {/if}
 
         <div class="flex flex-wrap gap-4 text-sm text-text-secondary">
-            {#if page.data.author??}
-            <div class="flex items-center gap-2">
-                <i class="fa fa-user text-brand-red"></i>
-                <strong class="text-text-primary">Author:</strong> {page.data.author}
-            </div>
+        {#if page.data.author??}
+        {#let author = cdi:authors.get(page.data.author)}
+        <div class="flex items-center gap-2">
+          <i class="fa fa-user text-brand-red"></i>
+          <strong class="text-text-primary">Author:</strong>
+          {#if author??}
+            {#if author.profile??}
+              <a href="{author.profile}" target="_blank" class="text-brand-red hover:text-brand-red-light hover:underline">{author.name}</a>
+            {#else}
+              {author.name}
             {/if}
+          {#else}
+            {page.data.author}
+          {/if}
+        </div>
+        {/let}
+        {/if}
 
             <div class="flex items-center gap-2">
                 <i class="fa fa-clock text-brand-red"></i>
