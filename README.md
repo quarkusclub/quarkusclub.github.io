@@ -25,7 +25,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/italobeckman"><img src="https://avatars.githubusercontent.com/u/142343482?v=4?s=100" width="100px;" alt="Ítalo Beckman"/><br /><sub><b>Ítalo Beckman</b></sub></a><br /><a href="#maintenance-italobeckman" title="Maintenance">🚧</a></td>
     </tr>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="http://www.igfasouza.com"><img src="https://avatars.githubusercontent.com/u/6233869?v=4?s=100" width="100px;" alt="Igor De Souza"/><br /><sub><b>Igor De Souza</b></sub></a><br /><a href="#content-igfasouza" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.igfasouza.com"><img src="https://avatars.githubusercontent.com/u/6233869?v=4?s=100" width="100px;" alt="Igor De Souza"/><br /><sub><b>Igor De Souza</b></sub></a><br /><a href="#content-igfasouza" title="Content">🖋</a> <a href="#maintenance-igfasouza" title="Maintenance">🚧</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://blog.omatheusmesmo.dev"><img src="https://avatars.githubusercontent.com/u/99829531?v=4?s=100" width="100px;" alt="Matheus Oliveira"/><br /><sub><b>Matheus Oliveira</b></sub></a><br /><a href="#maintenance-omatheusmesmo" title="Maintenance">🚧</a></td>
     </tr>
   </tbody>
