@@ -35,6 +35,7 @@ jobs:
           repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
+          allow-unsafe-pr-checkout: true
 
       - name: Generate Roq Site
         uses: quarkiverse/quarkus-roq@v1
@@ -125,7 +126,7 @@ jobs:
             const comments = await github.paginate(github.rest.issues.listComments, {
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: ${{ steps.pr.outputs.pr_number }},
+              issue_number: ${{ github.event.pull_request.number }},
               per_page: 100,
             });
 
@@ -141,7 +142,7 @@ jobs:
               await github.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: ${{ steps.pr.outputs.pr_number }},
+                issue_number: ${{ github.event.pull_request.number }},
                 body,
               });
             }
