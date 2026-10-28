@@ -1,0 +1,43 @@
+---
+title: QR Codes
+description: Scan to follow Quarkus Club on our channels
+layout: page
+---
+
+<div class="mb-8">
+    <div class="flex items-center gap-3 mb-4">
+        <div class="w-1.5 h-8 bg-brand-red rounded"></div>
+        <h1 class="text-4xl font-bold mb-0! text-text-primary tracking-wider">QR CODES</h1>
+    </div>
+    <p class="text-xl text-text-secondary">
+        Scan to follow Quarkus Club on our channels. Feel free to share them in meetups and events.
+    </p>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 not-prose">
+    {#for channel in cdi:channels.items}
+    <div class="flex flex-col items-center text-center gap-3 p-6 bg-surface-2 rounded-xl border border-border">
+        <h2 class="text-2xl font-bold text-text-primary flex items-center gap-2">
+            <i class="{channel.icon}"></i>{channel.title}
+        </h2>
+        <p class="text-text-secondary">{channel.description}</p>
+        <div class="qrcode bg-white p-3 rounded-lg">
+            {#qrcode value=channel.url alt=channel.title foreground="#000000" background="#FFFFFF" width=240 height=240 /}
+        </div>
+        <a href="{channel.url}" target="_blank" class="text-sm text-text-secondary hover:text-brand-red-light break-all">{channel.url}</a>
+        <a href="#" data-download="quarkusclub-{channel.id}.svg" class="inline-flex items-center gap-2 px-4 py-2 bg-brand-red rounded-lg font-semibold text-sm hover:opacity-90" style="color:#fff">
+            <i class="fa fa-download"></i>Download
+        </a>
+    </div>
+    {/for}
+</div>
+
+<script>
+    document.querySelectorAll('[data-download]').forEach(function (link) {
+        const img = link.parentElement.querySelector('.qrcode img');
+        if (img) {
+            link.href = img.src;
+            link.download = link.dataset.download;
+        }
+    });
+</script>
