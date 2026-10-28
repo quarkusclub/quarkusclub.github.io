@@ -12,3 +12,6 @@ items:
   - title: "BookClub"
     path: "/bookclub"
     icon: "fa fa-book"
+  - title: "QR Code"
+    path: "/qrcode"
+    icon: "fa-solid fa-qrcode"
