@@ -25,19 +25,6 @@ layout: page
             {#qrcode value=channel.url alt=channel.title foreground="#000000" background="#FFFFFF" width=240 height=240 /}
         </div>
         <a href="{channel.url}" target="_blank" class="text-sm text-text-secondary hover:text-brand-red-light break-all">{channel.url}</a>
-        <a href="#" data-download="quarkusclub-{channel.id}.svg" class="inline-flex items-center gap-2 px-4 py-2 bg-brand-red rounded-lg font-semibold text-sm hover:opacity-90" style="color:#fff">
-            <i class="fa fa-download"></i>Download
-        </a>
     </div>
     {/for}
 </div>
-
-<script>
-    document.querySelectorAll('[data-download]').forEach(function (link) {
-        const img = link.parentElement.querySelector('.qrcode img');
-        if (img) {
-            link.href = img.src;
-            link.download = link.dataset.download;
-        }
-    });
-</script>
