@@ -4,7 +4,7 @@ description: Quarkus Club is a community of developers passionate about modern J
 image: quarkusclub.avif
 layout: post
 tags: [welcome]
-author: mcruzdev
+author: mathecruz
 ---
 
 ## Discover the Quarkus Club with Luís de Llamas
