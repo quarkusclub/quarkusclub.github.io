@@ -4,7 +4,7 @@ description: Join our bookclub to dive deep into Effective Java!
 image: books.jpg
 layout: post
 tags: [effective-java, bookclub]
-author: mcruzdev
+author: mathecruz
 ---
 
 Our last book was [*Quarkus in Action*](/bookclub).

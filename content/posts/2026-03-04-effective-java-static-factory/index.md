@@ -5,7 +5,7 @@ image: static-factory.jpg
 layout: post
 language: en
 tags: [effective-java, bookclub]
-author: mcruzdev
+author: mathecruz
 ---
 
 # Static Factory Method
