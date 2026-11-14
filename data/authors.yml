@@ -12,3 +12,10 @@
   profile: "https://github.com/igfasouza"
   avatar: "http://igfasouza.com/img/profile.jpg"
   bio: "Igor is a seasoned Software Engineer and Data Engineer with over 20 years of experience in Java and more than 10 years in the Big Data ecosystem. He has worked with Hadoop and its ecosystem from the very early days, gaining deep expertise in building scalable, distributed data systems. In recent years, Igor has been exploring Apache Kafka and real-time streaming architectures, combining his Java expertise with event-driven systems to solve complex data challenges. Beyond his professional work, Igor is passionate about education, STEM, and community building. He actively engages with the Maker community and CoderDojo, creating fun, hands-on learning experiences. His current pet project uses a LED strip with Raspberry Pi to teach basic concepts of data structures and streaming, bridging software and physical computing in a playful and educational way. Igor also organizes a Facebook group for Brazilian IT professionals in Ireland, which has grown to over 12k members, fostering networking, mentorship, and knowledge sharing within the community."
+- id: matheusandre1
+  name: "Matheus André"
+  job: Software Engineer
+  nickname: matheusandre1
+  profile: "https://github.com/matheusandre1"
+  avatar: "https://github.com/matheusandre1.png" 
+  bio: "Developer and contributor to some Quarkus extensions. Open source enthusiast, Java , into cloud-native projects, Kubernetes, and DevOps."
