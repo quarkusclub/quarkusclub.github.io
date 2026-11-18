@@ -2,7 +2,9 @@
 title: Blog Posts
 description: All blog posts from QuarkusClub
 layout: main
-paginate: posts
+paginate:
+  collection: posts
+  size: 12
 ---
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,7 +17,7 @@ paginate: posts
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {#for post in site.collections.posts}
+        {#for post in site.collections.posts.paginated(page.paginator)}
         <article class="bg-surface-1 rounded-xl border border-border hover:border-brand-red transition-all overflow-hidden group transform hover:-translate-y-1 duration-300 glow-red-hover">
             {#if post.image??}
             <div class="overflow-hidden h-40 sm:h-48 relative">
