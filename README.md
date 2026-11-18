@@ -1,6 +1,6 @@
 # blog
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 # How Contribute?
@@ -16,17 +16,18 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/paulovieirajr"><img src="https://avatars.githubusercontent.com/u/80427803?v=4?s=100" width="100px;" alt="Paulo Vieira"/><br /><sub><b>Paulo Vieira</b></sub></a><br /><a href="#infra-paulovieirajr" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://matheuscruz.dev"><img src="https://avatars.githubusercontent.com/u/56329339?v=4?s=100" width="100px;" alt="Matheus Cruz"/><br /><sub><b>Matheus Cruz</b></sub></a><br /><a href="#blog-mathecruz" title="Blogposts">📝</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jonaellemos"><img src="https://avatars.githubusercontent.com/u/16294845?v=4?s=100" width="100px;" alt="Jonael Lemos"/><br /><sub><b>Jonael Lemos</b></sub></a><br /><a href="#maintenance-jonaellemos" title="Maintenance">🚧</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/alexandreaquiles/"><img src="https://avatars.githubusercontent.com/u/258331?v=4?s=100" width="100px;" alt="Alexandre Aquiles"/><br /><sub><b>Alexandre Aquiles</b></sub></a><br /><a href="#talk-alexandreaquiles" title="Talks">📢</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://www.kevindubois.com"><img src="https://avatars.githubusercontent.com/u/373537?v=4?s=100" width="100px;" alt="Kevin Dubois"/><br /><sub><b>Kevin Dubois</b></sub></a><br /><a href="#talk-kdubois" title="Talks">📢</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/matheusandre1"><img src="https://avatars.githubusercontent.com/u/92062874?v=4?s=100" width="100px;" alt="Matheus André"/><br /><sub><b>Matheus André</b></sub></a><br /><a href="#maintenance-matheusandre1" title="Maintenance">🚧</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/italobeckman"><img src="https://avatars.githubusercontent.com/u/142343482?v=4?s=100" width="100px;" alt="Ítalo Beckman"/><br /><sub><b>Ítalo Beckman</b></sub></a><br /><a href="#maintenance-italobeckman" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/paulovieirajr"><img src="https://avatars.githubusercontent.com/u/80427803?v=4&size=100" width="100px" height="100px" alt="Paulo Vieira"/><br /><sub><b>Paulo Vieira</b></sub></a><br /><a href="#infra-paulovieirajr" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://matheuscruz.dev"><img src="https://avatars.githubusercontent.com/u/56329339?v=4&size=100" width="100px" height="100px" alt="Matheus Cruz"/><br /><sub><b>Matheus Cruz</b></sub></a><br /><a href="#blog-mathecruz" title="Blogposts">📝</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jonaellemos"><img src="https://avatars.githubusercontent.com/u/16294845?v=4&size=100" width="100px" height="100px" alt="Jonael Lemos"/><br /><sub><b>Jonael Lemos</b></sub></a><br /><a href="#maintenance-jonaellemos" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/alexandreaquiles/"><img src="https://avatars.githubusercontent.com/u/258331?v=4&size=100" width="100px" height="100px" alt="Alexandre Aquiles"/><br /><sub><b>Alexandre Aquiles</b></sub></a><br /><a href="#talk-alexandreaquiles" title="Talks">📢</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.kevindubois.com"><img src="https://avatars.githubusercontent.com/u/373537?v=4&size=100" width="100px" height="100px" alt="Kevin Dubois"/><br /><sub><b>Kevin Dubois</b></sub></a><br /><a href="#talk-kdubois" title="Talks">📢</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/matheusandre1"><img src="https://avatars.githubusercontent.com/u/92062874?v=4&size=100" width="100px" height="100px" alt="Matheus André"/><br /><sub><b>Matheus André</b></sub></a><br /><a href="#maintenance-matheusandre1" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/italobeckman"><img src="https://avatars.githubusercontent.com/u/142343482?v=4&size=100" width="100px" height="100px" alt="Ítalo Beckman"/><br /><sub><b>Ítalo Beckman</b></sub></a><br /><a href="#maintenance-italobeckman" title="Maintenance">🚧</a></td>
     </tr>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="http://www.igfasouza.com"><img src="https://avatars.githubusercontent.com/u/6233869?v=4?s=100" width="100px;" alt="Igor De Souza"/><br /><sub><b>Igor De Souza</b></sub></a><br /><a href="#content-igfasouza" title="Content">🖋</a> <a href="#maintenance-igfasouza" title="Maintenance">🚧</a></td>
-      <td align="center" valign="top" width="14.28%"><a href="http://blog.omatheusmesmo.dev"><img src="https://avatars.githubusercontent.com/u/99829531?v=4?s=100" width="100px;" alt="Matheus Oliveira"/><br /><sub><b>Matheus Oliveira</b></sub></a><br /><a href="#maintenance-omatheusmesmo" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.igfasouza.com"><img src="https://avatars.githubusercontent.com/u/6233869?v=4&size=100" width="100px" height="100px" alt="Igor De Souza"/><br /><sub><b>Igor De Souza</b></sub></a><br /><a href="#content-igfasouza" title="Content">🖋</a> <a href="#maintenance-igfasouza" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://blog.omatheusmesmo.dev"><img src="https://avatars.githubusercontent.com/u/99829531?v=4&size=100" width="100px" height="100px" alt="Matheus Oliveira"/><br /><sub><b>Matheus Oliveira</b></sub></a><br /><a href="#maintenance-omatheusmesmo" title="Maintenance">🚧</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/cmoulliard"><img src="https://avatars.githubusercontent.com/u/463790?v=4&size=100" width="100px" height="100px" alt="Charles Moulliard"/><br /><sub><b>Charles Moulliard</b></sub></a><br /><a href="https://github.com/quarkusclub/quarkusclub.github.io/pulls?q=is%3Apr+reviewed-by%3Acmoulliard" title="Reviewed Pull Requests">👀</a></td>
     </tr>
   </tbody>
 </table>
