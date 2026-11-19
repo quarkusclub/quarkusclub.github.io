@@ -19,7 +19,7 @@
             {#if post.date??}
             <span class="flex items-center gap-1 whitespace-nowrap">
                 <i class="fa fa-calendar text-brand-red text-xs"></i>
-                {post.date.format(global:FULL_DATE_FORMAT)}
+                {post.date.format(global:ONLY_DATE_FORMAT)}
             </span>
             {/if}
             <span class="flex items-center gap-1 whitespace-nowrap">
