@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://quarkusclub.github.io">
-    <img src="docs/quarkusclub.svg" alt="Quarkus Club" width="220"/>
+    <img src="public/images/quarkusclub.svg" alt="Quarkus Club" width="220"/>
   </a>
 </p>
 <p align="center">
