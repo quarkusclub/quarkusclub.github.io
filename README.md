@@ -1,11 +1,27 @@
-# blog
+<p align="center">
+  <a href="https://quarkusclub.github.io">
+    <img src="docs/quarkusclub.svg" alt="Quarkus Club" width="220"/>
+  </a>
+</p>
+<p align="center">
+  Community website, blog and events for the Quarkus Club.
+</p>
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-# How Contribute?
+## Running locally
 
-[CONTRIBUTING.md](CONTRIBUTING.md)
+```shell
+./mvnw quarkus:dev
+```
+
+Then open [http://localhost:8080](http://localhost:8080).
+
+## How to Contribute?
+
+Want to write a blog post, add an event or improve the website? Read the [CONTRIBUTING.md](CONTRIBUTING.md) guide.
 
 ## Contributors ✨
 
