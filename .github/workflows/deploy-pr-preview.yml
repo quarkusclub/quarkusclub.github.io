@@ -38,7 +38,7 @@ jobs:
     steps:
       - name: Resolve PR from the build run
         id: pr
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
@@ -103,7 +103,7 @@ jobs:
 
       - name: Comment preview URL on PR
         if: steps.pr.outputs.number && github.event.workflow_run.conclusion == 'success'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           PR_NUMBER: ${{ steps.pr.outputs.number }}
           SHA: ${{ steps.pr.outputs.sha }}
@@ -152,7 +152,7 @@ jobs:
 
       - name: Update PR status comment on failure
         if: ${{ steps.pr.outputs.number && (failure() || github.event.workflow_run.conclusion == 'failure') }}
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           PR_NUMBER: ${{ steps.pr.outputs.number }}
         with:
