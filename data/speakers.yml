@@ -31,11 +31,11 @@
   profile: https://www.linkedin.com/in/luizpais/
   bio: "I have over 30 years of experience in systems development, including over 20 years in the financial sector, where I led and participated in challenging and innovative projects. As a tech lead and specialist, I offer an integrated vision that allows me to guide the teams I work with in problem-solving, solution development, conflict resolution, and mentoring, always interacting collaboratively. I am interested in integration and solution architecture issues and how the components of a system work together."
 - id: mariGaida
-  name: Mari Gaida 
+  name: Mari Gaida
   profile: https://www.linkedin.com/in/marigaida/
   bio: "With a 10-year track record leading Human Resources strategies across various segments and a 7-year focus on startups and IT, my commitment is to strengthen teams and drive growth in dynamic environments. My journey spans from e-commerce to fintechs, delivery apps, and, most recently, the exciting NFT gaming space."
 - id: marcioSilva
-  name: Marcio Silva 
+  name: Marcio Silva
   profile: https://www.linkedin.com/in/marcioalexandre83/
   bio: "I'm a software engineer with over 10 years of experience. I currently work for a healthcare company with an international team (USA, Iceland, and Portugal) using an agile methodology. I also have over 2 years of teaching experience at private and federal universities in Brazil. I have over 15 scientific papers accepted/published at Computer Science conferences worldwide. See them on my LinkedIn profile."
 - id: gastaldi
@@ -43,7 +43,7 @@
   profile: https://www.linkedin.com/in/gastaldi/
   bio: "Java Architect and Consultant, Works as Open source developer at IBM, Coaching in Java-related Technologies"
 - id: gerrit
-  name: Gerrit Grunwald 
+  name: Gerrit Grunwald
   profile: https://www.linkedin.com/in/gerritgrunwald/
   bio: "Someone who has loved programming for about 40 years, interested in desktop, mobile, and IoT projects based on all possible technologies. Passionate about all things Java. Founder and leader of the Java User Group Münster (Germany), star of JavaOne and Java champion. Speaker at international conferences and user groups."
 - id: xstefank
@@ -58,7 +58,7 @@
   name: Sebastian Daschner
   profile: https://www.linkedin.com/in/sebastian-daschner-9894bb103/
   bio: "I'm working as a consultant, trainer, and developer. My role is to share knowledge and educate developers about Java, enterprise software, and IT in general. I support clients with workshops and tailored consultation engagements, by applying expert knowledge and experience with a high claim in software craftship. I focus on how concepts work and why specific solutions are needed, and only then how they are implemented."
-- id: edeDeandrea 
+- id: edeDeandrea
   name: Eric Deandrea
   profile: https://www.linkedin.com/in/edeandrea/
   bio: "Java Champion and Senior Principal Software Engineer with over 26 years of experience in designing and building Java-based solutions. Specializes in application development technologies including Quarkus and Spring Boot. Passionate about open-source software, prolific contributor to open-source projects, and an active speaker at industry events and user group meetups around the world. Published author of “Quarkus for Spring Developers” book and numerous industry articles on sites such as DZone, InfoQ, Red Hat Developer, and quarkus.io. Primary maintainer of the Quarkus Superheroes sample/reference application, created in 2021 and continually evolving. Boston Java Users ACM Chapter board member."
@@ -83,7 +83,7 @@
   profile: https://www.linkedin.com/in/rafabene/
   bio: "I am a highly skilled Java Backend Developer and Software Architect, and emerging Golang Developer with extensive experience in designing and implementing scalable, cloud-native solutions, recently expanding my expertise through postgraduate studies in Cloud Native Development and Golang, and enhancing my frontend development skills with Angular/React.js for building modern web applications. At Red Hat, I lead projects for major Brazilian companies, combining expertise in Java (Jakarta EE, Quarkus and Spring Boot), Kubernetes/OpenShift, and REST API design to build reliable and high-performing backend systems."
 - id: wheslleyrimar
-  name: Wheslley Rimar Bezerra 
+  name: Wheslley Rimar Bezerra
   profile: https://www.linkedin.com/in/wheslleyrimar/
   bio: "I'm a full-stack web developer, working primarily with technologies such as JavaScript (Node.js, ExpressJS, ReactJS, and Angular), Java (Spring Boot), and databases (MySQL). I'm also a Software Technical Leader at Mercado Livre, managing faculty and developing programming-related materials and content. I teach logic and software development, and as an educator, I also write books and articles for higher education institutions."
 - id: brunobat
@@ -91,12 +91,12 @@
   profile: https://www.linkedin.com/in/brunobat/
   bio: "I'm a well versed Java and Open Source technology developer and software architect. With over 15 years as an enterprise level engineer, I've lead development and QA teams, garnered skills in software design and development processes."
 - id: luizReal
-  name: Luiz Real 
+  name: Luiz Real
   profile: https://www.linkedin.com/in/lgsreal/
   bio: I help professional Java developers share knowledge and build meaningful relationships in the technology community so they can translate their technical skills into industry visibility and long-term career growth. I'm a Software Engineer with a Master's degree in Computer Science and a 20-year career, with experience in Java development, DevOps, Artificial Intelligence, and team leadership.
 - id: filipeCezar
   name: Filipe Cezar dos Santos
-  profile: https://www.linkedin.com/in/filipecommunity/ 
+  profile: https://www.linkedin.com/in/filipecommunity/
   bio: "A creative and analytical professional, passionate about technology and driven by working with people, I have a solid track record focused on solving problems innovatively and collaboratively. My unique approach involves not only identifying challenges but also leveraging the latest technology trends to deliver impactful solutions."
 - id: victorLeonel
   name: Víctor Leonel Orozco López
@@ -115,20 +115,20 @@
   profile: https://www.salaboy.com
   bio: "Based in London, UK, Senior Software Engineer II @Diagrid for the @DaprDev project, Manning Publishing Author - Continuous Delivery for Kubernetes, Instructor @ LearnK8s.io"
 - id: jaquelineOliveira
-  name: Jacqueline Oliveira 
+  name: Jacqueline Oliveira
   profile: https://www.linkedin.com/in/jacqueline-r-oliveira/
   bio: "Software Engineer with over 10 years of experience delivering scalable solutions using Java, Spring Boot, and Cloud technologies. My  work spans the finance, e-commerce, and fintech sectors, always focused on transforming complex challenges into scalable and effective solutions. I've also had the opportunity to work in academia, teaching, conducting software engineering research, and supervising students. I also enjoy sharing knowledge through technical content and lectures, interacting with the technology community, and fostering growth."
 - id: thiagoGonzaga
   name: Thiago Gonzaga
   profile: https://www.linkedin.com/in/thiagosg/
-  bio: "Staff Engineer and Oracle ACE Associate with over 20 years of software engineering experience, specializing in cloud-native architecture, DevOps, and platform reliability. I've led initiatives that have saved over US$10 million in cloud costs for companies, built observability platforms at global scale, and delivered digital transformations for companies such as Natura, Ipiranga, Santander, and Vivo."
+  bio: "Staff Engineer and Oracle ACE Pro with over 20 years of software engineering experience, specializing in cloud-native architecture, DevOps, and platform reliability. I've led initiatives that have saved over US$10 million in cloud costs for companies, built observability platforms at global scale, and delivered digital transformations for companies such as Natura, Ipiranga, Santander, and Vivo."
 - id: isabellacoliveira
   name: Isabella Oliveira
   profile: https://www.linkedin.com/in/isabella-cruz-de-oliveira/
   bio: Hi! Im Full-Stack Developer, welcome to my profile! Here you can see a lot of projects that I developed over my career as dev. Hope you can learn something :)
 - id: orpiske
   name: Otavio Rodolfo Piske
-  profile: https://www.linkedin.com/in/orpiske/ 
+  profile: https://www.linkedin.com/in/orpiske/
   bio: Principal Software Engineer at IBM - Apache Camel Committer and PMC Member and Creator of Wanaku MCP
 - id: rogeriorobetti
   name: Rogerio Robetti
