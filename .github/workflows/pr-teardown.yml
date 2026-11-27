@@ -20,7 +20,7 @@ jobs:
         run: npm install surge
 
       - name: Download commit SHAs artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: pr-${{ github.event.number }}-shas
         continue-on-error: true

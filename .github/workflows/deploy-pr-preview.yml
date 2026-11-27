@@ -69,7 +69,7 @@ jobs:
 
       - name: Download generated site
         if: steps.pr.outputs.number && github.event.workflow_run.conclusion == 'success'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: pr-preview-site
           path: site
