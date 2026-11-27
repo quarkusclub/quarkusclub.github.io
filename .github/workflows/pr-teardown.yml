@@ -19,24 +19,38 @@ jobs:
       - name: Install Surge
         run: npm install surge
 
-      - name: Download commit SHAs artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: pr-${{ github.event.number }}-shas
-        continue-on-error: true
-        id: download-shas
-
-      - name: Teardown commit-pinned surge previews
-        if: steps.download-shas.outcome == 'success'
+      - name: Teardown surge previews
+        id: teardown
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
         run: |
-          while IFS= read -r sha; do
-            npx surge teardown quarkusclub-blog-pr-${{ github.event.number }}-${sha}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }} || true
-          done < commit-shas.txt
+          # Ask Surge which preview domains exist for this PR (the "latest" one
+          # and the commit-pinned ones) instead of guessing. PRs that only touch
+          # paths ignored by the preview build (e.g. .github/**) have none, and
+          # that is not an error. A failing "surge list" (e.g. bad token) or a
+          # failing teardown of a domain that does exist still fails the job.
+          list=$(npx surge list --token "$SURGE_TOKEN")
+          domains=$(printf '%s\n' "$list" \
+            | sed 's/\x1b\[[0-9;]*m//g' \
+            | grep -oE "quarkusclub-blog-pr-${PR_NUMBER}(-[0-9a-f]{7})?-preview\.surge\.sh" \
+            | sort -u || true)
 
-      - name: Teardown latest surge preview
-        run: npx surge teardown quarkusclub-blog-pr-${{ github.event.number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
+          if [ -z "$domains" ]; then
+            echo "::notice::No preview to tear down for PR #${PR_NUMBER}."
+            exit 0
+          fi
+
+          failed=0
+          for domain in $domains; do
+            echo "Tearing down $domain"
+            npx surge teardown "$domain" --token "$SURGE_TOKEN" || failed=1
+          done
+          echo "removed=true" >> "$GITHUB_OUTPUT"
+          exit "$failed"
 
       - name: Update PR status comment
+        if: steps.teardown.outputs.removed == 'true'
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

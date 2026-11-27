@@ -88,19 +88,6 @@ jobs:
           # Deploy to the latest URL for this PR
           npx surge ./site --domain "quarkusclub-blog-pr-${PR_NUMBER}-preview.surge.sh" --token "$SURGE_TOKEN"
 
-      - name: Save commit SHA for teardown
-        if: steps.pr.outputs.number && github.event.workflow_run.conclusion == 'success'
-        env:
-          SHA_SHORT: ${{ steps.pr.outputs.sha_short }}
-        run: echo "$SHA_SHORT" >> commit-shas.txt
-
-      - uses: actions/upload-artifact@v4
-        if: steps.pr.outputs.number && github.event.workflow_run.conclusion == 'success'
-        with:
-          name: pr-${{ steps.pr.outputs.number }}-shas
-          path: commit-shas.txt
-          retention-days: 30
-
       - name: Comment preview URL on PR
         if: steps.pr.outputs.number && github.event.workflow_run.conclusion == 'success'
         uses: actions/github-script@v7
