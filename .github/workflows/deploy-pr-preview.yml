@@ -1,0 +1,190 @@
+name: Deploy PR Preview
+
+# Runs after "Build & Preview PR" finishes. This workflow has access to secrets,
+# so it must NEVER check out or execute code from the PR. It only:
+#   - downloads the static site built by the untrusted workflow,
+#   - publishes those files to Surge,
+#   - updates the PR comment.
+# The PR number and SHA come from the workflow_run event / GitHub API, never from
+# the artifact, since the artifact content is controlled by the PR author.
+
+env:
+  TZ: America/Sao_Paulo
+on:
+  workflow_run:
+    workflows: ["Build & Preview PR"]
+    types: [completed]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.workflow_run.head_repository.full_name }}-${{ github.event.workflow_run.head_branch }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+permissions:
+  actions: read # Required to download the artifact from the build run
+  issues: write # Required to update PR issue comments
+  pull-requests: write # Required to update PR status comment
+
+jobs:
+  deploy-preview:
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      (github.event.workflow_run.conclusion == 'success' ||
+       github.event.workflow_run.conclusion == 'failure')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve PR from the build run
+        id: pr
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            // workflow_run.pull_requests is empty for fork PRs, so look the PR up
+            // by the head repository and SHA reported by GitHub for the build run.
+            const run = context.payload.workflow_run;
+            const headRepo = run.head_repository && run.head_repository.full_name;
+            const prs = await github.paginate(github.rest.pulls.list, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100,
+            });
+            const pr = prs.find((p) =>
+              p.head.sha === run.head_sha &&
+              p.head.repo && p.head.repo.full_name === headRepo);
+            if (!pr) {
+              core.notice(`No open PR with head ${headRepo}@${run.head_sha} (closed or superseded by a newer commit). Skipping.`);
+              return;
+            }
+            core.setOutput('number', String(pr.number));
+            core.setOutput('sha', run.head_sha);
+            core.setOutput('sha_short', run.head_sha.substring(0, 7));
+
+      - name: Install Surge
+        if: steps.pr.outputs.number && github.event.workflow_run.conclusion == 'success'
+        run: npm install surge
+
+      - name: Download generated site
+        if: steps.pr.outputs.number && github.event.workflow_run.conclusion == 'success'
+        uses: actions/download-artifact@v4
+        with:
+          name: pr-preview-site
+          path: site
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish blog to Surge.sh
+        if: steps.pr.outputs.number && github.event.workflow_run.conclusion == 'success'
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          SHA_SHORT: ${{ steps.pr.outputs.sha_short }}
+        run: |
+          # Deploy to a unique URL for this commit
+          npx surge ./site --domain "quarkusclub-blog-pr-${PR_NUMBER}-${SHA_SHORT}-preview.surge.sh" --token "$SURGE_TOKEN"
+          # Deploy to the latest URL for this PR
+          npx surge ./site --domain "quarkusclub-blog-pr-${PR_NUMBER}-preview.surge.sh" --token "$SURGE_TOKEN"
+
+      - name: Save commit SHA for teardown
+        if: steps.pr.outputs.number && github.event.workflow_run.conclusion == 'success'
+        env:
+          SHA_SHORT: ${{ steps.pr.outputs.sha_short }}
+        run: echo "$SHA_SHORT" >> commit-shas.txt
+
+      - uses: actions/upload-artifact@v4
+        if: steps.pr.outputs.number && github.event.workflow_run.conclusion == 'success'
+        with:
+          name: pr-${{ steps.pr.outputs.number }}-shas
+          path: commit-shas.txt
+          retention-days: 30
+
+      - name: Comment preview URL on PR
+        if: steps.pr.outputs.number && github.event.workflow_run.conclusion == 'success'
+        uses: actions/github-script@v7
+        env:
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+          SHA: ${{ steps.pr.outputs.sha }}
+          SHA_SHORT: ${{ steps.pr.outputs.sha_short }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = Number(process.env.PR_NUMBER);
+            const sha = process.env.SHA;
+            const shaShort = process.env.SHA_SHORT;
+            const marker = '<!-- Preview status comment marker -->';
+            const body = `${marker}
+
+            🚀 PR Preview for **blog** has been successfully built!
+
+            | Type | URL |
+            | :--- | :--- |
+            | 🔄 **Latest** | https://quarkusclub-blog-pr-${prNumber}-preview.surge.sh |
+            | 📌 **Commit (${shaShort})** | https://quarkusclub-blog-pr-${prNumber}-${shaShort}-preview.surge.sh |
+
+            _Built from ${sha}_`;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              per_page: 100,
+            });
+
+            const existing = comments.find((comment) => comment.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body,
+              });
+            }
+
+      - name: Update PR status comment on failure
+        if: ${{ steps.pr.outputs.number && (failure() || github.event.workflow_run.conclusion == 'failure') }}
+        uses: actions/github-script@v7
+        env:
+          PR_NUMBER: ${{ steps.pr.outputs.number }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const prNumber = Number(process.env.PR_NUMBER);
+            const marker = '<!-- Sticky Pull Request Comment -->';
+            const body = `${marker}
+
+            😭 Deploy PR Preview failed.
+            <img width="300" src="https://user-images.githubusercontent.com/507615/90250824-4e066700-de6f-11ea-8230-600ecc3d6a6b.png">`;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              per_page: 100,
+            });
+
+            const existing = comments.find((comment) => comment.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: prNumber,
+                body,
+              });
+            }

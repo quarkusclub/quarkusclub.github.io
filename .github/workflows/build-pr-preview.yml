@@ -1,9 +1,10 @@
 name: Build & Preview PR
 
+
 env:
   TZ: America/Sao_Paulo
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, reopened, synchronize]
     paths-ignore:
       - '.gitignore'
@@ -22,127 +23,32 @@ defaults:
 
 permissions:
   contents: read
-  issues: write # Required to update PR issue comments
-  pull-requests: write # Required to update PR status comment
-  actions: read
 
 jobs:
-  build-and-preview:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
-          allow-unsafe-pr-checkout: true
+          persist-credentials: false
 
       - name: Generate Roq Site
         uses: quarkiverse/quarkus-roq@v1
         with:
           java-version: 21
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # No GitHub Pages lookup/upload here: it would need a token, and the
+          # preview is served from Surge anyway.
+          github-pages: 'false'
+          site-url: https://quarkusclub-blog-pr-${{ github.event.pull_request.number }}-preview.surge.sh
         env:
           QUARKUS_ROQ_GENERATOR_BATCH: true
 
-      - name: Extract PR details
-        id: pr
-        run: |
-          echo "pr_number=${{ github.event.number }}" >> $GITHUB_OUTPUT
-          echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-
-      - name: Install Surge
-        run: npm install surge
-
-      - name: Publish blog to Surge.sh
-        run: |
-          # Deploy to a unique URL for this commit
-          npx surge ./target/roq --domain quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-${{ steps.pr.outputs.sha_short }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
-          # Deploy to the latest URL for this PR
-          npx surge ./target/roq --domain quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-preview.surge.sh --token ${{ secrets.SURGE_TOKEN }}
-
-      - name: Save commit SHA for teardown
-        run: echo "${{ steps.pr.outputs.sha_short }}" >> commit-shas.txt
-
-      - uses: actions/upload-artifact@v4
+      - name: Upload generated site
+        uses: actions/upload-artifact@v4
         with:
-          name: pr-${{ steps.pr.outputs.pr_number }}-shas
-          path: commit-shas.txt
-          retention-days: 30
-
-      - name: Comment preview URL on PR
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const marker = '<!-- Preview status comment marker -->';
-            const body = `${marker}
-
-            🚀 PR Preview for **blog** has been successfully built!
-
-            | Type | URL |
-            | :--- | :--- |
-            | 🔄 **Latest** | https://quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-preview.surge.sh |
-            | 📌 **Commit (${{ steps.pr.outputs.sha_short }})** | https://quarkusclub-blog-pr-${{ steps.pr.outputs.pr_number }}-${{ steps.pr.outputs.sha_short }}-preview.surge.sh |
-
-            _Built from ${{ github.event.pull_request.head.sha }}_`;
-
-            const comments = await github.paginate(github.rest.issues.listComments, {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: ${{ steps.pr.outputs.pr_number }},
-              per_page: 100,
-            });
-
-            const existing = comments.find((comment) => comment.body.includes(marker));
-            if (existing) {
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: existing.id,
-                body,
-              });
-            } else {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: ${{ steps.pr.outputs.pr_number }},
-                body,
-              });
-            }
-
-      - name: Update PR status comment on failure
-        if: ${{ failure() }}
-        uses: actions/github-script@v7
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const marker = '<!-- Sticky Pull Request Comment -->';
-            const body = `${marker}
-
-            😭 Deploy PR Preview failed.
-            <img width="300" src="https://user-images.githubusercontent.com/507615/90250824-4e066700-de6f-11ea-8230-600ecc3d6a6b.png">`;
-
-            const comments = await github.paginate(github.rest.issues.listComments, {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: ${{ github.event.pull_request.number }},
-              per_page: 100,
-            });
-
-            const existing = comments.find((comment) => comment.body.includes(marker));
-            if (existing) {
-              await github.rest.issues.updateComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                comment_id: existing.id,
-                body,
-              });
-            } else {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: ${{ github.event.pull_request.number }},
-                body,
-              });
-            }
+          name: pr-preview-site
+          path: target/roq
+          if-no-files-found: error
+          retention-days: 1
